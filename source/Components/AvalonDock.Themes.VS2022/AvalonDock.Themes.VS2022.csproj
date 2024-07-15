@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+	  <RootNamespace>AvalonDock.Themes</RootNamespace>
+	  <TargetFrameworks>netcoreapp3.0;net5.0-windows;net40</TargetFrameworks>
+	  <LangVersion>preview</LangVersion>
+	  <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AvalonDock.VS2022\AvalonDock.VS2022.csproj" />
+  </ItemGroup>
+
+</Project>

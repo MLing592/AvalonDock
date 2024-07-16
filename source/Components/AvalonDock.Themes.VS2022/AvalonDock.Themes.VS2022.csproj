@@ -5,7 +5,38 @@
 	  <TargetFrameworks>netcoreapp3.0;net5.0-windows;net40</TargetFrameworks>
 	  <LangVersion>preview</LangVersion>
 	  <UseWPF>true</UseWPF>
+	  <SignAssembly>True</SignAssembly>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <Version>4.72.2</Version>
+	  <AssemblyVersion>4.72.2</AssemblyVersion>
+	  <FileVersion>4.72.2</FileVersion>
+	  <PackageVersion>4.72.2</PackageVersion>
+	  <Company>Open Source</Company>
+	  <Product>ML592.AvalonDock.Themes.VS2022</Product>
+	  <Copyright>2017-2023</Copyright>
+	  <Description>This assembly implements a docking layout system for WPF.</Description>
+	  <PackageProjectUrl>https://github.com/MLing592/AvalonDock</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/MLing592/AvalonDock</RepositoryUrl>
+	  <PackageId>ML592.AvalonDock.Themes.VS2022</PackageId>
+	  <Authors>ML592</Authors>
+	  <DelaySign>False</DelaySign>
+	  <Title>ML592.AvalonDock.Themes.VS2022</Title>
+	  <PackageReadmeFile>readme-nuget.md</PackageReadmeFile>
+	  <IncludeSymbols>True</IncludeSymbols>
+	  <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
+
+  <ItemGroup>
+	  <Resource Include="**\*.png" />
+  </ItemGroup>
+
+  <!-- NuGet Packaging -->
+  <ItemGroup>
+	  <None Include="..\..\..\docs\readme-nuget.md">
+		  <Pack>True</Pack>
+		  <PackagePath>\</PackagePath>
+	  </None>
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\AvalonDock.VS2022\AvalonDock.VS2022.csproj" />

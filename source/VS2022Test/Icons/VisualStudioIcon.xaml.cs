@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace VS2013Test.Icons
+namespace VS2022Test.Icons
 {
 	/// <summary>
 	/// Interaction logic for VisualStudioIcon.xaml

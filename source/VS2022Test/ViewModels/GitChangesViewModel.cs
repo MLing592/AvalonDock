@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Windows.Media.Imaging;
 
-namespace AvalonDock.VS2013Test.ViewModels
+namespace AvalonDock.VS2022Test.ViewModels
 {
 	internal class GitChangesViewModel : ToolViewModel
 	{

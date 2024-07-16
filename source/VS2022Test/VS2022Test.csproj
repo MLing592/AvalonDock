@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Components\AvalonDock.Themes.VS2022\AvalonDock.Themes.VS2022.csproj" />
-    <ProjectReference Include="..\Components\AvalonDock.VS2022\AvalonDock.VS2022.csproj" />
   </ItemGroup>
 
   <ItemGroup>

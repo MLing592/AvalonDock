@@ -1,284 +1,406 @@
-<Window x:Class="AvalonDock.VS2013Test.Views.MainView"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:AvalonDock.VS2013Test"
-		xmlns:viewModels="clr-namespace:AvalonDock.VS2013Test.ViewModels"
-		xmlns:icons="clr-namespace:VS2013Test.Icons"
-        mc:Ignorable="d"
-		d:DataContext="{d:DesignInstance viewModels:Workspace, IsDesignTimeCreatable=True}"
-        Title="VS2013Test" MinWidth="140" MinHeight="116" MaxWidth="{x:Static SystemParameters.MaximizedPrimaryScreenWidth}" MaxHeight="{x:Static SystemParameters.MaximizedPrimaryScreenHeight}" Height="900" Width="1600" SnapsToDevicePixels="True" Foreground="{DynamicResource WindowForeground}" Background="{DynamicResource HeaderBackground}" WindowStyle="None" ResizeMode="CanResizeWithGrip" StateChanged="WindowStateChanged">
+<Window
+    x:Class="AvalonDock.VS2022Test.Views.MainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:icons="clr-namespace:VS2022Test.Icons"
+    xmlns:local="clr-namespace:AvalonDock.VS2022Test"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="clr-namespace:AvalonDock.VS2022Test.ViewModels"
+    Title="VS2022Test"
+    Width="1600"
+    Height="900"
+    MinWidth="140"
+    MinHeight="116"
+    MaxWidth="{x:Static SystemParameters.MaximizedPrimaryScreenWidth}"
+    MaxHeight="{x:Static SystemParameters.MaximizedPrimaryScreenHeight}"
+    d:DataContext="{d:DesignInstance viewModels:Workspace,
+                                     IsDesignTimeCreatable=True}"
+    Background="{DynamicResource HeaderBackground}"
+    Foreground="{DynamicResource WindowForeground}"
+    ResizeMode="CanResizeWithGrip"
+    SnapsToDevicePixels="True"
+    StateChanged="WindowStateChanged"
+    WindowStyle="None"
+    mc:Ignorable="d">
 
-	<WindowChrome.WindowChrome>
-		<WindowChrome x:Name="chrome" ResizeBorderThickness="8" CornerRadius="0" GlassFrameThickness="0" NonClientFrameEdges="None" />
-	</WindowChrome.WindowChrome>
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            x:Name="chrome"
+            CornerRadius="0"
+            GlassFrameThickness="0"
+            NonClientFrameEdges="None"
+            ResizeBorderThickness="8" />
+    </WindowChrome.WindowChrome>
 
-	<Window.Style>
-		<Style TargetType="{x:Type Window}">
-			<Setter Property="BorderThickness" Value="1" />
-			<Setter Property="BorderBrush" Value="{DynamicResource WindowBorderBrush}" />
-			<Style.Triggers>
-				<Trigger Property="IsActive" Value="False">
-					<Setter Property="BorderBrush" Value="{DynamicResource WindowInactiveBorderBrush}"/>
-				</Trigger>
-			</Style.Triggers>
-		</Style>
-	</Window.Style>
+    <Window.Style>
+        <Style TargetType="{x:Type Window}">
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="{DynamicResource WindowBorderBrush}" />
+            <Style.Triggers>
+                <Trigger Property="IsActive" Value="False">
+                    <Setter Property="BorderBrush" Value="{DynamicResource WindowInactiveBorderBrush}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Style>
 
-	<Grid>
-		<Grid.Style>
-			<Style TargetType="{x:Type Grid}">
-				<Style.Triggers>
-					<DataTrigger Binding="{Binding WindowState, RelativeSource={RelativeSource AncestorType=Window}}" Value="Maximized">
-						<Setter Property="Margin" Value="6,6,6,8" />
-					</DataTrigger>
-				</Style.Triggers>
-			</Style>
-		</Grid.Style>
+    <Grid>
+        <Grid.Style>
+            <Style TargetType="{x:Type Grid}">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding WindowState, RelativeSource={RelativeSource AncestorType=Window}}" Value="Maximized">
+                        <Setter Property="Margin" Value="6,6,6,8" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Style>
 
-		<Grid.RowDefinitions>
-			<RowDefinition Height="Auto"/>
-			<RowDefinition/>
-			<RowDefinition Height="23"/>
-		</Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="23" />
+        </Grid.RowDefinitions>
 
-		<Grid x:Name="header" SizeChanged="HeaderSizeChanged">
-			<Grid.RowDefinitions>
-				<RowDefinition Height="Auto"/>
-				<RowDefinition Height="4"/>
-				<RowDefinition Height="Auto"/>
-			</Grid.RowDefinitions>
+        <Grid x:Name="header" SizeChanged="HeaderSizeChanged">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="4" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-			<StackPanel Margin="8,4" HorizontalAlignment="Left" Orientation="Horizontal">
-				<icons:VisualStudioIcon Margin="4,0" Height="20">
-					<UserControl.Style>
-						<Style TargetType="{x:Type UserControl}">
-							<Setter Property="Foreground" Value="{DynamicResource IconBrush}"/>
+            <StackPanel
+                Margin="8,4"
+                HorizontalAlignment="Left"
+                Orientation="Horizontal">
+                <icons:VisualStudioIcon Height="20" Margin="4,0">
+                    <UserControl.Style>
+                        <Style TargetType="{x:Type UserControl}">
+                            <Setter Property="Foreground" Value="{DynamicResource IconBrush}" />
 
-							<Style.Triggers>
-								<DataTrigger Binding="{Binding IsActive, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Value="False">
-									<Setter Property="Foreground" Value="{DynamicResource IconInactiveBrush}" />
-								</DataTrigger>
-							</Style.Triggers>
-						</Style>
-					</UserControl.Style>
-				</icons:VisualStudioIcon>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsActive, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Value="False">
+                                    <Setter Property="Foreground" Value="{DynamicResource IconInactiveBrush}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </UserControl.Style>
+                </icons:VisualStudioIcon>
 
-				<Menu Style="{DynamicResource MetroMenu}" VerticalAlignment="Center" WindowChrome.IsHitTestVisibleInChrome="True">
-					<MenuItem Header="File">
-						<MenuItem Command="{Binding NewCommand}" Header="New" />
-						<MenuItem Command="{Binding OpenCommand}" Header="Open" />
-						<Separator />
-						<MenuItem Command="{Binding ActiveDocument.SaveCommand}" Header="Save" />
-						<MenuItem Command="{Binding ActiveDocument.SaveAsCommand}" Header="Save As..." />
-						<Separator />
-						<MenuItem Command="{Binding ActiveDocument.CloseCommand}" Header="Close" />
-					</MenuItem>
+                <Menu
+                    VerticalAlignment="Center"
+                    Style="{DynamicResource MetroMenu}"
+                    WindowChrome.IsHitTestVisibleInChrome="True">
+                    <MenuItem Header="File">
+                        <MenuItem Command="{Binding NewCommand}" Header="New" />
+                        <MenuItem Command="{Binding OpenCommand}" Header="Open" />
+                        <Separator />
+                        <MenuItem Command="{Binding ActiveDocument.SaveCommand}" Header="Save" />
+                        <MenuItem Command="{Binding ActiveDocument.SaveAsCommand}" Header="Save As..." />
+                        <Separator />
+                        <MenuItem Command="{Binding ActiveDocument.CloseCommand}" Header="Close" />
+                    </MenuItem>
 
-					<MenuItem Header="View">
-						<MenuItem Header="SolutionExplorer" IsCheckable="True" IsChecked="{Binding Explorer.IsVisible, Mode=TwoWay}" />
-						<MenuItem Header="Properties" IsCheckable="True" IsChecked="{Binding Props.IsVisible, Mode=TwoWay}" />
-						<MenuItem Header="Error List" IsCheckable="True" IsChecked="{Binding Errors.IsVisible, Mode=TwoWay}" />
-						<MenuItem Header="Output" IsCheckable="True" IsChecked="{Binding Output.IsVisible, Mode=TwoWay}" />
-						<MenuItem Header="Git Changes" IsCheckable="True" IsChecked="{Binding Git.IsVisible, Mode=TwoWay}" />
-						<MenuItem Header="Toolbox" IsCheckable="True" IsChecked="{Binding Toolbox.IsVisible, Mode=TwoWay}" />
-					</MenuItem>
-				</Menu>
+                    <MenuItem Header="View">
+                        <MenuItem
+                            Header="SolutionExplorer"
+                            IsCheckable="True"
+                            IsChecked="{Binding Explorer.IsVisible, Mode=TwoWay}" />
+                        <MenuItem
+                            Header="Properties"
+                            IsCheckable="True"
+                            IsChecked="{Binding Props.IsVisible, Mode=TwoWay}" />
+                        <MenuItem
+                            Header="Error List"
+                            IsCheckable="True"
+                            IsChecked="{Binding Errors.IsVisible, Mode=TwoWay}" />
+                        <MenuItem
+                            Header="Output"
+                            IsCheckable="True"
+                            IsChecked="{Binding Output.IsVisible, Mode=TwoWay}" />
+                        <MenuItem
+                            Header="Git Changes"
+                            IsCheckable="True"
+                            IsChecked="{Binding Git.IsVisible, Mode=TwoWay}" />
+                        <MenuItem
+                            Header="Toolbox"
+                            IsCheckable="True"
+                            IsChecked="{Binding Toolbox.IsVisible, Mode=TwoWay}" />
+                    </MenuItem>
+                </Menu>
 
-				<ComboBox 
-					Margin="4,0"
-					WindowChrome.IsHitTestVisibleInChrome="True"
-					DisplayMemberPath="Item1"
-					ItemsSource="{Binding Themes}"
-					SelectedItem="{Binding SelectedTheme}" />
+                <ComboBox
+                    Margin="4,0"
+                    DisplayMemberPath="Item1"
+                    ItemsSource="{Binding Themes}"
+                    SelectedItem="{Binding SelectedTheme}"
+                    WindowChrome.IsHitTestVisibleInChrome="True" />
 
-				<Border Background="{DynamicResource ProjectNameBackground}" Padding="8,0" Margin="14,0">
-					<TextBlock Text="VS2013 Demo" VerticalAlignment="Center" Padding="0,1,0,0">
-						<TextBlock.Style>
-							<Style TargetType="TextBlock">
-								<Setter Property="Foreground" Value="{DynamicResource ProjectNameForeground}"/>
-								<Style.Triggers>
-									<DataTrigger Binding="{Binding IsActive, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Value="False">
-										<Setter Property="Foreground" Value="{DynamicResource ProjectNameInactiveForeground}" />
-									</DataTrigger>
-								</Style.Triggers>
-							</Style>
-						</TextBlock.Style>
-					</TextBlock>
-				</Border>
-			</StackPanel>
+                <Border
+                    Margin="14,0"
+                    Padding="8,0"
+                    Background="{DynamicResource ProjectNameBackground}">
+                    <TextBlock
+                        Padding="0,1,0,0"
+                        VerticalAlignment="Center"
+                        Text="VS2022 Demo">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Foreground" Value="{DynamicResource ProjectNameForeground}" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsActive, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Value="False">
+                                        <Setter Property="Foreground" Value="{DynamicResource ProjectNameInactiveForeground}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Border>
+            </StackPanel>
 
-			<StackPanel Orientation="Vertical" Grid.Row="2" HorizontalAlignment="Left">
-				<Rectangle Margin="12,1" Width="5" Height="17" UseLayoutRounding="True" RenderOptions.BitmapScalingMode="NearestNeighbor">
-					<Rectangle.Fill>
-						<DrawingBrush TileMode="Tile" Viewbox="0,0,4,4" ViewboxUnits="Absolute" Viewport="0,0,4,4" ViewportUnits="Absolute">
-							<DrawingBrush.Drawing>
-								<GeometryDrawing Brush="{DynamicResource ToolBarGripper}">
-									<GeometryDrawing.Geometry>
-										<GeometryGroup>
-											<GeometryGroup.Children>
-												<RectangleGeometry Rect="0,0,1,1" />
-												<RectangleGeometry Rect="2,2,1,1" />
-											</GeometryGroup.Children>
-										</GeometryGroup>
-									</GeometryDrawing.Geometry>
-								</GeometryDrawing>
-							</DrawingBrush.Drawing>
-						</DrawingBrush>
-					</Rectangle.Fill>
-				</Rectangle>
+            <StackPanel
+                Grid.Row="2"
+                HorizontalAlignment="Left"
+                Orientation="Vertical">
+                <Rectangle
+                    Width="5"
+                    Height="17"
+                    Margin="12,1"
+                    RenderOptions.BitmapScalingMode="NearestNeighbor"
+                    UseLayoutRounding="True">
+                    <Rectangle.Fill>
+                        <DrawingBrush
+                            TileMode="Tile"
+                            Viewbox="0,0,4,4"
+                            ViewboxUnits="Absolute"
+                            Viewport="0,0,4,4"
+                            ViewportUnits="Absolute">
+                            <DrawingBrush.Drawing>
+                                <GeometryDrawing Brush="{DynamicResource ToolBarGripper}">
+                                    <GeometryDrawing.Geometry>
+                                        <GeometryGroup>
+                                            <GeometryGroup.Children>
+                                                <RectangleGeometry Rect="0,0,1,1" />
+                                                <RectangleGeometry Rect="2,2,1,1" />
+                                            </GeometryGroup.Children>
+                                        </GeometryGroup>
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                            </DrawingBrush.Drawing>
+                        </DrawingBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
 
-				<Rectangle Margin="12,8,12,11" Width="5" Height="17" UseLayoutRounding="True" RenderOptions.BitmapScalingMode="NearestNeighbor">
-					<Rectangle.Fill>
-						<DrawingBrush TileMode="Tile" Viewbox="0,0,4,4" ViewboxUnits="Absolute" Viewport="0,0,4,4" ViewportUnits="Absolute">
-							<DrawingBrush.Drawing>
-								<GeometryDrawing Brush="{DynamicResource ToolBarGripper}">
-									<GeometryDrawing.Geometry>
-										<GeometryGroup>
-											<GeometryGroup.Children>
-												<RectangleGeometry Rect="0,0,1,1" />
-												<RectangleGeometry Rect="2,2,1,1" />
-											</GeometryGroup.Children>
-										</GeometryGroup>
-									</GeometryDrawing.Geometry>
-								</GeometryDrawing>
-							</DrawingBrush.Drawing>
-						</DrawingBrush>
-					</Rectangle.Fill>
-				</Rectangle>
-			</StackPanel>
+                <Rectangle
+                    Width="5"
+                    Height="17"
+                    Margin="12,8,12,11"
+                    RenderOptions.BitmapScalingMode="NearestNeighbor"
+                    UseLayoutRounding="True">
+                    <Rectangle.Fill>
+                        <DrawingBrush
+                            TileMode="Tile"
+                            Viewbox="0,0,4,4"
+                            ViewboxUnits="Absolute"
+                            Viewport="0,0,4,4"
+                            ViewportUnits="Absolute">
+                            <DrawingBrush.Drawing>
+                                <GeometryDrawing Brush="{DynamicResource ToolBarGripper}">
+                                    <GeometryDrawing.Geometry>
+                                        <GeometryGroup>
+                                            <GeometryGroup.Children>
+                                                <RectangleGeometry Rect="0,0,1,1" />
+                                                <RectangleGeometry Rect="2,2,1,1" />
+                                            </GeometryGroup.Children>
+                                        </GeometryGroup>
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                            </DrawingBrush.Drawing>
+                        </DrawingBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+            </StackPanel>
 
-			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" WindowChrome.IsHitTestVisibleInChrome="True">
-				<Button Style="{StaticResource MinimizeButton}" Click="MinimizeClick" />
-				<Button Style="{StaticResource MaximizeButton}" Click="MaximizeClick" />
-				<Button Style="{StaticResource RestoreDownButton}" Click="RestoreDownClick" />
-				<Button Style="{StaticResource CloseButton}" Click="CloseClick" />
-			</StackPanel>
-		</Grid>
+            <StackPanel
+                HorizontalAlignment="Right"
+                Orientation="Horizontal"
+                WindowChrome.IsHitTestVisibleInChrome="True">
+                <Button Click="MinimizeClick" Style="{StaticResource MinimizeButton}" />
+                <Button Click="MaximizeClick" Style="{StaticResource MaximizeButton}" />
+                <Button Click="RestoreDownClick" Style="{StaticResource RestoreDownButton}" />
+                <Button Click="CloseClick" Style="{StaticResource CloseButton}" />
+            </StackPanel>
+        </Grid>
 
-		<DockingManager
+        <DockingManager
             Grid.Row="1"
-			AutoHideDelay="0"
-		    ActiveContent="{Binding ActiveDocument, Mode=TwoWay, Converter={StaticResource ActiveDocumentConverter}}"
-		    AnchorablesSource="{Binding Tools}"
-		    DocumentsSource="{Binding Files}"
-			Theme="{Binding SelectedTheme.Item2}">
+            ActiveContent="{Binding ActiveDocument, Mode=TwoWay, Converter={StaticResource ActiveDocumentConverter}}"
+            AnchorablesSource="{Binding Tools}"
+            AutoHideDelay="0"
+            DocumentsSource="{Binding Files}"
+            Theme="{Binding SelectedTheme.Item2}">
 
-			<DockingManager.LayoutItemTemplateSelector>
-				<local:PanesTemplateSelector>
-					<local:PanesTemplateSelector.FileViewTemplate>
-						<DataTemplate>
-							<Grid>
-								<ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
-									<TextBox 
-										Background="Transparent" 
-										Foreground="{DynamicResource WindowForeground}" 
-										CaretBrush="{DynamicResource WindowForeground}" 
-										FontFamily="Consolas" 
-										BorderThickness="0" 
-										Padding="2,4" 
-										Text="{Binding TextContent, UpdateSourceTrigger=PropertyChanged}" 
-										AcceptsReturn="True" 
-										AcceptsTab="True" />
-								</ScrollViewer>
-								<Rectangle Fill="{DynamicResource ScrollViewerRectBackground}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="17" Height="17"/>
-							</Grid>
-						</DataTemplate>
-					</local:PanesTemplateSelector.FileViewTemplate>
-					<local:PanesTemplateSelector.PropertiesViewTemplate>
-						<DataTemplate>
-							<Border/>
-						</DataTemplate>
-					</local:PanesTemplateSelector.PropertiesViewTemplate>
-					<local:PanesTemplateSelector.ExplorerViewTemplate>
-						<DataTemplate>
-							<Border/>
-						</DataTemplate>
-					</local:PanesTemplateSelector.ExplorerViewTemplate>
-					<local:PanesTemplateSelector.ErrorViewTemplate>
-						<DataTemplate>
-							<Border/>
-						</DataTemplate>
-					</local:PanesTemplateSelector.ErrorViewTemplate>
-					<local:PanesTemplateSelector.OutputViewTemplate>
-						<DataTemplate>
-							<Border/>
-						</DataTemplate>
-					</local:PanesTemplateSelector.OutputViewTemplate>
-					<local:PanesTemplateSelector.GitChangesViewTemplate>
-						<DataTemplate>
-							<Border/>
-						</DataTemplate>
-					</local:PanesTemplateSelector.GitChangesViewTemplate>
-					<local:PanesTemplateSelector.ToolboxViewTemplate>
-						<DataTemplate>
-							<Border/>
-						</DataTemplate>
-					</local:PanesTemplateSelector.ToolboxViewTemplate>
-				</local:PanesTemplateSelector>
-			</DockingManager.LayoutItemTemplateSelector>
+            <DockingManager.LayoutItemTemplateSelector>
+                <local:PanesTemplateSelector>
+                    <local:PanesTemplateSelector.FileViewTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
+                                    <TextBox
+                                        Padding="2,4"
+                                        AcceptsReturn="True"
+                                        AcceptsTab="True"
+                                        Background="Transparent"
+                                        BorderThickness="0"
+                                        CaretBrush="{DynamicResource WindowForeground}"
+                                        FontFamily="Consolas"
+                                        Foreground="{DynamicResource WindowForeground}"
+                                        Text="{Binding TextContent, UpdateSourceTrigger=PropertyChanged}" />
+                                </ScrollViewer>
+                                <Rectangle
+                                    Width="17"
+                                    Height="17"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Bottom"
+                                    Fill="{DynamicResource ScrollViewerRectBackground}" />
+                            </Grid>
+                        </DataTemplate>
+                    </local:PanesTemplateSelector.FileViewTemplate>
+                    <local:PanesTemplateSelector.PropertiesViewTemplate>
+                        <DataTemplate>
+                            <Border />
+                        </DataTemplate>
+                    </local:PanesTemplateSelector.PropertiesViewTemplate>
+                    <local:PanesTemplateSelector.ExplorerViewTemplate>
+                        <DataTemplate>
+                            <Border />
+                        </DataTemplate>
+                    </local:PanesTemplateSelector.ExplorerViewTemplate>
+                    <local:PanesTemplateSelector.ErrorViewTemplate>
+                        <DataTemplate>
+                            <Border />
+                        </DataTemplate>
+                    </local:PanesTemplateSelector.ErrorViewTemplate>
+                    <local:PanesTemplateSelector.OutputViewTemplate>
+                        <DataTemplate>
+                            <Border />
+                        </DataTemplate>
+                    </local:PanesTemplateSelector.OutputViewTemplate>
+                    <local:PanesTemplateSelector.GitChangesViewTemplate>
+                        <DataTemplate>
+                            <Border />
+                        </DataTemplate>
+                    </local:PanesTemplateSelector.GitChangesViewTemplate>
+                    <local:PanesTemplateSelector.ToolboxViewTemplate>
+                        <DataTemplate>
+                            <Border />
+                        </DataTemplate>
+                    </local:PanesTemplateSelector.ToolboxViewTemplate>
+                </local:PanesTemplateSelector>
+            </DockingManager.LayoutItemTemplateSelector>
 
-			<DockingManager.LayoutItemContainerStyleSelector>
-				<local:PanesStyleSelector>
-					<local:PanesStyleSelector.ToolStyle>
-						<Style TargetType="{x:Type LayoutAnchorableItem}">
-							<Setter Property="Title" Value="{Binding Model.Title}" />
-							<Setter Property="CanHide" Value="True" />
-							<Setter Property="Visibility" Value="{Binding Model.IsVisible, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter={x:Static Visibility.Hidden}}" />
-							<Setter Property="ContentId" Value="{Binding Model.ContentId}" />
-							<Setter Property="IsSelected" Value="{Binding Model.IsSelected, Mode=TwoWay}" />
-							<Setter Property="IsActive" Value="{Binding Model.IsActive, Mode=TwoWay}" />
-						</Style>
-					</local:PanesStyleSelector.ToolStyle>
-					<local:PanesStyleSelector.FileStyle>
-						<Style TargetType="{x:Type LayoutItem}">
-							<Setter Property="Title" Value="{Binding Model.Title}" />
-							<Setter Property="ToolTip" Value="{Binding Model.FilePath}" />
-							<Setter Property="CloseCommand" Value="{Binding Model.CloseCommand}" />
-							<Setter Property="ContentId" Value="{Binding Model.ContentId}" />
-						</Style>
-					</local:PanesStyleSelector.FileStyle>
-				</local:PanesStyleSelector>
-			</DockingManager.LayoutItemContainerStyleSelector>
-			<DockingManager.LayoutUpdateStrategy>
-				<local:LayoutInitializer />
-			</DockingManager.LayoutUpdateStrategy>
+            <DockingManager.LayoutItemContainerStyleSelector>
+                <local:PanesStyleSelector>
+                    <local:PanesStyleSelector.ToolStyle>
+                        <Style TargetType="{x:Type LayoutAnchorableItem}">
+                            <Setter Property="Title" Value="{Binding Model.Title}" />
+                            <Setter Property="CanHide" Value="True" />
+                            <Setter Property="Visibility" Value="{Binding Model.IsVisible, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter={x:Static Visibility.Hidden}}" />
+                            <Setter Property="ContentId" Value="{Binding Model.ContentId}" />
+                            <Setter Property="IsSelected" Value="{Binding Model.IsSelected, Mode=TwoWay}" />
+                            <Setter Property="IsActive" Value="{Binding Model.IsActive, Mode=TwoWay}" />
+                        </Style>
+                    </local:PanesStyleSelector.ToolStyle>
+                    <local:PanesStyleSelector.FileStyle>
+                        <Style TargetType="{x:Type LayoutItem}">
+                            <Setter Property="Title" Value="{Binding Model.Title}" />
+                            <Setter Property="ToolTip" Value="{Binding Model.FilePath}" />
+                            <Setter Property="CloseCommand" Value="{Binding Model.CloseCommand}" />
+                            <Setter Property="ContentId" Value="{Binding Model.ContentId}" />
+                        </Style>
+                    </local:PanesStyleSelector.FileStyle>
+                </local:PanesStyleSelector>
+            </DockingManager.LayoutItemContainerStyleSelector>
+            <DockingManager.LayoutUpdateStrategy>
+                <local:LayoutInitializer />
+            </DockingManager.LayoutUpdateStrategy>
 
-			<LayoutRoot>
-				<LayoutPanel Orientation="Horizontal">
-					<LayoutPanel Orientation="Vertical">
-						<LayoutDocumentPane/>
+            <LayoutRoot>
+                <LayoutPanel Orientation="Horizontal">
+                    <LayoutPanel Orientation="Vertical">
+                        <LayoutDocumentPane>
+                            <LayoutDocument
+                                Title="doc1.css"
+                                Content="123"
+                                ContentId="doc1" />
+                            <LayoutDocument
+                                Title="doc2.css"
+                                Content="123"
+                                ContentId="doc2" />
+                            <LayoutDocument Title="doc3.css" ContentId="doc3" />
+                            <LayoutDocument Title="doc4.css" ContentId="doc4" />
+                            <LayoutDocument Title="doc5.css" ContentId="doc5" />
+                            <LayoutDocument Title="doc6.css" ContentId="doc6" />
+                            <LayoutDocument Title="doc7.css" ContentId="doc7" />
+                            <LayoutDocument Title="doc8.css" ContentId="doc8" />
+                            <LayoutDocument Title="doc9.css" ContentId="doc9" />
+                            <LayoutDocument Title="doc10.css" ContentId="doc10" />
+                            <LayoutDocument Title="doc11.css" ContentId="doc11" />
+                            <LayoutDocument Title="doc12.css" ContentId="doc12" />
+                            <LayoutDocument Title="doc13.css" ContentId="doc13" />
+                            <LayoutDocument Title="doc14.css" ContentId="doc14" />
+                            <LayoutDocument Title="doc15.css" ContentId="doc15" />
+                            <LayoutDocument Title="doc16.css" ContentId="doc16" />
+                            <LayoutDocument Title="doc17.css" ContentId="doc17" />
+                            <LayoutDocument Title="doc18.css" ContentId="doc18" />
+                            <LayoutDocument Title="doc19.css" ContentId="doc19" />
+                            <LayoutDocument Title="doc20.css" ContentId="doc20" />
+                            <LayoutDocument Title="doc21.css" ContentId="doc21" />
+                            <LayoutDocument Title="doc22.css" ContentId="doc22" />
+							<LayoutDocument Title="doc23.css" ContentId="doc23" />
+							<LayoutDocument Title="doc24.css" ContentId="doc24" />
+							<LayoutDocument
+                                Title="doc25.css"
+                                Content="doc25"
+                                ContentId="doc25" />
+                        </LayoutDocumentPane>
 
-						<LayoutAnchorablePaneGroup DockHeight="128" Orientation="Horizontal">
-							<LayoutAnchorablePane Name="ErrorsPane"/>
-							<LayoutAnchorablePane Name="OutputPane"/>
-						</LayoutAnchorablePaneGroup>
-					</LayoutPanel>
+                        <LayoutAnchorablePaneGroup DockHeight="128" Orientation="Horizontal">
+                            <LayoutAnchorablePane Name="ErrorsPane" />
+                            <LayoutAnchorablePane Name="OutputPane" />
+                        </LayoutAnchorablePaneGroup>
+                    </LayoutPanel>
 
-					<LayoutAnchorablePaneGroup DockWidth="256" Orientation="Vertical">
-						<LayoutAnchorablePane Name="ExplorerPane" DockHeight="2*"/>
-						<LayoutAnchorablePane Name="PropertiesPane"/>
-					</LayoutAnchorablePaneGroup>
-				</LayoutPanel>
-			</LayoutRoot>
-		</DockingManager>
+                    <LayoutAnchorablePaneGroup DockWidth="256" Orientation="Vertical">
+                        <LayoutAnchorablePane Name="ExplorerPane" DockHeight="2*" />
+                        <LayoutAnchorablePane Name="PropertiesPane" />
+                    </LayoutAnchorablePaneGroup>
+                </LayoutPanel>
+            </LayoutRoot>
+        </DockingManager>
 
-		<Border Grid.Row="2" Background="{DynamicResource StatusBarBackground}">
-			<Grid>
-				<StackPanel Orientation="Horizontal">
-					<Path Stroke="White" StrokeThickness="1" VerticalAlignment="Bottom" Margin="7.5,0,8,5">
-						<Path.Data>
-							<RectangleGeometry Rect="0,0,12,10"/>
-						</Path.Data>
-						<Path.RenderTransform>
-							<SkewTransform AngleX="-15">
-							</SkewTransform>
-						</Path.RenderTransform>
-					</Path>
-					<TextBlock Text="Ready" Foreground="{DynamicResource StatusBarForeground}" VerticalAlignment="Center" Margin="0,0,6,1" />
-				</StackPanel>
-			</Grid>
-		</Border>
-	</Grid>
+        <Border Grid.Row="2" Background="{DynamicResource StatusBarBackground}">
+            <Grid>
+                <StackPanel Orientation="Horizontal">
+                    <Path
+                        Margin="7.5,0,8,5"
+                        VerticalAlignment="Bottom"
+                        Stroke="White"
+                        StrokeThickness="1">
+                        <Path.Data>
+                            <RectangleGeometry Rect="0,0,12,10" />
+                        </Path.Data>
+                        <Path.RenderTransform>
+                            <SkewTransform AngleX="-15" />
+                        </Path.RenderTransform>
+                    </Path>
+                    <TextBlock
+                        Margin="0,0,6,1"
+                        VerticalAlignment="Center"
+                        Foreground="{DynamicResource StatusBarForeground}"
+                        Text="Ready" />
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
 </Window>

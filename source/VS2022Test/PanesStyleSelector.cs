@@ -1,8 +1,8 @@
 using System.Windows.Controls;
 using System.Windows;
-using AvalonDock.VS2013Test.ViewModels;
+using AvalonDock.VS2022Test.ViewModels;
 
-namespace AvalonDock.VS2013Test
+namespace AvalonDock.VS2022Test
 {
 	class PanesStyleSelector : StyleSelector
 	{

@@ -1,8 +1,8 @@
-using AvalonDock.VS2013Test.ViewModels;
+using AvalonDock.VS2022Test.ViewModels;
 using System;
 using System.Windows;
 
-namespace AvalonDock.VS2013Test.Views
+namespace AvalonDock.VS2022Test.Views
 {
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml

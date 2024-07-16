@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Input;
 
-namespace AvalonDock.VS2013Test
+namespace AvalonDock.VS2022Test
 {
 	internal class RelayCommand : ICommand
 	{

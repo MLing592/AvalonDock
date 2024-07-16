@@ -1,8 +1,8 @@
 using System;
 using System.Windows.Data;
-using AvalonDock.VS2013Test.ViewModels;
+using AvalonDock.VS2022Test.ViewModels;
 
-namespace AvalonDock.VS2013Test.Converters
+namespace AvalonDock.VS2022Test.Converters
 {
 
 	public class ActiveDocumentConverter : IValueConverter

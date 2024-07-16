@@ -31,6 +31,11 @@ namespace AvalonDock.Controls
 		#region fields
 
 		private ICommand _defaultCloseCommand;
+		private ICommand _defaultCloseLeftCommand;
+		private ICommand _defaultCloseLeftExceptFixedCommand;
+		private ICommand _defaultCloseRightCommand;
+		private ICommand _defaultCloseRightExceptFixedCommand;
+		private ICommand _defaultCloseExceptFixedCommand;
 		private ICommand _defaultFloatCommand;
 		private ICommand _defaultDockAsDocumentCommand;
 		private ICommand _defaultCloseAllButThisCommand;
@@ -313,6 +318,190 @@ namespace AvalonDock.Controls
 		protected abstract void Close();
 
 		#endregion CloseCommand
+
+		#region CloseLeftCommand
+
+		/// <summary><see cref="CloseLeftCommand"/> dependency property.</summary>
+		public static readonly DependencyProperty CloseLeftCommandProperty = DependencyProperty.Register(nameof(CloseLeftCommand), typeof(ICommand), typeof(LayoutItem),
+				new FrameworkPropertyMetadata(null, OnCloseLeftCommandChanged, CoerceCloseLeftCommandValue));
+
+		/// <summary>Gets/sets the command to execute when user click the document CloseLeft button.</summary>
+		[Bindable(true), Description("Gets/sets the command to execute when user click the document CloseLeft button."), Category("Other")]
+		public ICommand CloseLeftCommand
+		{
+			get => (ICommand)GetValue(CloseLeftCommandProperty);
+			set => SetValue(CloseLeftCommandProperty, value);
+		}
+
+		/// <summary>Handles changes to the <see cref="CloseLeftCommand"/> property.</summary>
+		private static void OnCloseLeftCommandChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((LayoutItem)d).OnCloseLeftCommandChanged(e);
+
+		/// <summary>Provides derived classes an opportunity to handle changes to the <see cref="CloseLeftCommand"/>  property.</summary>
+		protected virtual void OnCloseLeftCommandChanged(DependencyPropertyChangedEventArgs e)
+		{
+		}
+
+		/// <summary>Coerces the <see cref="CloseLeftCommand"/>  value.</summary>
+		private static object CoerceCloseLeftCommandValue(DependencyObject d, object value) => value;
+
+		private bool CanExecuteCloseLeftCommand(object parameter)
+		{
+			var root = LayoutElement?.Root;
+			if (root == null) return false;
+			return LayoutElement.Root.Manager.Layout.Descendents().OfType<LayoutContent>().Any(d => d != LayoutElement && (d.Parent is LayoutDocumentPane || d.Parent is LayoutDocumentFloatingWindow));
+		}
+
+		private void ExecuteCloseLeftCommand(object parameter) => LayoutElement.Root.Manager.ExecuteCloseLeftCommand(LayoutElement);
+
+
+		#endregion CloseLeftCommand
+
+		#region CloseLeftExceptFixedCommand
+
+		/// <summary><see cref="CloseLeftExceptFixedCommand"/> dependency property.</summary>
+		public static readonly DependencyProperty CloseLeftExceptFixedCommandProperty = DependencyProperty.Register(nameof(CloseLeftExceptFixedCommand), typeof(ICommand), typeof(LayoutItem),
+				new FrameworkPropertyMetadata(null, OnCloseLeftExceptFixedCommandChanged, CoerceCloseLeftExceptFixedCommandValue));
+
+		/// <summary>Gets/sets the command to execute when user click the document CloseLeftExceptFixed button.</summary>
+		[Bindable(true), Description("Gets/sets the command to execute when user click the document CloseLeftExceptFixed button."), Category("Other")]
+		public ICommand CloseLeftExceptFixedCommand
+		{
+			get => (ICommand)GetValue(CloseLeftExceptFixedCommandProperty);
+			set => SetValue(CloseLeftExceptFixedCommandProperty, value);
+		}
+
+		/// <summary>Handles changes to the <see cref="CloseLeftExceptFixedCommand"/> property.</summary>
+		private static void OnCloseLeftExceptFixedCommandChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((LayoutItem)d).OnCloseLeftExceptFixedCommandChanged(e);
+
+		/// <summary>Provides derived classes an opportunity to handle changes to the <see cref="CloseLeftExceptFixedCommand"/>  property.</summary>
+		protected virtual void OnCloseLeftExceptFixedCommandChanged(DependencyPropertyChangedEventArgs e)
+		{
+		}
+
+		/// <summary>Coerces the <see cref="CloseLeftExceptFixedCommand"/>  value.</summary>
+		private static object CoerceCloseLeftExceptFixedCommandValue(DependencyObject d, object value) => value;
+
+		private bool CanExecuteCloseLeftExceptFixedCommand(object parameter)
+		{
+			var root = LayoutElement?.Root;
+			if (root == null) return false;
+			return LayoutElement.Root.Manager.Layout.Descendents().OfType<LayoutContent>().Any(d => d != LayoutElement && (d.Parent is LayoutDocumentPane || d.Parent is LayoutDocumentFloatingWindow));
+		}
+
+		private void ExecuteCloseLeftExceptFixedCommand(object parameter) => LayoutElement.Root.Manager.ExecuteCloseLeftExceptFixedCommand(LayoutElement);
+
+
+		#endregion CloseLeftExceptFixedCommand
+
+		#region CloseRightCommand
+
+		/// <summary><see cref="CloseRightCommand"/> dependency property.</summary>
+		public static readonly DependencyProperty CloseRightCommandProperty = DependencyProperty.Register(nameof(CloseRightCommand), typeof(ICommand), typeof(LayoutItem),
+				new FrameworkPropertyMetadata(null, OnCloseRightCommandChanged, CoerceCloseRightCommandValue));
+
+		/// <summary>Gets/sets the command to execute when user click the document CloseRight button.</summary>
+		[Bindable(true), Description("Gets/sets the command to execute when user click the document CloseRight button."), Category("Other")]
+		public ICommand CloseRightCommand
+		{
+			get => (ICommand)GetValue(CloseRightCommandProperty);
+			set => SetValue(CloseRightCommandProperty, value);
+		}
+
+		/// <summary>Handles changes to the <see cref="CloseRightCommand"/> property.</summary>
+		private static void OnCloseRightCommandChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((LayoutItem)d).OnCloseRightCommandChanged(e);
+
+		/// <summary>Provides derived classes an opportunity to handle changes to the <see cref="CloseRightCommand"/>  property.</summary>
+		protected virtual void OnCloseRightCommandChanged(DependencyPropertyChangedEventArgs e)
+		{
+		}
+
+		/// <summary>Coerces the <see cref="CloseRightCommand"/>  value.</summary>
+		private static object CoerceCloseRightCommandValue(DependencyObject d, object value) => value;
+
+		private bool CanExecuteCloseRightCommand(object parameter)
+		{
+			var root = LayoutElement?.Root;
+			if (root == null) return false;
+			return LayoutElement.Root.Manager.Layout.Descendents().OfType<LayoutContent>().Any(d => d != LayoutElement && (d.Parent is LayoutDocumentPane || d.Parent is LayoutDocumentFloatingWindow));
+		}
+
+		private void ExecuteCloseRightCommand(object parameter) => LayoutElement.Root.Manager.ExecuteCloseRightCommand(LayoutElement);
+
+
+		#endregion CloseRightCommand
+
+		#region CloseRightExceptFixedCommand
+
+		/// <summary><see cref="CloseRightExceptFixedCommand"/> dependency property.</summary>
+		public static readonly DependencyProperty CloseRightExceptFixedCommandProperty = DependencyProperty.Register(nameof(CloseRightExceptFixedCommand), typeof(ICommand), typeof(LayoutItem),
+				new FrameworkPropertyMetadata(null, OnCloseRightExceptFixedCommandChanged, CoerceCloseRightExceptFixedCommandValue));
+
+		/// <summary>Gets/sets the command to execute when user click the document CloseRightExceptFixed button.</summary>
+		[Bindable(true), Description("Gets/sets the command to execute when user click the document CloseRightExceptFixed button."), Category("Other")]
+		public ICommand CloseRightExceptFixedCommand
+		{
+			get => (ICommand)GetValue(CloseRightExceptFixedCommandProperty);
+			set => SetValue(CloseRightExceptFixedCommandProperty, value);
+		}
+
+		/// <summary>Handles changes to the <see cref="CloseRightExceptFixedCommand"/> property.</summary>
+		private static void OnCloseRightExceptFixedCommandChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((LayoutItem)d).OnCloseRightExceptFixedCommandChanged(e);
+
+		/// <summary>Provides derived classes an opportunity to handle changes to the <see cref="CloseRightExceptFixedCommand"/>  property.</summary>
+		protected virtual void OnCloseRightExceptFixedCommandChanged(DependencyPropertyChangedEventArgs e)
+		{
+		}
+
+		/// <summary>Coerces the <see cref="CloseRightExceptFixedCommand"/>  value.</summary>
+		private static object CoerceCloseRightExceptFixedCommandValue(DependencyObject d, object value) => value;
+
+		private bool CanExecuteCloseRightExceptFixedCommand(object parameter)
+		{
+			var root = LayoutElement?.Root;
+			if (root == null) return false;
+			return LayoutElement.Root.Manager.Layout.Descendents().OfType<LayoutContent>().Any(d => d != LayoutElement && (d.Parent is LayoutDocumentPane || d.Parent is LayoutDocumentFloatingWindow));
+		}
+
+		private void ExecuteCloseRightExceptFixedCommand(object parameter) => LayoutElement.Root.Manager.ExecuteCloseRightExceptFixedCommand(LayoutElement);
+
+
+		#endregion CloseRightExceptFixedCommand
+
+		#region CloseExceptFixedCommand
+
+		/// <summary><see cref="CloseExceptFixedCommand"/> dependency property.</summary>
+		public static readonly DependencyProperty CloseExceptFixedCommandProperty = DependencyProperty.Register(nameof(CloseExceptFixedCommand), typeof(ICommand), typeof(LayoutItem),
+				new FrameworkPropertyMetadata(null, OnCloseExceptFixedCommandChanged, CoerceCloseExceptFixedCommandValue));
+
+		/// <summary>Gets/sets the command to execute when user click the document CloseExceptFixed button.</summary>
+		[Bindable(true), Description("Gets/sets the command to execute when user click the document CloseExceptFixed button."), Category("Other")]
+		public ICommand CloseExceptFixedCommand
+		{
+			get => (ICommand)GetValue(CloseExceptFixedCommandProperty);
+			set => SetValue(CloseExceptFixedCommandProperty, value);
+		}
+
+		/// <summary>Handles changes to the <see cref="CloseExceptFixedCommand"/> property.</summary>
+		private static void OnCloseExceptFixedCommandChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((LayoutItem)d).OnCloseExceptFixedCommandChanged(e);
+
+		/// <summary>Provides derived classes an opportunity to handle changes to the <see cref="CloseExceptFixedCommand"/>  property.</summary>
+		protected virtual void OnCloseExceptFixedCommandChanged(DependencyPropertyChangedEventArgs e)
+		{
+		}
+
+		/// <summary>Coerces the <see cref="CloseExceptFixedCommand"/>  value.</summary>
+		private static object CoerceCloseExceptFixedCommandValue(DependencyObject d, object value) => value;
+
+		private bool CanExecuteCloseExceptFixedCommand(object parameter)
+		{
+			var root = LayoutElement?.Root;
+			if (root == null) return false;
+			return LayoutElement.Root.Manager.Layout.Descendents().OfType<LayoutContent>().Any(d => d != LayoutElement && (d.Parent is LayoutDocumentPane || d.Parent is LayoutDocumentFloatingWindow));
+		}
+
+		private void ExecuteCloseExceptFixedCommand(object parameter) => LayoutElement.Root.Manager.ExecuteCloseExceptFixedCommand(LayoutElement);
+
+		#endregion CloseExceptFixedCommand
 
 		#region FloatCommand
 
@@ -705,6 +894,11 @@ namespace AvalonDock.Controls
 		{
 			//关闭，浮动，作为文档，关闭除此之外所有，关闭所有，激活，新建垂直标签组，新建水平标签组，移至下一个标签组，移至上一个标签组
 			_defaultCloseCommand = new RelayCommand<object>(ExecuteCloseCommand, CanExecuteCloseCommand);
+			_defaultCloseLeftCommand = new RelayCommand<object>(ExecuteCloseLeftCommand, CanExecuteCloseLeftCommand);
+			_defaultCloseLeftExceptFixedCommand = new RelayCommand<object>(ExecuteCloseLeftExceptFixedCommand, CanExecuteCloseLeftExceptFixedCommand);
+			_defaultCloseRightCommand = new RelayCommand<object>(ExecuteCloseRightCommand, CanExecuteCloseRightCommand);
+			_defaultCloseRightExceptFixedCommand = new RelayCommand<object>(ExecuteCloseRightExceptFixedCommand, CanExecuteCloseRightExceptFixedCommand);
+			_defaultCloseExceptFixedCommand = new RelayCommand<object>(ExecuteCloseExceptFixedCommand, CanExecuteCloseExceptFixedCommand);
 			_defaultFloatCommand = new RelayCommand<object>(ExecuteFloatCommand, CanExecuteFloatCommand);
 			_defaultDockAsDocumentCommand = new RelayCommand<object>(ExecuteDockAsDocumentCommand, CanExecuteDockAsDocumentCommand);
 			_defaultCloseAllButThisCommand = new RelayCommand<object>(ExecuteCloseAllButThisCommand, CanExecuteCloseAllButThisCommand);
@@ -720,6 +914,16 @@ namespace AvalonDock.Controls
 		{
 			if (CloseCommand == _defaultCloseCommand)
 				BindingOperations.ClearBinding(this, CloseCommandProperty);
+			if (CloseLeftCommand == _defaultCloseLeftCommand)
+				BindingOperations.ClearBinding(this, CloseLeftCommandProperty);
+			if (CloseLeftExceptFixedCommand == _defaultCloseLeftExceptFixedCommand)
+				BindingOperations.ClearBinding(this, CloseLeftExceptFixedCommandProperty);
+			if (CloseRightCommand == _defaultCloseRightCommand)
+				BindingOperations.ClearBinding(this, CloseRightCommandProperty);
+			if (CloseRightExceptFixedCommand == _defaultCloseRightExceptFixedCommand)
+				BindingOperations.ClearBinding(this, CloseRightExceptFixedCommandProperty);
+			if (CloseExceptFixedCommand == _defaultCloseExceptFixedCommand)
+				BindingOperations.ClearBinding(this, CloseExceptFixedCommandProperty);
 			if (FloatCommand == _defaultFloatCommand)
 				BindingOperations.ClearBinding(this, FloatCommandProperty);
 			if (DockAsDocumentCommand == _defaultDockAsDocumentCommand)
@@ -745,6 +949,16 @@ namespace AvalonDock.Controls
 		{
 			if (CloseCommand == null)
 				CloseCommand = _defaultCloseCommand;
+			if (CloseLeftCommand == null)
+				CloseLeftCommand = _defaultCloseLeftCommand;
+			if (CloseLeftExceptFixedCommand == null)
+				CloseLeftExceptFixedCommand = _defaultCloseLeftExceptFixedCommand;
+			if (CloseRightCommand == null)
+				CloseRightCommand = _defaultCloseRightCommand;			
+			if (CloseRightExceptFixedCommand == null)
+				CloseRightExceptFixedCommand = _defaultCloseRightExceptFixedCommand;
+			if (CloseExceptFixedCommand == null)
+				CloseExceptFixedCommand = _defaultCloseExceptFixedCommand;
 			if (FloatCommand == null)
 				FloatCommand = _defaultFloatCommand;
 			if (DockAsDocumentCommand == null)

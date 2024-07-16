@@ -53,6 +53,44 @@ namespace AvalonDock.Themes.VS2022.Themes
 
 		// Document Well : Tab
 		// Selected Document Highlight Header Top color (AccentColor)
+
+		#region New Color 新增颜色
+
+		// "When the document is being hovered over, there will be no change in background color on Dark mode, and it will use the same color. However, on Light mode, the background color needs to be changed."
+		// 文档被Hover时，Dark下不改变背景色，使用同色，但Light下需要改变
+		public static readonly ComponentResourceKey DocumentWellTabUnselectedHoveredBackgroundColor = new ComponentResourceKey(typeof(ResourceKeys), "DocumentWellTabUnselectedHoveredBackgroundColor");
+		// "The color of the left rectangle bar when the document is not selected."
+		// 文档未被选中时，左侧矩形条颜色
+		public static readonly ComponentResourceKey DocumentWellTabUnselectedRectangleBackground = new ComponentResourceKey(typeof(ResourceKeys), "DocumentWellTabUnselectedRectangleBackground");
+		// The color for the background of the tab，change document tab color's key
+		// 设置选项卡的背景色对应的颜色，菜单展示需要设置的颜色
+		public static readonly ComponentResourceKey DocumentWellTabBackground2E2E2E = new ComponentResourceKey(typeof(ResourceKeys), "DocumentWellTabBackground2E2E2E");//无
+		public static readonly ComponentResourceKey DocumentWellTabBackground9183EE = new ComponentResourceKey(typeof(ResourceKeys), "DocumentWellTabBackground9183EE");//淡紫色
+		public static readonly ComponentResourceKey DocumentWellTabBackgroundD0B132 = new ComponentResourceKey(typeof(ResourceKeys), "DocumentWellTabBackgroundD0B132");//金色
+		public static readonly ComponentResourceKey DocumentWellTabBackground31B0CD = new ComponentResourceKey(typeof(ResourceKeys), "DocumentWellTabBackground31B0CD");//蓝绿色
+		public static readonly ComponentResourceKey DocumentWellTabBackgroundCE6469 = new ComponentResourceKey(typeof(ResourceKeys), "DocumentWellTabBackgroundCE6469");//绛紫色
+		public static readonly ComponentResourceKey DocumentWellTabBackground6BA02B = new ComponentResourceKey(typeof(ResourceKeys), "DocumentWellTabBackground6BA02B");//绿色
+		public static readonly ComponentResourceKey DocumentWellTabBackgroundBC8F6F = new ComponentResourceKey(typeof(ResourceKeys), "DocumentWellTabBackgroundBC8F6F");//棕色
+		public static readonly ComponentResourceKey DocumentWellTabBackground5BB2FA = new ComponentResourceKey(typeof(ResourceKeys), "DocumentWellTabBackground5BB2FA");//亮蓝色
+		public static readonly ComponentResourceKey DocumentWellTabBackgroundD67540 = new ComponentResourceKey(typeof(ResourceKeys), "DocumentWellTabBackgroundD67540");//南瓜色
+		public static readonly ComponentResourceKey DocumentWellTabBackgroundBDBDBD = new ComponentResourceKey(typeof(ResourceKeys), "DocumentWellTabBackgroundBDBDBD");//灰色
+		public static readonly ComponentResourceKey DocumentWellTabBackgroundCACD38 = new ComponentResourceKey(typeof(ResourceKeys), "DocumentWellTabBackgroundCACD38");//珊瑚橘
+		public static readonly ComponentResourceKey DocumentWellTabBackground2AA0A4 = new ComponentResourceKey(typeof(ResourceKeys), "DocumentWellTabBackground2AA0A4");//青色
+		public static readonly ComponentResourceKey DocumentWellTabBackgroundD957A7 = new ComponentResourceKey(typeof(ResourceKeys), "DocumentWellTabBackgroundD957A7");//品红
+		public static readonly ComponentResourceKey DocumentWellTabBackground6BC7A4 = new ComponentResourceKey(typeof(ResourceKeys), "DocumentWellTabBackground6BC7A4");//薄荷绿
+		public static readonly ComponentResourceKey DocumentWellTabBackground946A5B = new ComponentResourceKey(typeof(ResourceKeys), "DocumentWellTabBackground946A5B");//深棕色
+		public static readonly ComponentResourceKey DocumentWellTabBackground6B8EC7 = new ComponentResourceKey(typeof(ResourceKeys), "DocumentWellTabBackground6B8EC7");//蓝色
+		public static readonly ComponentResourceKey DocumentWellTabBackgroundE0A2A4 = new ComponentResourceKey(typeof(ResourceKeys), "DocumentWellTabBackgroundE0A2A4");//粉色
+		// MenuItem's background and foreground
+		// 设置选项卡菜单的背景色
+		public static readonly ComponentResourceKey DocumentContextMenuBackground = new ComponentResourceKey(typeof(ResourceKeys), "DocumentContextMenuBackground");//背景色
+		public static readonly ComponentResourceKey DocumentContextMenuForeground = new ComponentResourceKey(typeof(ResourceKeys), "DocumentContextMenuForeground");//前景色
+		// document tab fix button glyph color when it's nonactive
+		// 设置选项卡固定按钮固定未激活下颜色
+		public static readonly ComponentResourceKey DocumentWellTabButtonFixedGlyph = new ComponentResourceKey(typeof(ResourceKeys), "DocumentWellTabButtonFixedGlyph");//前景色
+
+		#endregion
+
 		public static readonly ComponentResourceKey DocumentWellTabSelectedActiveBackground = new ComponentResourceKey(typeof(ResourceKeys), "DocumentWellTabSelectedActiveBackground");
 
 		public static readonly ComponentResourceKey DocumentWellTabSelectedActiveText = new ComponentResourceKey(typeof(ResourceKeys), "DocumentWellTabSelectedActiveText");
@@ -66,6 +104,7 @@ namespace AvalonDock.Themes.VS2022.Themes
 
 		// Document Well : Tab : Button
 		public static readonly ComponentResourceKey DocumentWellTabButtonSelectedActiveGlyph = new ComponentResourceKey(typeof(ResourceKeys), "DocumentWellTabButtonSelectedActiveGlyph");
+		public static readonly ComponentResourceKey DocumentWellTabButtonSelectedActiveGlyph2 = new ComponentResourceKey(typeof(ResourceKeys), "DocumentWellTabButtonSelectedActiveGlyph2");
 
 		// AccentColor
 		public static readonly ComponentResourceKey DocumentWellTabButtonSelectedActiveHoveredBackground = new ComponentResourceKey(typeof(ResourceKeys), "DocumentWellTabButtonSelectedActiveHoveredBackground");

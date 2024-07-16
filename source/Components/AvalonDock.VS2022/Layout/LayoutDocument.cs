@@ -1,4 +1,4 @@
-﻿/************************************************************************
+/************************************************************************
    AvalonDock
 
    Copyright (C) 2007-2013 Xceed Software Inc.
@@ -23,6 +23,7 @@ namespace AvalonDock.Layout
 		private bool _canMove = true;
 		private bool _isVisible = true;
 		private string _description = null;
+		private bool _isFixed = false;
 
 		#endregion fields
 
@@ -66,6 +67,17 @@ namespace AvalonDock.Layout
 			}
 		}
 
+		public bool IsFixed
+		{
+			get => _isFixed;
+			set
+			{
+				if (value == _isFixed) return;
+				_isFixed = value;
+				RaisePropertyChanged(nameof(IsFixed));
+			}
+		}
+
 		#endregion Properties
 
 		#region Internal Methods
@@ -87,6 +99,7 @@ namespace AvalonDock.Layout
 			base.WriteXml(writer);
 			if (!string.IsNullOrWhiteSpace(Description)) writer.WriteAttributeString(nameof(Description), Description);
 			if (!CanMove) writer.WriteAttributeString(nameof(CanMove), CanMove.ToString());
+			if(IsFixed) writer.WriteAttributeString(nameof(IsFixed), IsFixed.ToString());
 		}
 
 		/// <inheritdoc />
@@ -94,6 +107,7 @@ namespace AvalonDock.Layout
 		{
 			if (reader.MoveToAttribute(nameof(Description))) Description = reader.Value;
 			if (reader.MoveToAttribute(nameof(CanMove))) CanMove = bool.Parse(reader.Value);
+			if (reader.MoveToAttribute(nameof(IsFixed))) IsFixed = bool.Parse(reader.Value);
 			base.ReadXml(reader);
 		}
 

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -147,12 +147,33 @@
   <data name="Anchorable_Hide" xml:space="preserve">
     <value>隐藏</value>
   </data>
+  <data name="Document_Anchor" xml:space="preserve">
+    <value>固定</value>
+  </data>
   <data name="Document_BtnPinned_Hint" xml:space="preserve">
     <value>切换固定状态</value>
+  </data>
+  <data name="Document_ChangeColor" xml:space="preserve">
+    <value>设置选项卡颜色</value>
   </data>
   <data name="Document_Close" xml:space="preserve">
     <value>关闭</value>
   </data>
+  <data name="Document_CloseLeft" xml:space="preserve">
+    <value>关闭左侧选项卡</value>
+  </data>
+	<data name="Document_CloseLeftExceptFixed" xml:space="preserve">
+    <value>关闭左侧选项卡除固定项外</value>
+  </data>
+	<data name="Document_CloseRight" xml:space="preserve">
+    <value>关闭右侧选项卡</value>
+  </data>
+  <data name="Document_CloseRightExceptFixed" xml:space="preserve">
+    <value>关闭右侧选项卡除固定项外</value>
+  </data>
+  <data name="Document_CloseExceptFixed" xml:space="preserve">
+    <value>除固定项外全部关闭</value>
+  </data>	
   <data name="Document_CloseAll" xml:space="preserve">
     <value>关闭所有</value>
   </data>
@@ -182,6 +203,9 @@
   </data>
   <data name="Window_Maximize" xml:space="preserve">
     <value>最大化</value>
+  </data>
+  <data name="Window_Minimize" xml:space="preserve">
+    <value>最小化</value>
   </data>
   <data name="Window_Restore" xml:space="preserve">
     <value>还原</value>

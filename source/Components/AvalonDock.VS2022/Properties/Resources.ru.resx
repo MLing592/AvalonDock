@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -147,11 +147,32 @@
   <data name="Anchorable_Hide" xml:space="preserve">
     <value>Скрыть</value>
   </data>
+  <data name="Document_Anchor" xml:space="preserve">
+    <value>фиксировать</value>
+  </data>
   <data name="Document_BtnPinned_Hint" xml:space="preserve">
     <value>Статус Переключение Pin</value>
   </data>
+  <data name="Document_ChangeColor" xml:space="preserve">
+    <value>Установить цвет закладки</value>
+  </data>
   <data name="Document_Close" xml:space="preserve">
     <value>Закрыть</value>
+  </data>
+	<data name="Document_CloseLeft" xml:space="preserve">
+    <value>Закрыть левую вкладку</value>
+  </data>
+	<data name="Document_CloseLeftExceptFixed" xml:space="preserve">
+    <value>Закрыть левые вкладки, кроме закреплённых</value>
+  </data>
+	<data name="Document_CloseRight" xml:space="preserve">
+    <value>Закрыть правую вкладку</value>
+  </data>
+	<data name="Document_CloseRightExceptFixed" xml:space="preserve">
+    <value>Закрыть правые вкладки, кроме закреплённых</value>
+  </data>
+	<data name="Document_CloseExceptFixed" xml:space="preserve">
+    <value>Закрыть всё, кроме закреплённых элементов</value>
   </data>
   <data name="Document_CloseAll" xml:space="preserve">
     <value>Закрыть все</value>
@@ -182,6 +203,9 @@
   </data>
   <data name="Window_Maximize" xml:space="preserve">
     <value>Развернуть</value>
+  </data>
+  <data name="Window_Minimize" xml:space="preserve">
+    <value>минимизировать</value>
   </data>
   <data name="Window_Restore" xml:space="preserve">
     <value>Восстановить</value>

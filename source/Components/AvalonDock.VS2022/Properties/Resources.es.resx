@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -147,11 +147,32 @@
   <data name="Anchorable_Hide" xml:space="preserve">
     <value>Esconder</value>
   </data>
+  <data name="Document_Anchor" xml:space="preserve">
+    <value>fijar</value>
+  </data>
   <data name="Document_BtnPinned_Hint" xml:space="preserve">
     <value>Cambiar el estado del pin</value>
   </data>
+  <data name="Document_ChangeColor" xml:space="preserve">
+    <value>Establecer el color de la pestaña</value>
+  </data>
   <data name="Document_Close" xml:space="preserve">
     <value>Cerrar</value>
+  </data>
+	<data name="Document_CloseLeft" xml:space="preserve">
+    <value>Cerrar pestaña izquierda</value>
+  </data>
+	<data name="Document_CloseLeftExceptFixed" xml:space="preserve">
+    <value>Cerrar pestañas izquierdas excepto las fijas</value>
+  </data>
+	<data name="Document_CloseRight" xml:space="preserve">
+    <value>Cerrar pestaña derecha</value>
+  </data>
+	<data name="Document_CloseRightExceptFixed" xml:space="preserve">
+    <value>Cerrar pestañas derechas excepto las fijas</value>
+  </data>
+	<data name="Document_CloseExceptFixed" xml:space="preserve">
+    <value>Cerrar todo excepto los elementos fijos</value>
   </data>
   <data name="Document_CloseAll" xml:space="preserve">
     <value>Cerrar todo</value>
@@ -182,6 +203,9 @@
   </data>
   <data name="Window_Maximize" xml:space="preserve">
     <value>Maximizar</value>
+  </data>
+  <data name="Window_Minimize" xml:space="preserve">
+    <value>minimizar</value>
   </data>
   <data name="Window_Restore" xml:space="preserve">
     <value>Restaurar</value>

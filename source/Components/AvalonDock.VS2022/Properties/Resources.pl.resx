@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -147,11 +147,32 @@
   <data name="Anchorable_Hide" xml:space="preserve">
     <value>Ukryj</value>
   </data>
+  <data name="Document_Anchor" xml:space="preserve">
+    <value>ustalać</value>
+  </data>
   <data name="Document_BtnPinned_Hint" xml:space="preserve">
     <value>Przełącz stan przypięcia</value>
   </data>
+  <data name="Document_ChangeColor" xml:space="preserve">
+    <value>Ustaw kolor karty</value>
+  </data>
   <data name="Document_Close" xml:space="preserve">
     <value>Zamknij</value>
+  </data>
+	<data name="Document_CloseLeft" xml:space="preserve">
+    <value>Zamknij kartę po lewej stronie</value>
+  </data>
+	<data name="Document_CloseLeftExceptFixed" xml:space="preserve">
+    <value>Zamknij karty po lewej stronie oprócz stałych</value>
+  </data>
+	<data name="Document_CloseRight" xml:space="preserve">
+    <value>Zamknij kartę po prawej stronie</value>
+  </data>
+	<data name="Document_CloseRightExceptFixed" xml:space="preserve">
+    <value>Zamknij karty po prawej stronie oprócz stałych</value>
+  </data>
+	<data name="Document_CloseExceptFixed" xml:space="preserve">
+    <value>Zamknij wszystko oprócz stałych elementów</value>
   </data>
   <data name="Document_CloseAll" xml:space="preserve">
     <value>Zamknij wszystkie</value>
@@ -182,6 +203,9 @@
   </data>
   <data name="Window_Maximize" xml:space="preserve">
     <value>Maksymalizuj</value>
+  </data>
+  <data name="Window_Minimize" xml:space="preserve">
+    <value>minimalizować</value>
   </data>
   <data name="Window_Restore" xml:space="preserve">
     <value>Przywróć</value>

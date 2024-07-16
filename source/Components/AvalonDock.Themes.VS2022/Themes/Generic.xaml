@@ -17,6 +17,7 @@
 	xmlns:avalonDockConverters="clr-namespace:AvalonDock.Converters;assembly=AvalonDock.VS2022"
 	xmlns:avalonDockProperties="clr-namespace:AvalonDock.Properties;assembly=AvalonDock.VS2022"
     xmlns:reskeys="clr-namespace:AvalonDock.Themes.VS2022.Themes"
+	xmlns:extension="[extension ]clr-namespace:AvalonDock.VS2022.Themes.Themes"
 	xmlns:shell="clr-namespace:Microsoft.Windows.Shell;assembly=AvalonDock.VS2022">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/AvalonDock.Themes.VS2022;component/OverlayButtons.xaml" />
@@ -1395,7 +1396,12 @@
             Command="{Binding Path=CloseCommand}"
             Header="{x:Static avalonDockProperties:Resources.Document_Close}"
             Visibility="{Binding Path=IsEnabled, RelativeSource={RelativeSource Self}, Mode=OneWay, Converter={avalonDockConverters:BoolToVisibilityConverter}}" />
-        <MenuItem Command="{Binding Path=CloseAllButThisCommand}" Header="{x:Static avalonDockProperties:Resources.Document_CloseAllButThis}" />
+		<MenuItem Command="{Binding Path=CloseLeftCommand}" Header="{x:Static avalonDockProperties:Resources.Document_CloseLeft}" />
+		<MenuItem Command="{Binding Path=CloseLeftExceptFixedCommand}" Header="{x:Static avalonDockProperties:Resources.Document_CloseLeftExceptFixed}" />
+		<MenuItem Command="{Binding Path=CloseRightCommand}" Header="{x:Static avalonDockProperties:Resources.Document_CloseRight}" />
+		<!--<MenuItem Command="{Binding Path=CloseRightExceptFixedCommand}" Header="{x:Static avalonDockProperties:Resources.Document_CloseRightExceptFixed}" />-->
+		<MenuItem Command="{Binding Path=CloseExceptFixedCommand}" Header="{x:Static avalonDockProperties:Resources.Document_CloseExceptFixed}" />
+		<MenuItem Command="{Binding Path=CloseAllButThisCommand}" Header="{x:Static avalonDockProperties:Resources.Document_CloseAllButThis}" />
         <MenuItem Command="{Binding Path=CloseAllCommand}" Header="{x:Static avalonDockProperties:Resources.Document_CloseAll}" />
         <MenuItem Command="{Binding Path=FloatCommand}" Header="{x:Static avalonDockProperties:Resources.Document_Float}" />
         <MenuItem Command="{Binding Path=DockAsDocumentCommand}" Header="{x:Static avalonDockProperties:Resources.Document_DockAsDocument}" />

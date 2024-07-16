@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -147,11 +147,32 @@
   <data name="Anchorable_Hide" xml:space="preserve">
     <value>Dölj</value>
   </data>
+  <data name="Document_Anchor" xml:space="preserve">
+    <value>fixera</value>
+  </data>
   <data name="Document_BtnPinned_Hint" xml:space="preserve">
     <value>Toggle Pin status</value>
   </data>
+  <data name="Document_ChangeColor" xml:space="preserve">
+    <value>Ställ in flikfärgen</value>
+  </data>
   <data name="Document_Close" xml:space="preserve">
     <value>Stäng</value>
+  </data>
+	<data name="Document_CloseLeft" xml:space="preserve">
+    <value>Stäng fliken till vänster</value>
+  </data>
+	<data name="Document_CloseLeftExceptFixed" xml:space="preserve">
+    <value>Stäng flikar till vänster utom de fasta</value>
+  </data>
+	<data name="Document_CloseRight" xml:space="preserve">
+    <value>Stäng fliken till höger</value>
+  </data>
+	<data name="Document_CloseRightExceptFixed" xml:space="preserve">
+    <value>Stäng flikar till höger utom de fasta</value>
+  </data>
+	<data name="Document_CloseExceptFixed" xml:space="preserve">
+    <value>Stäng allt utom de fasta elementen</value>
   </data>
   <data name="Document_CloseAll" xml:space="preserve">
     <value>Stäng alla</value>
@@ -182,6 +203,9 @@
   </data>
   <data name="Window_Maximize" xml:space="preserve">
     <value>Maximera</value>
+  </data>
+  <data name="Window_Minimize" xml:space="preserve">
+    <value>minimera</value>
   </data>
   <data name="Window_Restore" xml:space="preserve">
     <value>Återställ</value>

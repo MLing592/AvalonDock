@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -147,11 +147,29 @@
   <data name="Anchorable_Hide" xml:space="preserve">
     <value>Nascondi</value>
   </data>
+  <data name="Document_Anchor" xml:space="preserve">
+    <value>fisso</value>
+  </data>
   <data name="Document_BtnPinned_Hint" xml:space="preserve">
     <value>Stato Toggle Pin</value>
   </data>
   <data name="Document_Close" xml:space="preserve">
     <value>Chiudi</value>
+  </data>
+	<data name="Document_CloseLeft" xml:space="preserve">
+    <value>Chiudi scheda sinistra</value>
+  </data>
+	<data name="Document_CloseLeftExceptFixed" xml:space="preserve">
+    <value>Chiudi schede sinistra tranne quelle fisse</value>
+  </data>
+	<data name="Document_CloseRight" xml:space="preserve">
+    <value>Chiudi scheda destra</value>
+  </data>
+	<data name="Document_CloseRightExceptFixed" xml:space="preserve">
+    <value>Chiudi schede destra tranne quelle fisse</value>
+  </data>
+	<data name="Document_CloseExceptFixed" xml:space="preserve">
+    <value>Chiudi tutto tranne gli elementi fissi</value>
   </data>
   <data name="Document_CloseAll" xml:space="preserve">
     <value>Chiudere tutte le</value>
@@ -180,8 +198,14 @@
   <data name="Document_NewVerticalTabGroup" xml:space="preserve">
     <value>Nuovo Gruppo Verticale</value>
   </data>
+  <data name="String1Document_ChangeColoDocument_ChangeColor" xml:space="preserve">
+    <value>Impostare il colore della scheda</value>
+  </data>
   <data name="Window_Maximize" xml:space="preserve">
     <value>Ingrandisci</value>
+  </data>
+  <data name="Window_Minimize" xml:space="preserve">
+    <value>minimizzare</value>
   </data>
   <data name="Window_Restore" xml:space="preserve">
     <value>Ripristina</value>

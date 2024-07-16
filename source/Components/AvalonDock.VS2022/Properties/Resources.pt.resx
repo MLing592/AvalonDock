@@ -147,8 +147,29 @@
   <data name="Anchorable_Hide" xml:space="preserve">
     <value>Esconder</value>
   </data>
+  <data name="Document_Anchor" xml:space="preserve">
+    <value>fixar</value>
+  </data>
+  <data name="Document_ChangeColor" xml:space="preserve">
+    <value>Definir a cor da aba</value>
+  </data>
   <data name="Document_Close" xml:space="preserve">
     <value>Fechar</value>
+  </data>
+	<data name="Document_CloseLeft" xml:space="preserve">
+    <value>Fechar guia da esquerda</value>
+  </data>
+	<data name="Document_CloseLeftExceptFixed" xml:space="preserve">
+    <value>Fechar guias da esquerda exceto os fixos</value>
+  </data>
+	<data name="Document_CloseRight" xml:space="preserve">
+    <value>Fechar guia da direita</value>
+  </data>
+	<data name="Document_CloseRightExceptFixed" xml:space="preserve">
+    <value>Fechar guias da direita exceto os fixos</value>
+  </data>
+	<data name="Document_CloseExceptFixed" xml:space="preserve">
+    <value>Fechar tudo exceto os elementos fixos</value>
   </data>
   <data name="Document_CloseAll" xml:space="preserve">
     <value>Feche todos os</value>
@@ -179,6 +200,9 @@
   </data>
   <data name="Window_Maximize" xml:space="preserve">
     <value>Maximizar</value>
+  </data>
+  <data name="Window_Minimize" xml:space="preserve">
+    <value>minimalizar</value>
   </data>
   <data name="Window_Restore" xml:space="preserve">
     <value>Recuperar</value>

@@ -1053,6 +1053,7 @@ namespace AvalonDock
 		private static void OnThemeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((DockingManager)d).OnThemeChanged(e);
 
 		/// <summary>Provides derived classes an opportunity to handle changes to the <see cref="Theme"/> property.</summary>
+		/// 切换主题
 		protected virtual void OnThemeChanged(DependencyPropertyChangedEventArgs e)
 		{
 			var oldTheme = e.OldValue as Theme;
@@ -1986,6 +1987,69 @@ namespace AvalonDock
 				RemoveViewFromLogicalChild(model);
 				AnchorableClosed?.Invoke(this, new AnchorableClosedEventArgs(model));
 			}
+		}
+
+		internal void ExecuteCloseLeftCommand(LayoutContent contentSelected)
+		{
+			var pane = contentSelected.FindParent<LayoutDocumentPane>();
+			int index = pane.IndexOfChild(contentSelected);
+			var list = Layout
+				.Descendents()
+				.OfType<LayoutContent>()
+				.Where(d => pane.IndexOfChild(d) < index && d.Parent is LayoutDocumentPane);
+
+			foreach (var contentToClose in list.ToArray())
+				Close(contentToClose);
+		}
+
+		internal void ExecuteCloseLeftExceptFixedCommand(LayoutContent contentSelected)
+		{
+			var pane = contentSelected.FindParent<LayoutDocumentPane>();
+			int index = pane.IndexOfChild(contentSelected);
+			var list = Layout
+				.Descendents()
+				.OfType<LayoutContent>()
+				.Where(d => pane.IndexOfChild(d) < index && d.Parent is LayoutDocumentPane && !(d as LayoutDocument).IsFixed);
+
+			foreach (var contentToClose in list.ToArray())
+				Close(contentToClose);
+		}
+
+		internal void ExecuteCloseRightCommand(LayoutContent contentSelected)
+		{
+			var pane = contentSelected.FindParent<LayoutDocumentPane>();
+			int index = pane.IndexOfChild(contentSelected);
+			var list = Layout
+				.Descendents()
+				.OfType<LayoutContent>()
+				.Where(d => pane.IndexOfChild(d) > index && d.Parent is LayoutDocumentPane);
+
+			foreach (var contentToClose in list.ToArray())
+				Close(contentToClose);
+		}
+
+		internal void ExecuteCloseRightExceptFixedCommand(LayoutContent contentSelected)
+		{
+			var pane = contentSelected.FindParent<LayoutDocumentPane>();
+			int index = pane.IndexOfChild(contentSelected);
+			var list = Layout
+				.Descendents()
+				.OfType<LayoutContent>()
+				.Where(d => pane.IndexOfChild(d) > index && d.Parent is LayoutDocumentPane && !(d as LayoutDocument).IsFixed);
+
+			foreach (var contentToClose in list.ToArray())
+				Close(contentToClose);
+		}
+
+		internal void ExecuteCloseExceptFixedCommand(LayoutContent contentSelected)
+		{
+			foreach (var contentToClose in Layout
+				.Descendents()
+				.OfType<LayoutContent>()
+				.Where(d => d.Parent is LayoutDocumentPane && !(d as LayoutDocument).IsFixed) 
+				.ToArray())
+
+				Close(contentToClose);
 		}
 
 		internal void ExecuteHideCommand(LayoutAnchorable anchorable)

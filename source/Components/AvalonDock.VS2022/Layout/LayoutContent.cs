@@ -607,7 +607,9 @@ namespace AvalonDock.Layout
 
 		public int CompareTo(LayoutContent other)
 		{
-			if (Content is IComparable contentAsComparable)
+			// "Both need to inherit IComparable."
+			// 二者都需要继承IComparable
+			if (Content is IComparable contentAsComparable && other.Content is IComparable otherAsComparable)
 				return contentAsComparable.CompareTo(other.Content);
 			return string.Compare(Title, other.Title);
 		}

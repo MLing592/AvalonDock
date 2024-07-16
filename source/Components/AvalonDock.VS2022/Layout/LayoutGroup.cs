@@ -76,6 +76,7 @@ namespace AvalonDock.Layout
 		/// <inheritdoc cref="ILayoutPane" />
 		public void MoveChild(int oldIndex, int newIndex)
 		{
+			newIndex = Math.Max(newIndex, 0);
 			if (oldIndex == newIndex) return;
 			_children.Move(oldIndex, newIndex);
 			ChildMoved(oldIndex, newIndex);

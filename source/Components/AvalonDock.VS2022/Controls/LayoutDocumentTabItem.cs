@@ -118,6 +118,15 @@ namespace AvalonDock.Controls
 			_isMouseDown = true;
 		}
 
+		//"Rewrite the method to enable right-click selection."
+		//重写方法，使其右键选中
+		protected override void OnMouseRightButtonDown(System.Windows.Input.MouseButtonEventArgs e)
+		{
+			base.OnMouseRightButtonDown(e);
+			if (  Model != null)
+				Model.IsSelected = true;
+		}
+
 		/// <inheritdoc />
 		protected override void OnMouseMove(MouseEventArgs e)
 		{
@@ -152,7 +161,7 @@ namespace AvalonDock.Controls
 				var childrenList = container.Children.ToList();
 				containerPane.MoveChild(childrenList.IndexOf(Model), childrenList.IndexOf(targetModel));
 				Model.IsActive = true;
-				_parentDocumentTabPanel.UpdateLayout();
+				_parentDocumentTabPanel?.UpdateLayout();
 				UpdateDragDetails();
 			}
 		}

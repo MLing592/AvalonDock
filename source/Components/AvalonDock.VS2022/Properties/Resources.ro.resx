@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -147,11 +147,32 @@
   <data name="Anchorable_Hide" xml:space="preserve">
     <value>Ascunde</value>
   </data>
+  <data name="Document_Anchor" xml:space="preserve">
+    <value>fixa</value>
+  </data>
   <data name="Document_BtnPinned_Hint" xml:space="preserve">
     <value>Starea de comutare Pin</value>
   </data>
+  <data name="Document_ChangeColor" xml:space="preserve">
+    <value>Setarea culorii filelor</value>
+  </data>
   <data name="Document_Close" xml:space="preserve">
     <value>Închide</value>
+  </data>
+	<data name="Document_CloseLeft" xml:space="preserve">
+    <value>Închideţi tabul din stânga</value>
+  </data>
+	<data name="Document_CloseLeftExceptFixed" xml:space="preserve">
+    <value>Închideţi taburile din stânga, cu excepţia celor fixe</value>
+  </data>
+	<data name="Document_CloseRight" xml:space="preserve">
+    <value>Închideţi tabul din dreapta</value>
+  </data>
+	<data name="Document_CloseRightExceptFixed" xml:space="preserve">
+    <value>Închideţi taburile din dreapta, cu excepţia celor fixe</value>
+  </data>
+	<data name="Document_CloseExceptFixed" xml:space="preserve">
+    <value>Închideţi tot, cu excepţia elementelor fixe</value>
   </data>
   <data name="Document_CloseAll" xml:space="preserve">
     <value>Aproape toate</value>
@@ -182,6 +203,9 @@
   </data>
   <data name="Window_Maximize" xml:space="preserve">
     <value>Maximizează</value>
+  </data>
+  <data name="Window_Minimize" xml:space="preserve">
+    <value>minimiza</value>
   </data>
   <data name="Window_Restore" xml:space="preserve">
     <value>Restaurează</value>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -147,11 +147,32 @@
   <data name="Anchorable_Hide" xml:space="preserve">
     <value>Amagar</value>
   </data>
+  <data name="Document_Anchor" xml:space="preserve">
+    <value>fix</value>
+  </data>
   <data name="Document_BtnPinned_Hint" xml:space="preserve">
     <value>Canviar l'estat del pin</value>
   </data>
+  <data name="Document_ChangeColor" xml:space="preserve">
+    <value>Establir el color de la pestanya</value>
+  </data>
   <data name="Document_Close" xml:space="preserve">
     <value>Tancar</value>
+  </data>
+	<data name="Document_CloseLeft" xml:space="preserve">
+    <value>Tancar pestanya esquerra</value>
+  </data>
+	<data name="Document_CloseLeftExceptFixed" xml:space="preserve">
+    <value>Tancar pestanyes esquerres excepte les fixes</value>
+  </data>
+	<data name="Document_CloseRight" xml:space="preserve">
+    <value>Tancar pestanya dreta</value>
+  </data>
+	<data name="Document_CloseRightExceptFixed" xml:space="preserve">
+    <value>Tancar pestanyes dretes excepte les fixes</value>
+  </data>
+	<data name="Document_CloseExceptFixed" xml:space="preserve">
+    <value>Tancar-ho tot excepte els elements fixos</value>
   </data>
   <data name="Document_CloseAll" xml:space="preserve">
     <value>Tancar-ho tot</value>
@@ -182,6 +203,9 @@
   </data>
   <data name="Window_Maximize" xml:space="preserve">
     <value>Maximitzar</value>
+  </data>
+  <data name="Window_Minimize" xml:space="preserve">
+    <value>minimitzar</value>
   </data>
   <data name="Window_Restore" xml:space="preserve">
     <value>Restaurar</value>

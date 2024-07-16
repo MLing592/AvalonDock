@@ -238,6 +238,7 @@ namespace AvalonDock.Layout
 		#endregion Children
 
 		/// <summary>Gets the active LayoutContent-derived element.</summary>
+		/// 获取当前被激活的LayouContent
 		[XmlIgnore]
 		public LayoutContent ActiveContent
 		{
@@ -792,7 +793,10 @@ namespace AvalonDock.Layout
 					LastFocusedDocument = currentValue;
 			}
 			else
-				LastFocusedDocument = null;
+			{
+				//LastFocusedDocument = null;
+			}
+
 		}
 
 		private void UpdateActiveContentProperty()

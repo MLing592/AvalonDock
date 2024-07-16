@@ -1,10 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
+using System.Windows.Input;
 
 namespace AvalonDock.Controls
 {
@@ -74,7 +75,12 @@ namespace AvalonDock.Controls
 
 			ItemsHolderPanel = CreateGrid();
 			// exchange ContentPresenter for Grid
-			var topGrid = (Grid)GetVisualChild(0);
+			//var topGrid = (Grid)GetVisualChild(0);
+			Grid topGrid = null;
+			if (this is LayoutDocumentPaneControl)
+			{
+				topGrid = (Grid)(GetVisualChild(0) as Border).Child;
+			}
 
 			if (topGrid != null)
 			{
@@ -260,6 +266,16 @@ namespace AvalonDock.Controls
 			}
 
 			return null;
+		}
+
+		protected override void OnKeyDown(KeyEventArgs e)
+		{
+			//base.OnKeyDown(e);
+		}
+
+		protected override void OnPreviewKeyDown(KeyEventArgs e)
+		{
+			//base.OnPreviewKeyDown(e);
 		}
 
 		#endregion methods

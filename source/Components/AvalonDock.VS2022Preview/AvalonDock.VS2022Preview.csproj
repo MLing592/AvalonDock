@@ -1,0 +1,63 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <RootNamespace>AvalonDock</RootNamespace>
+	  <TargetFrameworks>netcoreapp3.0;net5.0-windows;net40</TargetFrameworks>
+	  <UseWPF>true</UseWPF>
+	  <LangVersion>preview</LangVersion>
+	  <SignAssembly>true</SignAssembly>
+	  <AssemblyOriginatorKeyFile>sn.snk</AssemblyOriginatorKeyFile>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <Version>4.72.2</Version>
+	  <AssemblyVersion>4.72.2</AssemblyVersion>
+	  <FileVersion>4.72.2</FileVersion>
+	  <PackageVersion>4.72.2</PackageVersion>
+	  <Company>Open Source</Company>
+	  <Product>ML592.AvalonDock.VS2022Preview</Product>
+	  <Copyright>2017-2023</Copyright>
+	  <Description>This assembly implements a docking layout system for WPF.</Description>
+	  <PackageProjectUrl>https://github.com/MLing592/AvalonDock</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/MLing592/AvalonDock</RepositoryUrl>
+	  <PackageId>ML592.AvalonDock.VS2022Preview</PackageId>
+	  <Authors>ML592</Authors>
+	  <Title>ML592.AvalonDock.VS2022Preview</Title>
+	  <PackageReadmeFile>readme-nuget.md</PackageReadmeFile>
+	  <IncludeSymbols>True</IncludeSymbols>
+	  <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net.5.0-windows|AnyCPU'">
+	  <DefineConstants />
+  </PropertyGroup>
+
+  <ItemGroup>
+	  <Resource Include="**\*.png" />
+  </ItemGroup>
+
+  <!-- NuGet Packaging -->
+  <ItemGroup>
+	  <None Include="..\..\..\docs\readme-nuget.md">
+		  <Pack>True</Pack>
+		  <PackagePath>\</PackagePath>
+	  </None>
+	  <None Include="LICENSE" Pack="true" PackagePath="" />
+  </ItemGroup>
+  <ItemGroup>
+	  <Compile Update="Properties\Resources.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>Resources.resx</DependentUpon>
+	  </Compile>
+  </ItemGroup>
+  <ItemGroup>
+	  <EmbeddedResource Update="Properties\Resources.ca-ES.resx">
+		  <Generator>PublicResXFileCodeGenerator</Generator>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Properties\Resources.resx">
+		  <Generator>PublicResXFileCodeGenerator</Generator>
+		  <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+  </ItemGroup>
+
+  <!--PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+  </PropertyGroup>-->
+</Project>

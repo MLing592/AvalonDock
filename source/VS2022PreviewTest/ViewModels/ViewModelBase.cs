@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace AvalonDock.VS2022Test.ViewModels
+namespace AvalonDock.VS2022PreviewTest.ViewModels
 {
 	class ViewModelBase : INotifyPropertyChanged
 	{

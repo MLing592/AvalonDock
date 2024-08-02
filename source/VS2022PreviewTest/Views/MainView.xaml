@@ -1,13 +1,13 @@
 <Window
-    x:Class="AvalonDock.VS2022Test.Views.MainView"
+    x:Class="AvalonDock.VS2022PreviewTest.Views.MainView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:icons="clr-namespace:VS2022Test.Icons"
-    xmlns:local="clr-namespace:AvalonDock.VS2022Test"
+    xmlns:icons="clr-namespace:VS2022PreviewTest.Icons"
+    xmlns:local="clr-namespace:AvalonDock.VS2022PreviewTest"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:viewModels="clr-namespace:AvalonDock.VS2022Test.ViewModels"
-    Title="VS2022Test"
+    xmlns:viewModels="clr-namespace:AvalonDock.VS2022PreviewTest.ViewModels"
+    Title="VS2022PreviewTest"
     Width="1600"
     Height="900"
     MinWidth="140"
@@ -143,7 +143,7 @@
                     <TextBlock
                         Padding="0,1,0,0"
                         VerticalAlignment="Center"
-                        Text="VS2022 Demo">
+                        Text="VS2022Preview Demo">
                         <TextBlock.Style>
                             <Style TargetType="TextBlock">
                                 <Setter Property="Foreground" Value="{DynamicResource ProjectNameForeground}" />

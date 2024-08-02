@@ -11,13 +11,13 @@ using System;
 
 namespace AvalonDock.Themes;
 /// <inheritdoc/>
-public class VS2022PreviewPreviewLightTheme : Theme
+public class VS2022PreviewLightTheme : Theme
 {
 	/// <inheritdoc/>
 	public override Uri GetResourceUri()
 	{
 		return new Uri(
-			"/AvalonDock.Themes.VS2022PreviewPreview;component/LightTheme.xaml",
+			"/AvalonDock.Themes.VS2022Preview;component/LightTheme.xaml",
 			UriKind.Relative);
 	}
 }

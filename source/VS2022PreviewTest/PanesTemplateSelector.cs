@@ -1,9 +1,9 @@
 using System.Windows.Controls;
 using System.Windows;
 using AvalonDock.Layout;
-using AvalonDock.VS2022Test.ViewModels;
+using AvalonDock.VS2022PreviewTest.ViewModels;
 
-namespace AvalonDock.VS2022Test
+namespace AvalonDock.VS2022PreviewTest
 {
 	class PanesTemplateSelector : DataTemplateSelector
 	{

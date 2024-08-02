@@ -1,4 +1,4 @@
-namespace AvalonDock.VS2022Test.ViewModels
+namespace AvalonDock.VS2022PreviewTest.ViewModels
 {
 	internal class ToolViewModel : PaneViewModel
 	{

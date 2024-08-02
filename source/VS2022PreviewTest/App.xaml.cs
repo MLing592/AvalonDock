@@ -1,6 +1,6 @@
 using System.Windows;
 
-namespace AvalonDock.VS2022Test
+namespace AvalonDock.VS2022PreviewTest
 {
 	/// <summary>
 	/// Interaction logic for App.xaml

@@ -1,4 +1,4 @@
-namespace AvalonDock.Themes.VS2022.Themes
+namespace AvalonDock.Themes.VS2022Preview.Themes
 {
 	using System.Windows;
 

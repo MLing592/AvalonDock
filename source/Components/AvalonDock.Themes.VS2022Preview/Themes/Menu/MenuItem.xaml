@@ -1,8 +1,8 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:AvalonDock.Themes.VS2022.Themes"
-    xmlns:reskeys="clr-namespace:AvalonDock.Themes.VS2022.Themes.Menu">
+    xmlns:local="clr-namespace:AvalonDock.Themes.VS2022Preview.Themes"
+    xmlns:reskeys="clr-namespace:AvalonDock.Themes.VS2022Preview.Themes.Menu">
 
     <!--  Source https://github.com/Dirkster99/MLib/blob/master/source/Components/MLib/Controls/Menu/ContextMenu.xaml  -->
     <ControlTemplate x:Key="MLibMenuItem" TargetType="{x:Type MenuItem}">

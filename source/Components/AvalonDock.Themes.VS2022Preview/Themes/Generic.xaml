@@ -12,17 +12,17 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-	xmlns:avalonDock="clr-namespace:AvalonDock;assembly=AvalonDock.VS2022"
-	xmlns:avalonDockControls="clr-namespace:AvalonDock.Controls;assembly=AvalonDock.VS2022"
-	xmlns:avalonDockConverters="clr-namespace:AvalonDock.Converters;assembly=AvalonDock.VS2022"
-	xmlns:avalonDockProperties="clr-namespace:AvalonDock.Properties;assembly=AvalonDock.VS2022"
-    xmlns:reskeys="clr-namespace:AvalonDock.Themes.VS2022.Themes"
-	xmlns:extension="[extension ]clr-namespace:AvalonDock.VS2022.Themes.Themes"
-	xmlns:shell="clr-namespace:Microsoft.Windows.Shell;assembly=AvalonDock.VS2022">
+	xmlns:avalonDock="clr-namespace:AvalonDock;assembly=AvalonDock.VS2022Preview"
+	xmlns:avalonDockControls="clr-namespace:AvalonDock.Controls;assembly=AvalonDock.VS2022Preview"
+	xmlns:avalonDockConverters="clr-namespace:AvalonDock.Converters;assembly=AvalonDock.VS2022Preview"
+	xmlns:avalonDockProperties="clr-namespace:AvalonDock.Properties;assembly=AvalonDock.VS2022Preview"
+    xmlns:reskeys="clr-namespace:AvalonDock.Themes.VS2022Preview.Themes"
+	xmlns:extension="[extension ]clr-namespace:AvalonDock.VS2022Preview.Themes.Themes"
+	xmlns:shell="clr-namespace:Microsoft.Windows.Shell;assembly=AvalonDock.VS2022Preview">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/AvalonDock.Themes.VS2022;component/OverlayButtons.xaml" />
-        <ResourceDictionary Source="/AvalonDock.Themes.VS2022;component/Themes/Menu/MenuItem.xaml" />
-        <ResourceDictionary Source="/AvalonDock.Themes.VS2022;component/Themes/Icons/IconGeometry.xaml" />
+        <ResourceDictionary Source="/AvalonDock.Themes.VS2022Preview;component/OverlayButtons.xaml" />
+        <ResourceDictionary Source="/AvalonDock.Themes.VS2022Preview;component/Themes/Menu/MenuItem.xaml" />
+        <ResourceDictionary Source="/AvalonDock.Themes.VS2022Preview;component/Themes/Icons/IconGeometry.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="DropDownControlArea" TargetType="avalonDockControls:DropDownControlArea" />
@@ -109,7 +109,7 @@
         BugFix for Issue http://avalondock.codeplex.com/workitem/15743
     -->
     <Style
-        x:Key="AvalonDockThemeVS2022MenuItemStyle"
+        x:Key="AvalonDockThemeVS2022PreviewMenuItemStyle"
         BasedOn="{StaticResource {x:Type MenuItem}}"
         TargetType="{x:Type MenuItem}">
         <Setter Property="HeaderTemplate" Value="{Binding Path=Root.Manager.DocumentPaneMenuItemHeaderTemplate}" />
@@ -118,7 +118,7 @@
         <Setter Property="Template" Value="{StaticResource MLibMenuItem}" />
     </Style>
 
-    <Style BasedOn="{StaticResource AvalonDockThemeVS2022MenuItemStyle}" TargetType="{x:Type avalonDockControls:MenuItemEx}">
+    <Style BasedOn="{StaticResource AvalonDockThemeVS2022PreviewMenuItemStyle}" TargetType="{x:Type avalonDockControls:MenuItemEx}">
         <Setter Property="IconTemplate" Value="{Binding Path=Root.Manager.IconContentTemplate}" />
         <Setter Property="IconTemplateSelector" Value="{Binding Path=Root.Manager.IconContentTemplateSelector}" />
         <Setter Property="Command" Value="{Binding Path=., Converter={avalonDockConverters:ActivateCommandLayoutItemFromLayoutModelConverter}}" />
@@ -182,7 +182,7 @@
 	-->
 
     <Style BasedOn="{StaticResource {x:Type ContextMenu}}" TargetType="{x:Type avalonDockControls:ContextMenuEx}" />
-    <Style x:Key="AvalonDockThemeVS2022ToolButtonStyle" TargetType="ToggleButton">
+    <Style x:Key="AvalonDockThemeVS2022PreviewToolButtonStyle" TargetType="ToggleButton">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="BorderBrush" Value="Transparent" />
@@ -212,7 +212,7 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="AvalonDockThemeVS2022ButtonStyle" TargetType="Button">
+    <Style x:Key="AvalonDockThemeVS2022PreviewButtonStyle" TargetType="Button">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="BorderBrush" Value="Transparent" />
@@ -234,7 +234,7 @@
 
     <!--  作为DocuentTabItem的父控件  -->
     <!--  DocumentPaneControlStyle  -->
-    <Style x:Key="AvalonDockThemeVS2022DocumentPaneControlStyle" TargetType="{x:Type avalonDockControls:LayoutDocumentPaneControl}">
+    <Style x:Key="AvalonDockThemeVS2022PreviewDocumentPaneControlStyle" TargetType="{x:Type avalonDockControls:LayoutDocumentPaneControl}">
         <Setter Property="BorderBrush" Value="{x:Null}" />
         <Setter Property="Background" Value="{DynamicResource {x:Static reskeys:ResourceKeys.TabBackground}}" />
         <Setter Property="Template">
@@ -283,7 +283,7 @@
                                     Margin="0,0,-1,5"
                                     VerticalAlignment="Bottom"
                                     Focusable="False"
-                                    Style="{StaticResource AvalonDockThemeVS2022ToolButtonStyle}">
+                                    Style="{StaticResource AvalonDockThemeVS2022PreviewToolButtonStyle}">
                                     <avalonDockControls:DropDownButton.DropDownContextMenu>
                                         <avalonDockControls:ContextMenuEx ItemsSource="{Binding Model.ChildrenSorted, RelativeSource={RelativeSource TemplatedParent}}" />
                                     </avalonDockControls:DropDownButton.DropDownContextMenu>
@@ -483,7 +483,7 @@
     </Style>
 
     <!--  AnchorablePaneControlStyle  -->
-    <Style x:Key="AvalonDockThemeVS2022AnchorablePaneControlStyle" TargetType="{x:Type avalonDockControls:LayoutAnchorablePaneControl}">
+    <Style x:Key="AvalonDockThemeVS2022PreviewAnchorablePaneControlStyle" TargetType="{x:Type avalonDockControls:LayoutAnchorablePaneControl}">
         <Setter Property="TabStripPlacement" Value="Bottom" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="BorderThickness" Value="0" />
@@ -730,7 +730,7 @@
                                 DropDownContextMenu="{Binding Model.Root.Manager.AnchorableContextMenu, RelativeSource={RelativeSource TemplatedParent}}"
                                 DropDownContextMenuDataContext="{Binding Path=LayoutItem, RelativeSource={RelativeSource TemplatedParent}}"
                                 Focusable="False"
-                                Style="{StaticResource AvalonDockThemeVS2022ToolButtonStyle}"
+                                Style="{StaticResource AvalonDockThemeVS2022PreviewToolButtonStyle}"
                                 ToolTip="{x:Static avalonDockProperties:Resources.Anchorable_CxMenu_Hint}">
                                 <Path
                                     x:Name="PART_ImgMenuPin"
@@ -752,7 +752,7 @@
                                 VerticalAlignment="Center"
                                 Command="{Binding Path=LayoutItem.AutoHideCommand, RelativeSource={RelativeSource TemplatedParent}}"
                                 Focusable="False"
-                                Style="{StaticResource AvalonDockThemeVS2022ButtonStyle}"
+                                Style="{StaticResource AvalonDockThemeVS2022PreviewButtonStyle}"
                                 ToolTip="{x:Static avalonDockProperties:Resources.Anchorable_BtnAutoHide_Hint}"
                                 Visibility="{Binding Path=IsEnabled, RelativeSource={RelativeSource Self}, Mode=OneWay, Converter={avalonDockConverters:BoolToVisibilityConverter}}">
                                 <Path
@@ -775,7 +775,7 @@
                                 VerticalAlignment="Center"
                                 Command="{Binding Path=LayoutItem.HideCommand, RelativeSource={RelativeSource TemplatedParent}}"
                                 Focusable="False"
-                                Style="{StaticResource AvalonDockThemeVS2022ButtonStyle}"
+                                Style="{StaticResource AvalonDockThemeVS2022PreviewButtonStyle}"
                                 ToolTip="{x:Static avalonDockProperties:Resources.Anchorable_BtnClose_Hint}"
                                 Visibility="{Binding Path=IsEnabled, RelativeSource={RelativeSource Self}, Mode=OneWay, Converter={avalonDockConverters:BoolToVisibilityConverter}}">
                                 <Path
@@ -899,7 +899,7 @@
         </Setter>
     </Style>
 
-    <ControlTemplate x:Key="AvalonDockThemeVS2022AnchorSideTemplate" TargetType="{x:Type avalonDockControls:LayoutAnchorSideControl}">
+    <ControlTemplate x:Key="AvalonDockThemeVS2022PreviewAnchorSideTemplate" TargetType="{x:Type avalonDockControls:LayoutAnchorSideControl}">
         <ItemsControl ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Children}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -912,7 +912,7 @@
         </ItemsControl>
     </ControlTemplate>
 
-    <ControlTemplate x:Key="AvalonDockThemeVS2022AnchorGroupTemplate" TargetType="{x:Type avalonDockControls:LayoutAnchorGroupControl}">
+    <ControlTemplate x:Key="AvalonDockThemeVS2022PreviewAnchorGroupTemplate" TargetType="{x:Type avalonDockControls:LayoutAnchorGroupControl}">
         <ItemsControl ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Children}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -937,7 +937,7 @@
         </ItemsControl>
     </ControlTemplate>
 
-    <ControlTemplate x:Key="AvalonDockThemeVS2022AnchorTemplate" TargetType="{x:Type avalonDockControls:LayoutAnchorControl}">
+    <ControlTemplate x:Key="AvalonDockThemeVS2022PreviewAnchorTemplate" TargetType="{x:Type avalonDockControls:LayoutAnchorControl}">
         <Border
             x:Name="Bd"
             Margin="0,0,12,0"
@@ -1353,33 +1353,33 @@
         </Setter>
     </Style>
 
-    <DataTemplate x:Key="AvalonDockThemeVS2022DocumentHeaderTemplate">
+    <DataTemplate x:Key="AvalonDockThemeVS2022PreviewDocumentHeaderTemplate">
         <TextBlock Text="{Binding Title}" TextTrimming="CharacterEllipsis" />
     </DataTemplate>
 
-    <DataTemplate x:Key="AvalonDockThemeVS2022AnchorableHeaderTemplate">
+    <DataTemplate x:Key="AvalonDockThemeVS2022PreviewAnchorableHeaderTemplate">
         <TextBlock Text="{Binding Title}" TextTrimming="CharacterEllipsis" />
     </DataTemplate>
 
-    <DataTemplate x:Key="AvalonDockThemeVS2022DocumentTitleTemplate">
+    <DataTemplate x:Key="AvalonDockThemeVS2022PreviewDocumentTitleTemplate">
         <TextBlock
             VerticalAlignment="Center"
             Text="{Binding Title}"
             TextTrimming="CharacterEllipsis" />
     </DataTemplate>
 
-    <DataTemplate x:Key="AvalonDockThemeVS2022AnchorableTitleTemplate">
+    <DataTemplate x:Key="AvalonDockThemeVS2022PreviewAnchorableTitleTemplate">
         <TextBlock
             VerticalAlignment="Center"
             Text="{Binding Title}"
             TextTrimming="CharacterEllipsis" />
     </DataTemplate>
 
-    <DataTemplate x:Key="AvalonDockThemeVS2022IconContentTemplate">
+    <DataTemplate x:Key="AvalonDockThemeVS2022PreviewIconContentTemplate">
         <Image Source="{Binding IconSource, Converter={avalonDockConverters:NullToDoNothingConverter}}" Stretch="Uniform" />
     </DataTemplate>
 
-    <ContextMenu x:Key="AvalonDockThemeVS2022AnchorableContextMenu">
+    <ContextMenu x:Key="AvalonDockThemeVS2022PreviewAnchorableContextMenu">
         <MenuItem Command="{Binding Path=FloatCommand}" Header="{x:Static avalonDockProperties:Resources.Anchorable_Float}" />
         <MenuItem Command="{Binding Path=DockCommand}" Header="{x:Static avalonDockProperties:Resources.Anchorable_Dock}" />
         <MenuItem Command="{Binding Path=DockAsDocumentCommand}" Header="{x:Static avalonDockProperties:Resources.Anchorable_DockAsDocument}" />
@@ -1391,7 +1391,7 @@
     </ContextMenu>
 
     <!--  文档右键命令  -->
-    <ContextMenu x:Key="AvalonDockThemeVS2022DocumentContextMenu">
+    <ContextMenu x:Key="AvalonDockThemeVS2022PreviewDocumentContextMenu">
         <MenuItem
             Command="{Binding Path=CloseCommand}"
             Header="{x:Static avalonDockProperties:Resources.Document_Close}"
@@ -1699,19 +1699,19 @@
     <!--  DockingManager  -->
     <Style x:Key="{x:Type avalonDock:DockingManager}" TargetType="{x:Type avalonDock:DockingManager}">
         <Setter Property="Background" Value="{DynamicResource {x:Static reskeys:ResourceKeys.Background}}" />
-        <Setter Property="DocumentPaneControlStyle" Value="{StaticResource AvalonDockThemeVS2022DocumentPaneControlStyle}" />
-        <Setter Property="AnchorablePaneControlStyle" Value="{StaticResource AvalonDockThemeVS2022AnchorablePaneControlStyle}" />
-        <Setter Property="AnchorSideTemplate" Value="{StaticResource AvalonDockThemeVS2022AnchorSideTemplate}" />
-        <Setter Property="AnchorGroupTemplate" Value="{StaticResource AvalonDockThemeVS2022AnchorGroupTemplate}" />
-        <Setter Property="AnchorTemplate" Value="{StaticResource AvalonDockThemeVS2022AnchorTemplate}" />
-        <Setter Property="DocumentHeaderTemplate" Value="{StaticResource AvalonDockThemeVS2022DocumentHeaderTemplate}" />
-        <Setter Property="AnchorableHeaderTemplate" Value="{StaticResource AvalonDockThemeVS2022AnchorableHeaderTemplate}" />
-        <Setter Property="DocumentTitleTemplate" Value="{StaticResource AvalonDockThemeVS2022DocumentTitleTemplate}" />
-        <Setter Property="AnchorableTitleTemplate" Value="{StaticResource AvalonDockThemeVS2022AnchorableTitleTemplate}" />
-        <Setter Property="AnchorableContextMenu" Value="{StaticResource AvalonDockThemeVS2022AnchorableContextMenu}" />
-        <Setter Property="DocumentContextMenu" Value="{StaticResource AvalonDockThemeVS2022DocumentContextMenu}" />
-        <Setter Property="DocumentPaneMenuItemHeaderTemplate" Value="{StaticResource AvalonDockThemeVS2022DocumentHeaderTemplate}" />
-        <Setter Property="IconContentTemplate" Value="{StaticResource AvalonDockThemeVS2022IconContentTemplate}" />
+        <Setter Property="DocumentPaneControlStyle" Value="{StaticResource AvalonDockThemeVS2022PreviewDocumentPaneControlStyle}" />
+        <Setter Property="AnchorablePaneControlStyle" Value="{StaticResource AvalonDockThemeVS2022PreviewAnchorablePaneControlStyle}" />
+        <Setter Property="AnchorSideTemplate" Value="{StaticResource AvalonDockThemeVS2022PreviewAnchorSideTemplate}" />
+        <Setter Property="AnchorGroupTemplate" Value="{StaticResource AvalonDockThemeVS2022PreviewAnchorGroupTemplate}" />
+        <Setter Property="AnchorTemplate" Value="{StaticResource AvalonDockThemeVS2022PreviewAnchorTemplate}" />
+        <Setter Property="DocumentHeaderTemplate" Value="{StaticResource AvalonDockThemeVS2022PreviewDocumentHeaderTemplate}" />
+        <Setter Property="AnchorableHeaderTemplate" Value="{StaticResource AvalonDockThemeVS2022PreviewAnchorableHeaderTemplate}" />
+        <Setter Property="DocumentTitleTemplate" Value="{StaticResource AvalonDockThemeVS2022PreviewDocumentTitleTemplate}" />
+        <Setter Property="AnchorableTitleTemplate" Value="{StaticResource AvalonDockThemeVS2022PreviewAnchorableTitleTemplate}" />
+        <Setter Property="AnchorableContextMenu" Value="{StaticResource AvalonDockThemeVS2022PreviewAnchorableContextMenu}" />
+        <Setter Property="DocumentContextMenu" Value="{StaticResource AvalonDockThemeVS2022PreviewDocumentContextMenu}" />
+        <Setter Property="DocumentPaneMenuItemHeaderTemplate" Value="{StaticResource AvalonDockThemeVS2022PreviewDocumentHeaderTemplate}" />
+        <Setter Property="IconContentTemplate" Value="{StaticResource AvalonDockThemeVS2022PreviewIconContentTemplate}" />
         <Setter Property="GridSplitterWidth" Value="6" />
         <Setter Property="GridSplitterHeight" Value="6" />
         <Setter Property="Template">
@@ -1837,7 +1837,7 @@
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Bottom"
                                     Command="{Binding Path=LayoutItem.FixCommand, RelativeSource={RelativeSource TemplatedParent}}"
-                                    Style="{StaticResource AvalonDockThemeVS2022ButtonStyle}"
+                                    Style="{StaticResource AvalonDockThemeVS2022PreviewButtonStyle}"
                                     ToolTip="{x:Static avalonDockProperties:Resources.Document_Anchor}"
                                     Visibility="Hidden">
                                     <Path
@@ -1859,7 +1859,7 @@
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Bottom"
                                     Command="{Binding Path=LayoutItem.CloseCommand, RelativeSource={RelativeSource TemplatedParent}}"
-                                    Style="{StaticResource AvalonDockThemeVS2022ButtonStyle}"
+                                    Style="{StaticResource AvalonDockThemeVS2022PreviewButtonStyle}"
                                     ToolTip="{x:Static avalonDockProperties:Resources.Document_Close}"
                                     Visibility="Hidden">
                                     <Path
@@ -2373,7 +2373,7 @@
                                             Command="{x:Static shell:SystemCommands.MinimizeWindowCommand}"
                                             CommandParameter="{Binding RelativeSource={RelativeSource TemplatedParent}}"
                                             Focusable="False"
-                                            Style="{StaticResource AvalonDockThemeVS2022ButtonStyle}"
+                                            Style="{StaticResource AvalonDockThemeVS2022PreviewButtonStyle}"
                                             ToolTip="{x:Static avalonDockProperties:Resources.Window_Minimize}"
                                             Visibility="{Binding IsMaximized, RelativeSource={RelativeSource TemplatedParent}, Converter={avalonDockConverters:InverseBoolToVisibilityConverter}}">
                                             <Path
@@ -2396,7 +2396,7 @@
                                             Command="{x:Static shell:SystemCommands.MaximizeWindowCommand}"
                                             CommandParameter="{Binding RelativeSource={RelativeSource TemplatedParent}}"
                                             Focusable="False"
-                                            Style="{StaticResource AvalonDockThemeVS2022ButtonStyle}"
+                                            Style="{StaticResource AvalonDockThemeVS2022PreviewButtonStyle}"
                                             ToolTip="{x:Static avalonDockProperties:Resources.Window_Maximize}"
                                             Visibility="{Binding IsMaximized, RelativeSource={RelativeSource TemplatedParent}, Converter={avalonDockConverters:InverseBoolToVisibilityConverter}}">
                                             <Path
@@ -2420,7 +2420,7 @@
                                             Command="{x:Static shell:SystemCommands.RestoreWindowCommand}"
                                             CommandParameter="{Binding RelativeSource={RelativeSource TemplatedParent}}"
                                             Focusable="False"
-                                            Style="{StaticResource AvalonDockThemeVS2022ButtonStyle}"
+                                            Style="{StaticResource AvalonDockThemeVS2022PreviewButtonStyle}"
                                             ToolTip="{x:Static avalonDockProperties:Resources.Window_Restore}"
                                             Visibility="{Binding IsMaximized, RelativeSource={RelativeSource TemplatedParent}, Converter={avalonDockConverters:BoolToVisibilityConverter}}">
                                             <Path
@@ -2442,7 +2442,7 @@
                                             shell:WindowChrome.IsHitTestVisibleInChrome="True"
                                             Command="{Binding Path=CloseWindowCommand, RelativeSource={RelativeSource TemplatedParent}}"
                                             Focusable="False"
-                                            Style="{StaticResource AvalonDockThemeVS2022ButtonStyle}"
+                                            Style="{StaticResource AvalonDockThemeVS2022PreviewButtonStyle}"
                                             ToolTip="{x:Static avalonDockProperties:Resources.Document_Close}"
                                             Visibility="{Binding Path=IsEnabled, RelativeSource={RelativeSource Self}, Mode=OneWay, Converter={avalonDockConverters:BoolToVisibilityConverter}}">
                                             <Path
@@ -2747,7 +2747,7 @@
                                             DropDownContextMenu="{Binding Model.Root.Manager.AnchorableContextMenu, RelativeSource={RelativeSource TemplatedParent}}"
                                             DropDownContextMenuDataContext="{Binding Path=SingleContentLayoutItem, RelativeSource={RelativeSource TemplatedParent}}"
                                             Focusable="False"
-                                            Style="{StaticResource AvalonDockThemeVS2022ToolButtonStyle}"
+                                            Style="{StaticResource AvalonDockThemeVS2022PreviewToolButtonStyle}"
                                             ToolTip="{x:Static avalonDockProperties:Resources.Anchorable_CxMenu_Hint}"
                                             Visibility="{Binding Path=Model.IsSinglePane, RelativeSource={RelativeSource TemplatedParent}, Converter={avalonDockConverters:BoolToVisibilityConverter}}">
                                             <Path
@@ -2772,7 +2772,7 @@
                                             Command="{x:Static shell:SystemCommands.MaximizeWindowCommand}"
                                             CommandParameter="{Binding RelativeSource={RelativeSource TemplatedParent}}"
                                             Focusable="False"
-                                            Style="{StaticResource AvalonDockThemeVS2022ButtonStyle}"
+                                            Style="{StaticResource AvalonDockThemeVS2022PreviewButtonStyle}"
                                             ToolTip="{x:Static avalonDockProperties:Resources.Window_Maximize}"
                                             Visibility="{Binding IsMaximized, RelativeSource={RelativeSource TemplatedParent}, Converter={avalonDockConverters:InverseBoolToVisibilityConverter}}">
                                             <Path
@@ -2797,7 +2797,7 @@
                                             Command="{x:Static shell:SystemCommands.RestoreWindowCommand}"
                                             CommandParameter="{Binding RelativeSource={RelativeSource TemplatedParent}}"
                                             Focusable="False"
-                                            Style="{StaticResource AvalonDockThemeVS2022ButtonStyle}"
+                                            Style="{StaticResource AvalonDockThemeVS2022PreviewButtonStyle}"
                                             ToolTip="{x:Static avalonDockProperties:Resources.Window_Restore}"
                                             Visibility="{Binding IsMaximized, RelativeSource={RelativeSource TemplatedParent}, Converter={avalonDockConverters:BoolToVisibilityConverter}}">
                                             <Path
@@ -2822,7 +2822,7 @@
                                             shell:WindowChrome.IsHitTestVisibleInChrome="True"
                                             Command="{Binding HideWindowCommand, RelativeSource={RelativeSource TemplatedParent}}"
                                             Focusable="False"
-                                            Style="{StaticResource AvalonDockThemeVS2022ButtonStyle}"
+                                            Style="{StaticResource AvalonDockThemeVS2022PreviewButtonStyle}"
                                             ToolTip="{x:Static avalonDockProperties:Resources.Anchorable_BtnClose_Hint}"
                                             Visibility="{Binding Path=IsEnabled, RelativeSource={RelativeSource Self}, Mode=OneWay, Converter={avalonDockConverters:BoolToVisibilityConverter}}">
                                             <Path
@@ -3042,7 +3042,7 @@
     </Style>
 
 
-    <Style x:Key="AvalonDockThemeVS2022NavigatorWindowListBoxItemFocusVisual">
+    <Style x:Key="AvalonDockThemeVS2022PreviewNavigatorWindowListBoxItemFocusVisual">
         <Setter Property="Control.Template">
             <Setter.Value>
                 <ControlTemplate>
@@ -3056,8 +3056,8 @@
         </Setter>
     </Style>
 
-    <Style x:Key="AvalonDockThemeVS2022NavigatorWindowListBoxItemStyle" TargetType="ListBoxItem">
-        <Setter Property="FocusVisualStyle" Value="{StaticResource AvalonDockThemeVS2022NavigatorWindowListBoxItemFocusVisual}" />
+    <Style x:Key="AvalonDockThemeVS2022PreviewNavigatorWindowListBoxItemStyle" TargetType="ListBoxItem">
+        <Setter Property="FocusVisualStyle" Value="{StaticResource AvalonDockThemeVS2022PreviewNavigatorWindowListBoxItemFocusVisual}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="TextElement.Foreground" Value="{DynamicResource {x:Static reskeys:ResourceKeys.NavigatorWindowForeground}}" />
@@ -3093,7 +3093,7 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <!--<Trigger Property="IsMouseOver" Value="true">
-                            <Setter Property="Background" Value="{StaticResource AvalonDockThemeVS2022NavigatorWindowListBoxItemSelectedFill}" />
+                            <Setter Property="Background" Value="{StaticResource AvalonDockThemeVS2022PreviewNavigatorWindowListBoxItemSelectedFill}" />
                             <Setter Property="BorderBrush" Value="#FF98DDFB" />
                             <Setter TargetName="InnerBorder" Property="BorderBrush" Value="#80FFFFFF" />
                             <Setter TargetName="UpperHighlight" Property="Visibility" Value="Visible" />
@@ -3211,7 +3211,7 @@
                                                 MaxHeight="400"
                                                 AutomationProperties.Name="{x:Static avalonDockProperties:Resources.Active_ToolWindows}"
                                                 Background="Transparent"
-                                                ItemContainerStyle="{StaticResource AvalonDockThemeVS2022NavigatorWindowListBoxItemStyle}"
+                                                ItemContainerStyle="{StaticResource AvalonDockThemeVS2022PreviewNavigatorWindowListBoxItemStyle}"
                                                 ItemsSource="{Binding Anchorables}"
                                                 SelectedItem="{Binding SelectedAnchorable, Mode=TwoWay}">
                                                 <ListBox.ItemTemplate>
@@ -3249,7 +3249,7 @@
                                                 MaxHeight="400"
                                                 AutomationProperties.Name="{x:Static avalonDockProperties:Resources.Active_Files}"
                                                 Background="Transparent"
-                                                ItemContainerStyle="{StaticResource AvalonDockThemeVS2022NavigatorWindowListBoxItemStyle}"
+                                                ItemContainerStyle="{StaticResource AvalonDockThemeVS2022PreviewNavigatorWindowListBoxItemStyle}"
                                                 ItemsSource="{Binding Documents}"
                                                 SelectedItem="{Binding SelectedDocument, Mode=TwoWay}">
                                                 <ListBox.ItemTemplate>

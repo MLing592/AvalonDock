@@ -1,4 +1,4 @@
-﻿namespace AvalonDock.Themes.VS2022.Themes.Menu
+﻿namespace AvalonDock.Themes.VS2022Preview.Themes.Menu
 {
     using System.Windows;
 

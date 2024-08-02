@@ -12,13 +12,13 @@ using System.Windows.Media;
 
 namespace AvalonDock.Themes;
 /// <inheritdoc/>
-public class VS2022PreviewDarkTheme : Theme
+public class VS2022PreviewPreviewDarkTheme : Theme
 {
 	/// <inheritdoc/>
 	public override Uri GetResourceUri()
 	{
 		return new Uri(
-			"/AvalonDock.Themes.VS2022Preview;component/DarkTheme.xaml",
+			"/AvalonDock.Themes.VS2022PreviewPreview;component/DarkTheme.xaml",
 			UriKind.Relative);
 	}
 

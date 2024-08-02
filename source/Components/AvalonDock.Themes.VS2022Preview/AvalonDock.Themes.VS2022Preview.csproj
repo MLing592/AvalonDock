@@ -37,9 +37,8 @@
 		  <PackagePath>\</PackagePath>
 	  </None>
   </ItemGroup>
-
   <ItemGroup>
-    <ProjectReference Include="..\AvalonDock.VS2022\AvalonDock.VS2022.csproj" />
+    <ProjectReference Include="..\AvalonDock.VS2022Preview\AvalonDock.VS2022Preview.csproj" />
   </ItemGroup>
 
 </Project>

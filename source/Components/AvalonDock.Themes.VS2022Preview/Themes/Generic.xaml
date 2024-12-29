@@ -265,7 +265,7 @@
                                     x:Name="BD"
                                     Grid.ColumnSpan="2"
                                     BorderBrush="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabSelectedActiveBackground}}"
-                                    BorderThickness="0,0,0,2" />
+                                    BorderThickness="0,0,0,0" />
                                 <!--  文档选项卡容器改为DocumentPaneTabWrapPanel  -->
                                 <avalonDockControls:DocumentPaneTabPanel
                                     x:Name="HeaderPanel"
@@ -372,21 +372,21 @@
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type TabItem}">
-                                <Grid Margin="0,0,5,2" SnapsToDevicePixels="true">
+                                <Grid Margin="0,0,0,0" SnapsToDevicePixels="true">
                                     <!--  Document标签页内容  -->
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="auto" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
                                     <!--#region 左侧矩形条-->
-                                    <Border
+                                    <!--<Border
                                         x:Name="LeftRectangle"
                                         Grid.Column="0"
                                         Width="4"
                                         Margin="0,0,0,0"
                                         Background="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabUnselectedRectangleBackground}}"
                                         CornerRadius="2,0,0,0"
-                                        Visibility="Visible" />
+                                        Visibility="Visible" />-->
                                     <!--#endregion-->
                                     <!--#region 背景-->
                                     <Border
@@ -394,8 +394,8 @@
                                         Grid.Column="1"
                                         Background="{TemplateBinding Background}"
                                         BorderBrush="{Binding Background, RelativeSource={RelativeSource Self}}"
-                                        BorderThickness="0,0,0,0"
-                                        CornerRadius="0,2,0,0" />
+                                        BorderThickness="1"
+                                        CornerRadius="2,2,2,2" />
                                     <!--#endregion-->
                                     <ContentPresenter
                                         x:Name="Content"
@@ -413,7 +413,7 @@
 
                                     <!--  Document Well : Tab / Selected, active选中且激活，Dark下蓝，黑，需要改蓝  -->
                                     <DataTrigger Binding="{Binding IsActive}" Value="True">
-                                        <Setter TargetName="Bd" Property="Background" Value="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabSelectedActiveBackground}}" />
+										<Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabSelectedActiveBackground}}" />
                                         <Setter Property="Foreground" Value="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabSelectedActiveText}}" />
                                         <Setter Property="FontWeight" Value="Bold" />
                                         <Setter Property="Panel.ZIndex" Value="1" />
@@ -1785,8 +1785,8 @@
                     <!--  圆角  -->
                     <Border
                         Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
+                        BorderBrush="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabSelectedActiveBackground}}"
+                        BorderThickness="1"
                         CornerRadius="{StaticResource BottomCornerRadius}">
                         <ContentPresenter Content="{Binding LayoutItem.View, RelativeSource={RelativeSource TemplatedParent}}" />
                     </Border>

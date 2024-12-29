@@ -199,7 +199,7 @@
     <SolidColorBrush
         x:Key="{x:Static reskeys:ResourceKeys.DocumentWellTabSelectedActiveText}"
         options:Freeze="true"
-        Color="#000000" />
+        Color="#FFFFFF" />
     <SolidColorBrush
         x:Key="{x:Static reskeys:ResourceKeys.DocumentWellTabSelectedInactiveBackground}"
         options:Freeze="true"
@@ -231,7 +231,7 @@
     <SolidColorBrush
         x:Key="{x:Static reskeys:ResourceKeys.DocumentWellTabButtonSelectedActiveGlyph}"
         options:Freeze="true"
-        Color="#000000" />
+        Color="#FFFFFF" />
     <!--
         "Fixed and closed color on the right side of the document button during selection and activation"
         为了区别开以前得颜色,文档右侧固定与退出选中并激活时的颜色

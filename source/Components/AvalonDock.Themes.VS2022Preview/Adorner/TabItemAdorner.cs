@@ -19,6 +19,20 @@ namespace AvalonDock.Themes
 		public TabItemAdorner(UIElement adornedElement, UIElement child) : base(adornedElement)
 		{
 			_child = child;
+			if (_child is Rectangle rec)
+			{
+				// Todo:需要寻找DockingManager的资源字典
+				if (dockingManager is null)
+				{
+					dockingManager = FindAncestor<DockingManager>(AdornedElement);
+				}
+				if (dockingManager is not null)
+				{
+					var color = SearchResourceDict(dockingManager.Resources);
+					if (color is not null) rec.Stroke = (Brush)color;
+				}
+
+			}
 			AddVisualChild(_child);
 		}
 		public UIElement Child => _child;
@@ -35,20 +49,6 @@ namespace AvalonDock.Themes
 		protected override void OnRender(DrawingContext drawingContext)
 		{
 			base.OnRender(drawingContext);
-			if (_child is Rectangle rec)
-			{
-				// Todo:需要寻找DockingManager的资源字典
-				if(dockingManager is null)
-				{
-					dockingManager = FindAncestor<DockingManager>(AdornedElement);
-				}
-				if(dockingManager is not null)
-				{
-					var color = SearchResourceDict(dockingManager.Resources);
-					if(color is not null) rec.Stroke = (Brush)color;
-				}
-				
-			}
 		}
 		public static T FindAncestor<T>(DependencyObject child) where T : DependencyObject
 		{

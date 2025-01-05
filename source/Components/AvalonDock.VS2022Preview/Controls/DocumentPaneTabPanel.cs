@@ -7,6 +7,7 @@
    License (Ms-PL) as published at https://opensource.org/licenses/MS-PL
  ************************************************************************/
 
+using AvalonDock.Interface;
 using AvalonDock.Layout;
 using System;
 using System.Collections.Generic;
@@ -271,7 +272,8 @@ namespace AvalonDock.Controls
 				double height = child.DesiredSize.Height;
 				bool needsNewLine = false;
 
-				var currentContent = (child as TabItem)?.Content;
+				var tabitem = (child as TabItem);
+				var currentContent = tabitem?.Content;
 				var ine = Math.Max(Children.IndexOf(child) - 1, 0);
 				var frontContent = (Children[ine] as TabItem)?.Content;
 
@@ -317,6 +319,19 @@ namespace AvalonDock.Controls
 					currentLineLength = width;
 					currentLineMaxHeight = height;
 					baseSize.Height += currentLineMaxHeight; 
+				}
+				if (currentContent is ILastRow content)
+				{
+					content.PaneRowIndex = currentLineNumber;
+				}
+			}
+			foreach (UIElement child in InternalChildren)
+			{
+				var currentContent = child as TabItem;
+				if (currentContent?.Content is ILastRow row)
+				{
+					if (row.PaneRowIndex == currentLineNumber) row.IsPaneLastRow = true;
+					else row.IsPaneLastRow = false;
 				}
 			}
 			#endregion

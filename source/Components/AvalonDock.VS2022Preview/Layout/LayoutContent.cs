@@ -8,6 +8,7 @@
  ************************************************************************/
 
 using AvalonDock.Controls;
+using AvalonDock.Interface;
 using System;
 using System.ComponentModel;
 using System.Globalization;
@@ -25,7 +26,7 @@ namespace AvalonDock.Layout
 	/// </summary>
 	[ContentProperty(nameof(Content))]
 	[Serializable]
-	public abstract class LayoutContent : LayoutElement, IXmlSerializable, ILayoutElementForFloatingWindow, IComparable<LayoutContent>, ILayoutPreviousContainer
+	public abstract class LayoutContent : LayoutElement, IXmlSerializable, ILayoutElementForFloatingWindow, IComparable<LayoutContent>, ILayoutPreviousContainer,ILastRow
 	{
 		#region Constructors
 
@@ -206,6 +207,40 @@ namespace AvalonDock.Layout
 		public event EventHandler IsActiveChanged;
 
 		#endregion IsActive
+
+		#region PaneRowIndex
+		[field: NonSerialized]
+		private int _paneRowIndex = 0;
+
+		[XmlIgnore]
+		public int PaneRowIndex
+		{
+			get => _paneRowIndex;
+			set
+			{
+				if (value == _paneRowIndex) return;
+				_paneRowIndex = value;
+				RaisePropertyChanging(nameof(PaneRowIndex));
+			}
+		}
+		#endregion
+
+		#region IsPaneLastRow
+		[field: NonSerialized]
+		private bool _isPaneLastRow = false;
+
+		[XmlIgnore]
+		public bool IsPaneLastRow
+		{
+			get => _isPaneLastRow;
+			set
+			{
+				if (value == _isPaneLastRow) return;
+				_isPaneLastRow = value;
+				RaisePropertyChanging(nameof(IsPaneLastRow));
+			}
+		}
+		#endregion
 
 		#region IsLastFocusedDocument
 

@@ -1,4 +1,4 @@
-<!--
+                 <!--
     ************************************************************************
     AvalonDock
     
@@ -16,6 +16,7 @@
 	xmlns:avalonDockControls="clr-namespace:AvalonDock.Controls;assembly=AvalonDock.VS2022Preview"
 	xmlns:avalonDockConverters="clr-namespace:AvalonDock.Converters;assembly=AvalonDock.VS2022Preview"
 	xmlns:avalonDockProperties="clr-namespace:AvalonDock.Properties;assembly=AvalonDock.VS2022Preview"
+	xmlns:avaTheme="clr-namespace:AvalonDock.Themes"
     xmlns:reskeys="clr-namespace:AvalonDock.Themes.VS2022Preview.Themes"
 	xmlns:extension="[extension ]clr-namespace:AvalonDock.VS2022Preview.Themes.Themes"
 	xmlns:shell="clr-namespace:Microsoft.Windows.Shell;assembly=AvalonDock.VS2022Preview">
@@ -253,7 +254,7 @@
                             <Border Grid.RowSpan="2" Background="Transparent" />
                             <Grid
                                 Grid.Row="0"
-                                Margin="1,0"
+                                Margin="0,0"
                                 Panel.ZIndex="1"
                                 Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type avalonDockControls:LayoutDocumentPaneControl}}, Path=Model.ShowHeader, Converter={avalonDockConverters:BoolToVisibilityConverter}}">
                                 <Grid.ColumnDefinitions>
@@ -306,8 +307,8 @@
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 Background="{TemplateBinding Background}"
-                                BorderBrush="{DynamicResource {x:Static reskeys:ResourceKeys.PanelBorderBrush}}"
-                                BorderThickness="1,0,1,1"
+                                BorderBrush="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabSelectedActiveBackground}}"
+                                BorderThickness="1"
                                 CornerRadius="{StaticResource BottomCornerRadius}"
                                 KeyboardNavigation.DirectionalNavigation="Contained"
                                 KeyboardNavigation.TabIndex="2"
@@ -360,7 +361,7 @@
         <!--  定义了 TabItem 控件在未被选中状态下的一些样式属性，如背景色、前景色、边框颜色、内边距等  -->
         <Setter Property="ItemContainerStyle">
             <Setter.Value>
-                <Style TargetType="{x:Type TabItem}">
+				<Style TargetType="{x:Type TabItem}">
                     <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
                     <Setter Property="Background" Value="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabUnselectedBackground}}" />
                     <Setter Property="Foreground" Value="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabUnselectedText}}" />
@@ -371,14 +372,14 @@
                     <Setter Property="Margin" Value="0" />
                     <Setter Property="Template">
                         <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type TabItem}">
+							<ControlTemplate TargetType="{x:Type TabItem}">
                                 <Grid Margin="0,0,0,0" SnapsToDevicePixels="true">
                                     <!--  Document标签页内容  -->
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="auto" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <!--#region 左侧矩形条-->
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="auto" />
+										<ColumnDefinition Width="*" />
+									</Grid.ColumnDefinitions>
+									<!--#region 左侧矩形条-->
                                     <!--<Border
                                         x:Name="LeftRectangle"
                                         Grid.Column="0"
@@ -389,14 +390,19 @@
                                         Visibility="Visible" />-->
                                     <!--#endregion-->
                                     <!--#region 背景-->
-                                    <Border
+									<Border
                                         x:Name="Bd"
                                         Grid.Column="1"
                                         Background="{TemplateBinding Background}"
                                         BorderBrush="{Binding Background, RelativeSource={RelativeSource Self}}"
-                                        BorderThickness="1"
-                                        CornerRadius="2,2,2,2" />
-                                    <!--#endregion-->
+                                        BorderThickness="1,1,1,1"
+                                        CornerRadius="1,1,0,0" >
+										<avaTheme:AdornerHelper.TabItemAdorner>
+											<Rectangle x:Name="R1" Stroke="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabUnselectedBackground}}" 
+													   StrokeThickness="1" Width="Auto" VerticalAlignment="Bottom" Margin="0,0,0,-1"/>
+										</avaTheme:AdornerHelper.TabItemAdorner>
+									</Border>
+									<!--#endregion-->
                                     <ContentPresenter
                                         x:Name="Content"
                                         Grid.Column="1"
@@ -412,15 +418,33 @@
                                     </Trigger>
 
                                     <!--  Document Well : Tab / Selected, active选中且激活，Dark下蓝，黑，需要改蓝  -->
-                                    <DataTrigger Binding="{Binding IsActive}" Value="True">
+									<DataTrigger Binding="{Binding IsActive}" Value="True">
 										<Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabSelectedActiveBackground}}" />
-                                        <Setter Property="Foreground" Value="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabSelectedActiveText}}" />
-                                        <Setter Property="FontWeight" Value="Bold" />
+										<Setter Property="Foreground" Value="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabSelectedActiveText}}" />
+										<Setter Property="FontWeight" Value="Bold" />
                                         <Setter Property="Panel.ZIndex" Value="1" />
-                                        <!--#endregion-->
-                                    </DataTrigger>
+										<!--#endregion-->
+									</DataTrigger>
 
-                                    <!--  Document Well : Tab / Selected, inactive 选中但未激活，白  -->
+									<!--  激活时更改附加属性遮罩  -->
+									<MultiDataTrigger>
+										<MultiDataTrigger.Conditions>
+											<Condition Binding="{Binding IsActive}" Value="True" />
+											<Condition Binding="{Binding IsPaneLastRow}" Value="True" />
+										</MultiDataTrigger.Conditions>
+										<Setter TargetName="R1" Property="StrokeThickness" Value="2" />
+										<Setter TargetName="R1" Property="Stroke" Value="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabUnselectedBackground}}" />
+									</MultiDataTrigger>
+
+									<MultiDataTrigger>
+										<MultiDataTrigger.Conditions>
+											<Condition Binding="{Binding IsActive}" Value="True" />
+											<Condition Binding="{Binding IsPaneLastRow}" Value="False" />
+										</MultiDataTrigger.Conditions>
+										<Setter TargetName="R1" Property="StrokeThickness" Value="0" />
+									</MultiDataTrigger>
+
+									<!--  Document Well : Tab / Selected, inactive 选中但未激活，白  -->
                                     <MultiDataTrigger>
                                         <MultiDataTrigger.Conditions>
                                             <Condition Binding="{Binding IsActive}" Value="False" />
@@ -428,7 +452,8 @@
                                         </MultiDataTrigger.Conditions>
                                         <Setter Property="Foreground" Value="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabSelectedInactiveText}}" />
                                         <Setter TargetName="Bd" Property="Margin" Value="0,0,0,0" />
-                                    </MultiDataTrigger>
+										<Setter TargetName="R1" Property="StrokeThickness" Value="0" />
+									</MultiDataTrigger>
 
                                     <!--  Document Well : Tab / Unselected 未选中，透明  -->
                                     <MultiDataTrigger>
@@ -437,6 +462,7 @@
                                             <Condition Binding="{Binding IsSelected}" Value="False" />
                                         </MultiDataTrigger.Conditions>
                                         <Setter TargetName="Bd" Property="BorderBrush" Value="Transparent" />
+										<Setter TargetName="R1" Property="StrokeThickness" Value="0" />
                                         <Setter Property="FontWeight" Value="Normal" />
                                         <!--#endregion-->
                                     </MultiDataTrigger>
@@ -1786,7 +1812,7 @@
                     <Border
                         Background="{TemplateBinding Background}"
                         BorderBrush="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabSelectedActiveBackground}}"
-                        BorderThickness="1"
+                        BorderThickness="0"
                         CornerRadius="{StaticResource BottomCornerRadius}">
                         <ContentPresenter Content="{Binding LayoutItem.View, RelativeSource={RelativeSource TemplatedParent}}" />
                     </Border>

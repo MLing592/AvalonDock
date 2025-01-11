@@ -7,6 +7,10 @@ using System.Windows;
 
 namespace AvalonDock.Themes
 {
+	/// <summary>
+	/// 装饰器辅助类
+	/// 由于更改TabItem遮罩实现，现暂无使用
+	/// </summary>
 	public class AdornerHelper
 	{
 		public static UIElement GetTabItemAdorner(DependencyObject obj)

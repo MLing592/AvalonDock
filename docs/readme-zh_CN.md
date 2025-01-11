@@ -9,34 +9,22 @@
 | [![NuGet](https://img.shields.io/nuget/dt/Dirkster.AvalonDock.Themes.VS2010.svg)](http://nuget.org/packages/Dirkster.AvalonDock.Themes.VS2010)          | [Dirkster.AvalonDock.Themes.VS2010](http://nuget.org/packages/Dirkster.AvalonDock.Themes.VS2010)
 | [![NuGet](https://img.shields.io/nuget/dt/Dirkster.AvalonDock.Themes.VS2013.svg)](http://nuget.org/packages/Dirkster.AvalonDock.Themes.VS2013)          | [Dirkster.AvalonDock.Themes.VS2013](http://nuget.org/packages/Dirkster.AvalonDock.Themes.VS2013) (see [Wiki](https://github.com/Dirkster99/AvalonDock/wiki/WPF-VS-2013-Dark-Light-Demo-Client) )
 | [![NuGet](https://img.shields.io/nuget/dt/ML592.AvalonDock.Themes.VS2022.svg)](https://www.nuget.org/packages/ML592.AvalonDock.Themes.VS2022)          | [ML592.AvalonDock.Themes.VS2022](https://www.nuget.org/packages/ML592.AvalonDock.Themes.VS2022)
+| [![NuGet](https://img.shields.io/nuget/dt/ML592.AvalonDock.Themes.VS2022Preview.svg)](https://www.nuget.org/packages/ML592.AvalonDock.Themes.VS2022Preview)          | [ML592.AvalonDock.Themes.VS2022Preview](https://www.nuget.org/packages/ML592.AvalonDock.Themes.VS2022Preview)
 
 ![Net4](https://badgen.net/badge/Framework/.Net&nbsp;4.8/blue) ![NetCore3](https://badgen.net/badge/NetCore/NetCore&nbsp;3.0/yellow) ![Net4](https://badgen.net/badge/NetCore/.NET&nbsp;5.0/orange)
 
+### Contributor
 
-# 功能：相较于原版增加了VS2022主题，文档标签支持了固定，自适应流式换行，换色...
+<img src="../Contributors/me.jpg" width="60" height="60">
+<img src="../Contributors/646905217.jpg" width="60" height="60">
 
-### VS2022Test
+# 功能：相较于原版增加了VS2022Preview主题
+1. 文档标签支持了固定
+2. 文档标签自适应流式换行，
+3. 文档标签设置选项卡颜色,优化了衔接UI，
+4. 文档标签支持一键关闭左侧标签，一键关闭左侧标签除固定项外，一键关闭右侧标签，一键关闭右侧标签除固定项外，除此之外全部关闭，关闭所有...
 
-<table width="100%">
-   <tr>
-      <td>theme</td>
-      <td>display</td>
-   </tr>
-   <tr>
-      <td>Dark</td>
-      <td><img src="../Picture/VS2022-Dark.png" width="400"></td>
-   </tr>
-   <tr>
-      <td>Light</td>
-      <td><img src="../Picture/VS2022-Light.png" width="400"></td>
-   </tr>
-   <tr>
-      <td>Blue</td>
-      <td><img src="../Picture/VS2022-Blue.png" width="400"></td>
-   </tr>
-</table>
-
-### Aka/DockingDemo
+### VS2022PreviewTest
 
 <table width="100%">
    <tr>
@@ -45,130 +33,18 @@
    </tr>
    <tr>
       <td>Dark</td>
-      <td><img src="../Picture/AkaStudio-2022-Dark.png" width="400"></td>
+      <td><img src="../Picture/VS2022Preview__Dark_default_.png" width="400"></td>
    </tr>
    <tr>
       <td>Light</td>
-      <td><img src="../Picture/AkaStudio-2022-Light.png" width="400"></td>
+      <td><img src="../Picture/VS2022Preview__Light_defalt_.png" width="400"></td>
    </tr>
    <tr>
       <td>Blue</td>
-      <td><img src="../Picture/AkaStudio-2022-Blue.png" width="400"></td>
+      <td><img src="../Picture/VS2022Preview__Blue_defalt_.png" width="400"></td>
    </tr>
 </table>
 
-### VS2022Test
-
-<table width="100%">
-   <tr>
-      <td>color</td>
-      <td>Dark</td>
-      <td>Light</td>
-      <td>Blue</td>
-   </tr>
-   <tr>
-      <td>无</td>
-      <td><img src="../Picture/VS2022-Dark-无.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-无.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-无.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>淡紫色</td>
-      <td><img src="../Picture/VS2022-Dark-淡紫色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-淡紫色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-淡紫色.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>金色</td>
-      <td><img src="../Picture/VS2022-Dark-金色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-金色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-金色.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>蓝绿色</td>
-      <td><img src="../Picture/VS2022-Dark-蓝绿色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-蓝绿色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-蓝绿色.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>绛紫色</td>
-      <td><img src="../Picture/VS2022-Dark-绛紫色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-绛紫色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-绛紫色.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>绿色</td>
-      <td><img src="../Picture/VS2022-Dark-绿色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-绿色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-绿色.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>棕色</td>
-      <td><img src="../Picture/VS2022-Dark-棕色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-棕色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-棕色.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>亮蓝色</td>
-      <td><img src="../Picture/VS2022-Dark-亮蓝色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-亮蓝色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-亮蓝色.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>南瓜色</td>
-      <td><img src="../Picture/VS2022-Dark-南瓜色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-南瓜色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-南瓜色.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>灰色</td>
-      <td><img src="../Picture/VS2022-Dark-灰色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-灰色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-灰色.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>珊瑚橘</td>
-      <td><img src="../Picture/VS2022-Dark-珊瑚橘.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-珊瑚橘.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-珊瑚橘.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>青色</td>
-      <td><img src="../Picture/VS2022-Dark-青色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-青色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-青色.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>品红</td>
-      <td><img src="../Picture/VS2022-Dark-品红.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-品红.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-品红.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>薄荷绿</td>
-      <td><img src="../Picture/VS2022-Dark-薄荷绿.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-薄荷绿.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-薄荷绿.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>深棕色</td>
-      <td><img src="../Picture/VS2022-Dark-深棕色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-深棕色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-深棕色.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>蓝色</td>
-      <td><img src="../Picture/VS2022-Dark-蓝色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-蓝色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-蓝色.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>粉色</td>
-      <td><img src="../Picture/VS2022-Dark-粉色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-粉色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-粉色.png" width="400" height="auto"></td>
-   </tr>
-</table>
 
 ## Theming
 

@@ -251,24 +251,43 @@
                                 <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
                             <!--  Following border is required to catch mouse events  -->
-                            <Border Grid.RowSpan="2" Background="Transparent" />
-                            <Grid
+							<Border Grid.RowSpan="2" Background="Transparent" />
+							<!--  文档内容下圆角  -->
+                            <Border
+                                x:Name="ContentPanel"
+                                Grid.Row="1"                               
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabSelectedActiveBackground}}"
+                                BorderThickness="1"
+                                CornerRadius="{StaticResource BottomCornerRadius}"
+                                KeyboardNavigation.DirectionalNavigation="Contained"
+                                KeyboardNavigation.TabIndex="1"
+                                KeyboardNavigation.TabNavigation="Cycle">
+                                <ContentPresenter
+                                    x:Name="PART_SelectedContentHost"
+                                    Margin="0"
+                                    ContentSource="SelectedContent"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            </Border>
+							<Grid
                                 Grid.Row="0"
-                                Margin="0,0"
+                                Margin="0,0"                                
                                 Panel.ZIndex="1"
                                 Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type avalonDockControls:LayoutDocumentPaneControl}}, Path=Model.ShowHeader, Converter={avalonDockConverters:BoolToVisibilityConverter}}">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-                                <!--  文档标签选项卡最下方彩色矩形条  -->
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition />
+									<ColumnDefinition Width="Auto" />
+								</Grid.ColumnDefinitions>
+                                <!--  文档标签选项卡容器Border，已废弃  --><!--
                                 <Border
                                     x:Name="BD"
                                     Grid.ColumnSpan="2"
                                     BorderBrush="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabSelectedActiveBackground}}"
-                                    BorderThickness="0,0,0,0" />
-                                <!--  文档选项卡容器改为DocumentPaneTabWrapPanel  -->
-                                <avalonDockControls:DocumentPaneTabPanel
+                                    BorderThickness="0,0,0,0" />-->
+								<!--  文档选项卡容器改为DocumentPaneTabWrapPanel  -->
+								<avalonDockControls:DocumentPaneTabPanel
                                     x:Name="HeaderPanel"
                                     Grid.Row="0"
                                     Grid.Column="0"
@@ -276,7 +295,7 @@
                                     IsItemsHost="true"
                                     KeyboardNavigation.TabIndex="1" />
 
-                                <avalonDockControls:DropDownButton
+								<avalonDockControls:DropDownButton
                                     x:Name="MenuDropDownButton"
                                     Grid.Column="1"
                                     Width="14"
@@ -285,11 +304,11 @@
                                     VerticalAlignment="Bottom"
                                     Focusable="False"
                                     Style="{StaticResource AvalonDockThemeVS2022PreviewToolButtonStyle}">
-                                    <avalonDockControls:DropDownButton.DropDownContextMenu>
-                                        <avalonDockControls:ContextMenuEx ItemsSource="{Binding Model.ChildrenSorted, RelativeSource={RelativeSource TemplatedParent}}" />
-                                    </avalonDockControls:DropDownButton.DropDownContextMenu>
-                                    <!--  最右侧下拉菜单，选择layoutdoucument  -->
-                                    <Path
+									<avalonDockControls:DropDownButton.DropDownContextMenu>
+										<avalonDockControls:ContextMenuEx ItemsSource="{Binding Model.ChildrenSorted, RelativeSource={RelativeSource TemplatedParent}}" />
+									</avalonDockControls:DropDownButton.DropDownContextMenu>
+									<!--  最右侧下拉菜单，选择layoutdoucument  -->
+									<Path
                                         x:Name="MenuDropDownButtonImage"
                                         Height="8"
                                         HorizontalAlignment="Center"
@@ -297,29 +316,9 @@
                                         Data="{DynamicResource PinDocMenu}"
                                         Fill="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellOverflowButtonDefaultGlyph}}"
                                         Stretch="Uniform" />
-                                </avalonDockControls:DropDownButton>
-                            </Grid>
-                            <!--  文档内容下圆角  -->
-                            <Border
-                                x:Name="ContentPanel"
-                                Grid.Row="1"
-                                Grid.Column="0"
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabSelectedActiveBackground}}"
-                                BorderThickness="1"
-                                CornerRadius="{StaticResource BottomCornerRadius}"
-                                KeyboardNavigation.DirectionalNavigation="Contained"
-                                KeyboardNavigation.TabIndex="2"
-                                KeyboardNavigation.TabNavigation="Cycle">
-                                <ContentPresenter
-                                    x:Name="PART_SelectedContentHost"
-                                    Margin="0"
-                                    ContentSource="SelectedContent"
-                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                            </Border>
-                        </Grid>
+								</avalonDockControls:DropDownButton>
+							</Grid>
+						</Grid>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger SourceName="MenuDropDownButton" Property="IsMouseOver" Value="True">
@@ -338,7 +337,7 @@
                             <MultiDataTrigger.Conditions>
                                 <Condition Binding="{Binding SelectedItem.IsActive, RelativeSource={RelativeSource Self}}" Value="False" />
                             </MultiDataTrigger.Conditions>
-                            <Setter TargetName="BD" Property="BorderBrush" Value="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabSelectedInactiveBackground}}" />
+                            <!--<Setter TargetName="BD" Property="BorderBrush" Value="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabSelectedInactiveBackground}}" />-->
                         </MultiDataTrigger>
 
                         <Trigger Property="IsEnabled" Value="false">
@@ -346,7 +345,7 @@
                         </Trigger>
 
                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Model.ChildrenCount}" Value="0">
-                            <Setter TargetName="BD" Property="BorderBrush" Value="Transparent" />
+                            <!--<Setter TargetName="BD" Property="BorderBrush" Value="Transparent" />-->
                             <Setter TargetName="ContentPanel" Property="Visibility" Value="Collapsed" />
                             <Setter TargetName="MenuDropDownButton" Property="Visibility" Value="Collapsed" />
                         </DataTrigger>
@@ -379,7 +378,7 @@
 										<ColumnDefinition Width="auto" />
 										<ColumnDefinition Width="*" />
 									</Grid.ColumnDefinitions>
-									<!--#region 左侧矩形条-->
+									<!--#region 左侧矩形条，已废弃-->
                                     <!--<Border
                                         x:Name="LeftRectangle"
                                         Grid.Column="0"
@@ -397,10 +396,8 @@
                                         BorderBrush="{Binding Background, RelativeSource={RelativeSource Self}}"
                                         BorderThickness="1,1,1,1"
                                         CornerRadius="1,1,0,0" >
-										<avaTheme:AdornerHelper.TabItemAdorner>
-											<Rectangle x:Name="R1" Stroke="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabUnselectedBackground}}" 
-													   StrokeThickness="1" Width="Auto" VerticalAlignment="Bottom" Margin="0,0,0,-1"/>
-										</avaTheme:AdornerHelper.TabItemAdorner>
+										<Rectangle x:Name="PART_MaskContent" Stroke="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabUnselectedBackground}}" 
+								   StrokeThickness="1" Width="Auto" VerticalAlignment="Bottom" Margin="0,0,0,-2"/>
 									</Border>
 									<!--#endregion-->
                                     <ContentPresenter
@@ -426,14 +423,14 @@
 										<!--#endregion-->
 									</DataTrigger>
 
-									<!--  激活时更改附加属性遮罩  -->
+									<!--  激活时更改遮罩  -->
 									<MultiDataTrigger>
 										<MultiDataTrigger.Conditions>
 											<Condition Binding="{Binding IsActive}" Value="True" />
 											<Condition Binding="{Binding IsPaneLastRow}" Value="True" />
 										</MultiDataTrigger.Conditions>
-										<Setter TargetName="R1" Property="StrokeThickness" Value="2" />
-										<Setter TargetName="R1" Property="Stroke" Value="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabUnselectedBackground}}" />
+										<Setter TargetName="PART_MaskContent" Property="StrokeThickness" Value="2" />
+										<Setter TargetName="PART_MaskContent" Property="Stroke" Value="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabUnselectedBackground}}" />
 									</MultiDataTrigger>
 
 									<MultiDataTrigger>
@@ -441,7 +438,7 @@
 											<Condition Binding="{Binding IsActive}" Value="True" />
 											<Condition Binding="{Binding IsPaneLastRow}" Value="False" />
 										</MultiDataTrigger.Conditions>
-										<Setter TargetName="R1" Property="StrokeThickness" Value="0" />
+										<Setter TargetName="PART_MaskContent" Property="StrokeThickness" Value="0" />
 									</MultiDataTrigger>
 
 									<!--  Document Well : Tab / Selected, inactive 选中但未激活，白  -->
@@ -452,7 +449,7 @@
                                         </MultiDataTrigger.Conditions>
                                         <Setter Property="Foreground" Value="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabSelectedInactiveText}}" />
                                         <Setter TargetName="Bd" Property="Margin" Value="0,0,0,0" />
-										<Setter TargetName="R1" Property="StrokeThickness" Value="0" />
+										<Setter TargetName="PART_MaskContent" Property="StrokeThickness" Value="0" />
 									</MultiDataTrigger>
 
                                     <!--  Document Well : Tab / Unselected 未选中，透明  -->
@@ -462,7 +459,7 @@
                                             <Condition Binding="{Binding IsSelected}" Value="False" />
                                         </MultiDataTrigger.Conditions>
                                         <Setter TargetName="Bd" Property="BorderBrush" Value="Transparent" />
-										<Setter TargetName="R1" Property="StrokeThickness" Value="0" />
+										<Setter TargetName="PART_MaskContent" Property="StrokeThickness" Value="0" />
                                         <Setter Property="FontWeight" Value="Normal" />
                                         <!--#endregion-->
                                     </MultiDataTrigger>

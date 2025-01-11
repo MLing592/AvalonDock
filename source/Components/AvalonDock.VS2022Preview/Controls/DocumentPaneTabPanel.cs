@@ -318,7 +318,7 @@ namespace AvalonDock.Controls
 					currentX = width;
 					currentLineLength = width;
 					currentLineMaxHeight = height;
-					baseSize.Height += currentLineMaxHeight; 
+					//baseSize.Height += currentLineMaxHeight; 
 				}
 				if (currentContent is ILastRow content)
 				{

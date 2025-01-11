@@ -12,31 +12,19 @@
 
 ![Net4](https://badgen.net/badge/Framework/.Net&nbsp;4.8/blue) ![NetCore3](https://badgen.net/badge/NetCore/NetCore&nbsp;3.0/yellow) ![Net4](https://badgen.net/badge/NetCore/.NET&nbsp;5.0/orange)
 
+### Contributor
 
-# Feature: from Visual Studio VS2022 and Higher
+<img src="../Contributors/me.jpg" width="60" height="60">
+<img src="../Contributors/646905217.jpg" width="60" height="60">
 
-### VS2022Test
+# Feature: Compared to the original version, it adds the VS2022Preview theme.
 
-<table width="100%">
-   <tr>
-      <td>theme</td>
-      <td>display</td>
-   </tr>
-   <tr>
-      <td>Dark</td>
-      <td><img src="../Picture/VS2022-Dark.png" width="400"></td>
-   </tr>
-   <tr>
-      <td>Light</td>
-      <td><img src="../Picture/VS2022-Light.png" width="400"></td>
-   </tr>
-   <tr>
-      <td>Blue</td>
-      <td><img src="../Picture/AkaStudio-2022-Blue.png" width="400"></td>
-   </tr>
-</table>
+1. Document tags now support pinning.
+2. Document tags adaptively wrap in a flow layout.
+3. Document tags allow setting tab colors, optimizing the connection with the UI.
+4. Document tags support one-click closing of left-side tags, one-click closing of left-side tags except for pinned items, one-click closing of right-side tags, one-click closing of right-side tags except for pinned items, and besides that, closing all…
 
-### Aka/DockingDemo
+### VS2022PreviewTest
 
 <table width="100%">
    <tr>
@@ -45,130 +33,18 @@
    </tr>
    <tr>
       <td>Dark</td>
-      <td><img src="../Picture/AkaStudio-2022-Dark.png" width="400"></td>
+      <td><img src="../Picture/VS2022Preview__Dark_default_.png" width="400"></td>
    </tr>
    <tr>
       <td>Light</td>
-      <td><img src="../Picture/AkaStudio-2022-Light.png" width="400"></td>
+      <td><img src="../Picture/VS2022Preview__Light_defalt_.png" width="400"></td>
    </tr>
    <tr>
       <td>Blue</td>
-      <td><img src="../Picture/AkaStudio-2022-Blue.png" width="400"></td>
+      <td><img src="../Picture/VS2022Preview__Blue_defalt_.png" width="400"></td>
    </tr>
 </table>
 
-### VS2022Test
-
-<table width="100%">
-   <tr>
-      <td>color</td>
-      <td>Dark</td>
-      <td>Light</td>
-      <td>Blue</td>
-   </tr>
-   <tr>
-      <td>None</td>
-      <td><img src="../Picture/VS2022-Dark-无.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-无.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-无.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>Lavender</td>
-      <td><img src="../Picture/VS2022-Dark-淡紫色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-淡紫色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-淡紫色.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>Gold</td>
-      <td><img src="../Picture/VS2022-Dark-金色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-金色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-金色.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>Cyan</td>
-      <td><img src="../Picture/VS2022-Dark-蓝绿色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-蓝绿色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-蓝绿色.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>Burgundy</td>
-      <td><img src="../Picture/VS2022-Dark-绛紫色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-绛紫色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-绛紫色.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>Green</td>
-      <td><img src="../Picture/VS2022-Dark-绿色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-绿色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-绿色.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>Brown</td>
-      <td><img src="../Picture/VS2022-Dark-棕色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-棕色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-棕色.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>Royal Blue</td>
-      <td><img src="../Picture/VS2022-Dark-亮蓝色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-亮蓝色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-亮蓝色.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>Pumpkin</td>
-      <td><img src="../Picture/VS2022-Dark-南瓜色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-南瓜色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-南瓜色.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>Gray</td>
-      <td><img src="../Picture/VS2022-Dark-灰色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-灰色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-灰色.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>Volt</td>
-      <td><img src="../Picture/VS2022-Dark-珊瑚橘.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-珊瑚橘.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-珊瑚橘.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>Teal</td>
-      <td><img src="../Picture/VS2022-Dark-青色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-青色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-青色.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>Magenta</td>
-      <td><img src="../Picture/VS2022-Dark-品红.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-品红.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-品红.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>Mint</td>
-      <td><img src="../Picture/VS2022-Dark-薄荷绿.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-薄荷绿.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-薄荷绿.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>Dark Brown</td>
-      <td><img src="../Picture/VS2022-Dark-深棕色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-深棕色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-深棕色.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>Blue</td>
-      <td><img src="../Picture/VS2022-Dark-蓝色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-蓝色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-蓝色.png" width="400" height="auto"></td>
-   </tr>
-   <tr>
-      <td>Pink</td>
-      <td><img src="../Picture/VS2022-Dark-粉色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Light-粉色.png" width="400" height="auto"></td>
-      <td><img src="../Picture/VS2022-Blue-粉色.png" width="400" height="auto"></td>
-   </tr>
-</table>
 
 ## Theming
 

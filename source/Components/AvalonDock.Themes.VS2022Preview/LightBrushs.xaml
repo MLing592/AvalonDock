@@ -192,7 +192,7 @@
     <SolidColorBrush
         x:Key="{x:Static reskeys:ResourceKeys.DocumentWellTabSelectedActiveBackground}"
         options:Freeze="true"
-        Color="#006CBE" />
+        Color="#9183EE" />
     <!--  DocumentWellTabSelectedActiveText 选中时文字颜色，使用  -->
     <SolidColorBrush
         x:Key="{x:Static reskeys:ResourceKeys.DocumentWellTabSelectedActiveText}"

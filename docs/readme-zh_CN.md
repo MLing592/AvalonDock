@@ -13,10 +13,11 @@
 
 ![Net4](https://badgen.net/badge/Framework/.Net&nbsp;4.8/blue) ![NetCore3](https://badgen.net/badge/NetCore/NetCore&nbsp;3.0/yellow) ![Net4](https://badgen.net/badge/NetCore/.NET&nbsp;5.0/orange)
 
-### Contributor
-
-<img src="../Contributors/me.jpg" width="60" height="60">
-<img src="../Contributors/646905217.jpg" width="60" height="60">
+### Contributors：
+<div>
+<img src="../Picture/Contributors/me.jpg" width="64" height="64">
+<img src="../Picture/Contributors/646905217.jpg" width="64" height="64">
+</div>
 
 # 功能：相较于原版增加了VS2022Preview主题
 1. 文档标签支持了固定
@@ -33,15 +34,15 @@
    </tr>
    <tr>
       <td>Dark</td>
-      <td><img src="../Picture/VS2022Preview__Dark_default_.png" width="400"></td>
+      <td><img src="../Picture/VS2022Preview_Dark_default.png" width="400"></td>
    </tr>
    <tr>
       <td>Light</td>
-      <td><img src="../Picture/VS2022Preview__Light_defalt_.png" width="400"></td>
+      <td><img src="../Picture/VS2022Preview_Light_default.png" width="400"></td>
    </tr>
    <tr>
       <td>Blue</td>
-      <td><img src="../Picture/VS2022Preview__Blue_defalt_.png" width="400"></td>
+      <td><img src="../Picture/VS2022Preview_Blue_default.png" width="400"></td>
    </tr>
 </table>
 
@@ -52,19 +53,19 @@
 
 ```XAML
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/AvalonDock.Themes.VS2022;component/DarkBrushs.xaml" />
+        <ResourceDictionary Source="/AvalonDock.Themes.VS2022Preview;component/DarkBrushs.xaml" />
     </ResourceDictionary.MergedDictionaries>
 ```
 
 ```XAML
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/AvalonDock.Themes.VS2022;component/LightBrushs.xaml" />
+        <ResourceDictionary Source="/AvalonDock.Themes.VS2022Preview;component/LightBrushs.xaml" />
     </ResourceDictionary.MergedDictionaries>
 ```
 
 ```XAML
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/AvalonDock.Themes.VS2022;component/BlueBrushs.xaml" />
+        <ResourceDictionary Source="/AvalonDock.Themes.VS2022Preview;component/BlueBrushs.xaml" />
     </ResourceDictionary.MergedDictionaries>
 ```
 
@@ -77,7 +78,7 @@
 
 # 简单使用这个库
 
-1. 在nuget中搜索并下载安装如下包: ML592.AvalonDock.Themes.VS2022, 依赖于ML592.AvalonDock
+1. 在nuget中搜索并下载安装如下包: ML592.AvalonDock.Themes.VS2022Preview, 依赖于ML592.AvalonDock,暂未发布nuget包
 
 2. 在 App.xaml 中添加以下代码:
 
@@ -85,9 +86,9 @@
      <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/AvalonDock.Themes.VS2022;component/DarkBrushs.xaml" />
-                <ResourceDictionary Source="/AvalonDock.Themes.VS2022;component/LightBrushs.xaml" />
-                <ResourceDictionary Source="/AvalonDock.Themes.VS2022;component/BlueBrushs.xaml" />
+                <ResourceDictionary Source="/AvalonDock.Themes.VS2022Preview;component/DarkBrushs.xaml" />
+                <ResourceDictionary Source="/AvalonDock.Themes.VS2022Preview;component/LightBrushs.xaml" />
+                <ResourceDictionary Source="/AvalonDock.Themes.VS2022Preview;component/BlueBrushs.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
@@ -99,7 +100,7 @@
     <Grid>
         <DockingManager>
             <DockingManager.Theme>
-                <VS2022DarkTheme />
+                <VS2022PreviewDarkTheme />
             </DockingManager.Theme>
             <LayoutRoot>
                 <LayoutPanel Orientation="Horizontal">

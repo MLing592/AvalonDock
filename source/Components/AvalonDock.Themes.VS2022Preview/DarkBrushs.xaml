@@ -8,12 +8,12 @@
     </ResourceDictionary.MergedDictionaries>
 
 
-    <!--#region DocumentTabColor 可选文档背景色-->
+    <!--#region DocumentTabColor 可选文档边框和矩形条色-->
 
     <SolidColorBrush
         x:Key="{x:Static reskeys:ResourceKeys.DocumentWellTabBackground2E2E2E}"
         options:Freeze="true"
-        Color="#E2E2E2" />
+        Color="Transparent" />
     <SolidColorBrush
         x:Key="{x:Static reskeys:ResourceKeys.DocumentWellTabBackground9183EE}"
         options:Freeze="true"
@@ -80,7 +80,79 @@
         Color="#E0A2A4" />
     <!--#endregion-->
 
-    <!--#region DocumentContextMenu Background Foreground 选项卡菜单背景色前景色-->
+	<!--#region DocumentTabColor 可选文档背景色-->
+
+	<SolidColorBrush
+    x:Key="{x:Static reskeys:ResourceKeys.DocumentWellTabBackground2E2E2E_2}"
+    options:Freeze="true"
+    Color="#2E2E2E" />
+	<SolidColorBrush
+    x:Key="{x:Static reskeys:ResourceKeys.DocumentWellTabBackground9183EE_2}"
+    options:Freeze="true"
+    Color="#403C5C" />
+	<SolidColorBrush
+    x:Key="{x:Static reskeys:ResourceKeys.DocumentWellTabBackgroundD0B132_2}"
+    options:Freeze="true"
+    Color="#534923" />
+	<SolidColorBrush
+    x:Key="{x:Static reskeys:ResourceKeys.DocumentWellTabBackground31B0CD_2}"
+    options:Freeze="true"
+    Color="#234952" />
+	<SolidColorBrush
+    x:Key="{x:Static reskeys:ResourceKeys.DocumentWellTabBackgroundCE6469_2}"
+    options:Freeze="true"
+    Color="#523234" />
+	<SolidColorBrush
+    x:Key="{x:Static reskeys:ResourceKeys.DocumentWellTabBackground6BA02B_2}"
+    options:Freeze="true"
+    Color="#344421" />
+	<SolidColorBrush
+    x:Key="{x:Static reskeys:ResourceKeys.DocumentWellTabBackgroundBC8F6F_2}"
+    options:Freeze="true"
+    Color="#4D3F36" />
+	<SolidColorBrush
+    x:Key="{x:Static reskeys:ResourceKeys.DocumentWellTabBackground5BB2FA_2}"
+    options:Freeze="true"
+    Color="#2F4A5F" />
+	<SolidColorBrush
+    x:Key="{x:Static reskeys:ResourceKeys.DocumentWellTabBackgroundD67540_2}"
+    options:Freeze="true"
+    Color="#553727" />
+	<SolidColorBrush
+    x:Key="{x:Static reskeys:ResourceKeys.DocumentWellTabBackgroundBDBDBD_2}"
+    options:Freeze="true"
+    Color="#4D4D4D" />
+	<SolidColorBrush
+    x:Key="{x:Static reskeys:ResourceKeys.DocumentWellTabBackgroundCACD38_2}"
+    options:Freeze="true"
+    Color="#515225" />
+	<SolidColorBrush
+    x:Key="{x:Static reskeys:ResourceKeys.DocumentWellTabBackground2AA0A4_2}"
+    options:Freeze="true"
+    Color="#214446" />
+	<SolidColorBrush
+    x:Key="{x:Static reskeys:ResourceKeys.DocumentWellTabBackgroundD957A7_2}"
+    options:Freeze="true"
+    Color="#562E46" />
+	<SolidColorBrush
+    x:Key="{x:Static reskeys:ResourceKeys.DocumentWellTabBackground6BC7A4_2}"
+    options:Freeze="true"
+    Color="#345046" />
+	<SolidColorBrush
+    x:Key="{x:Static reskeys:ResourceKeys.DocumentWellTabBackground946A5B_2}"
+    options:Freeze="true"
+    Color="#41342F" />
+	<SolidColorBrush
+    x:Key="{x:Static reskeys:ResourceKeys.DocumentWellTabBackground6B8EC7_2}"
+    options:Freeze="true"
+    Color="#343F50" />
+	<SolidColorBrush
+    x:Key="{x:Static reskeys:ResourceKeys.DocumentWellTabBackgroundE0A2A4_2}"
+    options:Freeze="true"
+    Color="#584546" />
+	<!--#endregion-->
+
+	<!--#region DocumentContextMenu Background Foreground 选项卡菜单背景色前景色-->
     <SolidColorBrush
         x:Key="{x:Static reskeys:ResourceKeys.DocumentContextMenuBackground}"
         options:Freeze="true"
@@ -180,7 +252,7 @@
     <SolidColorBrush
         x:Key="{x:Static reskeys:ResourceKeys.DocumentWellTabUnselectedHoveredBackgroundColor}"
         options:Freeze="true"
-        Color="#2E2E2E" />
+        Color="#333333" />
     <!--
         "The color of the rectangular bar on the left side of the document needs to be changed when change tab color command."
         文档左方矩形条颜色，使用，改变选项卡颜色时需要改变这个颜色
@@ -188,7 +260,7 @@
     <SolidColorBrush
         x:Key="{x:Static reskeys:ResourceKeys.DocumentWellTabUnselectedRectangleBackground}"
         options:Freeze="true"
-        Color="#5BB2FA" />
+        Color="Transparent" />
     <!--
         "The background color during selection needs to be changed when  change tab color command."
         选中时背景色，使用，改变选项卡颜色时需要改变这个颜色
@@ -210,11 +282,17 @@
         x:Key="{x:Static reskeys:ResourceKeys.DocumentWellTabSelectedInactiveText}"
         options:Freeze="true"
         Color="#F1F1F1" />
+	<!--未选中时更改背景色-->
     <SolidColorBrush
         x:Key="{x:Static reskeys:ResourceKeys.DocumentWellTabUnselectedBackground}"
         options:Freeze="true"
         Color="#2E2E2E" />
-    <SolidColorBrush
+	<!--被选中时更改背景色-->
+	<SolidColorBrush
+		x:Key="{x:Static reskeys:ResourceKeys.DocumentWellTabSelectedBackground}"
+		options:Freeze="true"
+		Color="#2E2E2E" />
+	<SolidColorBrush
         x:Key="{x:Static reskeys:ResourceKeys.DocumentWellTabUnselectedText}"
         options:Freeze="true"
         Color="#BDBDBD" />

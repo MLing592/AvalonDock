@@ -8,6 +8,7 @@
  ************************************************************************/
 
 using AvalonDock.Commands;
+using AvalonDock.Helper;
 using AvalonDock.Layout;
 using AvalonDock.Themes;
 using System;
@@ -126,42 +127,13 @@ namespace AvalonDock.Controls
 
 			//Get parameter to brush
 			//转换brush
-			var brush = parameter as SolidColorBrush;
+			var brush = parameter as ComponentResourceKey;
 			if (brush == null) return;
 
 			//"To retrieve the key value of the theme resources and replace the resource color, you need to modify 'DockingManager.Theme'.
 			//获取主题资源键值，更换资源颜色
-			var result = SearchResourceDict(dockingManager.Resources, brush);
-			if(!result) SearchResourceDict(Application.Current.Resources, brush);
-		}
-
-		//"Search resource dictionary, with a default maximum search depth of 3."
-		//搜索资源字典，最大搜索深度默认为3
-		private bool SearchResourceDict(ResourceDictionary resourceDict,SolidColorBrush brush,int SearchDepth = 3)
-		{
-			Func<IEnumerable<ResourceDictionary>, int,bool> loopThroughDicts = null;
-			loopThroughDicts = (dicts, level) =>
-			{
-				if (level > SearchDepth) return false;
-				foreach (ResourceDictionary dict in dicts)
-				{
-					var leftKey = dict.Keys.OfType<ComponentResourceKey>().FirstOrDefault(k => k.ResourceId.ToString() == "DocumentWellTabUnselectedRectangleBackground");
-					var middleKey = dict.Keys.OfType<ComponentResourceKey>().FirstOrDefault(k => k.ResourceId.ToString() == "DocumentWellTabSelectedActiveBackground");
-					if (leftKey != null && middleKey != null)
-					{
-						dict[leftKey] = brush;
-						dict[middleKey] = brush;
-						return true;
-					}
-
-					if (dict.MergedDictionaries.Count > 0)
-					{
-						return loopThroughDicts(dict.MergedDictionaries.OfType<ResourceDictionary>(), level + 1);
-					}
-				}
-				return false;
-			};
-			return loopThroughDicts(resourceDict.MergedDictionaries.OfType<ResourceDictionary>(), 1);
+			var result = ResourceHelper.FindDocmentWellResource(dockingManager.Resources, brush);
+			if(!result) ResourceHelper.FindDocmentWellResource(Application.Current.Resources, brush);
 		}
 
 

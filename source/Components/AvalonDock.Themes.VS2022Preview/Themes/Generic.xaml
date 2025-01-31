@@ -372,33 +372,36 @@
                     <Setter Property="Template">
                         <Setter.Value>
 							<ControlTemplate TargetType="{x:Type TabItem}">
-                                <Grid Margin="0,0,0,0" SnapsToDevicePixels="true">
+								<!--#region 背景-->
+								<Border
+                                        x:Name="Bd"
+                                        Grid.Column="1"
+										Grid.ColumnSpan="2"
+                                        Background="{TemplateBinding Background}"
+                                        BorderBrush="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabUnselectedBackground}}"
+                                        BorderThickness="1,1,1,1"
+                                        CornerRadius="1,1,0,0" >
+									
+									<Grid Margin="0,0,0,0" SnapsToDevicePixels="true">
                                     <!--  Document标签页内容  -->
 									<Grid.ColumnDefinitions>
 										<ColumnDefinition Width="auto" />
 										<ColumnDefinition Width="*" />
 									</Grid.ColumnDefinitions>
-									<!--#region 左侧矩形条，已废弃-->
-                                    <!--<Border
+										<!--#region 左侧矩形条-->
+									<Border
                                         x:Name="LeftRectangle"
                                         Grid.Column="0"
-                                        Width="4"
-                                        Margin="0,0,0,0"
+                                        Width="3"
+                                        Margin="4"
                                         Background="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabUnselectedRectangleBackground}}"
-                                        CornerRadius="2,0,0,0"
-                                        Visibility="Visible" />-->
+                                        CornerRadius="1,1,1,1"
+                                        Visibility="Visible" />
                                     <!--#endregion-->
-                                    <!--#region 背景-->
-									<Border
-                                        x:Name="Bd"
-                                        Grid.Column="1"
-                                        Background="{TemplateBinding Background}"
-                                        BorderBrush="{Binding Background, RelativeSource={RelativeSource Self}}"
-                                        BorderThickness="1,1,1,1"
-                                        CornerRadius="1,1,0,0" >
-										<Rectangle x:Name="PART_MaskContent" Stroke="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabUnselectedBackground}}" 
+
+										<Rectangle Grid.ColumnSpan="2" x:Name="PART_MaskContent" Stroke="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabSelectedBackground}}" 
 								   StrokeThickness="1" Width="Auto" VerticalAlignment="Bottom" Margin="0,0,0,-2"/>
-									</Border>
+									
 									<!--#endregion-->
                                     <ContentPresenter
                                         x:Name="Content"
@@ -409,7 +412,8 @@
                                         RecognizesAccessKey="True"
                                         SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                                 </Grid>
-                                <ControlTemplate.Triggers>
+								</Border>
+								<ControlTemplate.Triggers>
                                     <Trigger Property="Selector.IsSelected" Value="true">
                                         <Setter Property="Panel.ZIndex" Value="1" />
                                     </Trigger>
@@ -417,6 +421,7 @@
                                     <!--  Document Well : Tab / Selected, active选中且激活，Dark下蓝，黑，需要改蓝  -->
 									<DataTrigger Binding="{Binding IsActive}" Value="True">
 										<Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabSelectedActiveBackground}}" />
+										<Setter TargetName="Bd" Property="Background" Value="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabSelectedBackground}}" />
 										<Setter Property="Foreground" Value="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabSelectedActiveText}}" />
 										<Setter Property="FontWeight" Value="Bold" />
                                         <Setter Property="Panel.ZIndex" Value="1" />
@@ -430,9 +435,8 @@
 											<Condition Binding="{Binding IsPaneLastRow}" Value="True" />
 										</MultiDataTrigger.Conditions>
 										<Setter TargetName="PART_MaskContent" Property="StrokeThickness" Value="2" />
-										<Setter TargetName="PART_MaskContent" Property="Stroke" Value="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabUnselectedBackground}}" />
 									</MultiDataTrigger>
-
+									
 									<MultiDataTrigger>
 										<MultiDataTrigger.Conditions>
 											<Condition Binding="{Binding IsActive}" Value="True" />
@@ -448,7 +452,7 @@
                                             <Condition Binding="{Binding IsSelected}" Value="True" />
                                         </MultiDataTrigger.Conditions>
                                         <Setter Property="Foreground" Value="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabSelectedInactiveText}}" />
-                                        <Setter TargetName="Bd" Property="Margin" Value="0,0,0,0" />
+										<Setter TargetName="Bd" Property="Margin" Value="0,0,0,0" />
 										<Setter TargetName="PART_MaskContent" Property="StrokeThickness" Value="0" />
 									</MultiDataTrigger>
 
@@ -460,7 +464,7 @@
                                         </MultiDataTrigger.Conditions>
                                         <Setter TargetName="Bd" Property="BorderBrush" Value="Transparent" />
 										<Setter TargetName="PART_MaskContent" Property="StrokeThickness" Value="0" />
-                                        <Setter Property="FontWeight" Value="Normal" />
+										<Setter Property="FontWeight" Value="Normal" />
                                         <!--#endregion-->
                                     </MultiDataTrigger>
 
@@ -1478,7 +1482,7 @@
             </MenuItem.ItemContainerStyle>
             <MenuItem
                 Command="{Binding Path=ChangeTabColorCommand}"
-                CommandParameter="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabBackground2E2E2E}}"
+                CommandParameter="{x:Static reskeys:ResourceKeys.DocumentWellTabBackground2E2E2E}"
                 Header="无">
                 <MenuItem.Icon>
                     <Border
@@ -1493,7 +1497,7 @@
 
             <MenuItem
                 Command="{Binding Path=ChangeTabColorCommand}"
-                CommandParameter="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabBackground9183EE}}"
+                CommandParameter="{x:Static reskeys:ResourceKeys.DocumentWellTabBackground9183EE}"
                 Header="淡紫色">
                 <MenuItem.Icon>
                     <Border
@@ -1507,7 +1511,7 @@
             </MenuItem>
             <MenuItem
                 Command="{Binding Path=ChangeTabColorCommand}"
-                CommandParameter="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabBackgroundD0B132}}"
+                CommandParameter="{x:Static reskeys:ResourceKeys.DocumentWellTabBackgroundD0B132}"
                 Header="金色">
                 <MenuItem.Icon>
                     <Border
@@ -1521,7 +1525,7 @@
             </MenuItem>
             <MenuItem
                 Command="{Binding Path=ChangeTabColorCommand}"
-                CommandParameter="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabBackground31B0CD}}"
+                CommandParameter="{x:Static reskeys:ResourceKeys.DocumentWellTabBackground31B0CD}"
                 Header="蓝绿色">
                 <MenuItem.Icon>
                     <Border
@@ -1535,7 +1539,7 @@
             </MenuItem>
             <MenuItem
                 Command="{Binding Path=ChangeTabColorCommand}"
-                CommandParameter="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabBackgroundCE6469}}"
+                CommandParameter="{x:Static reskeys:ResourceKeys.DocumentWellTabBackgroundCE6469}"
                 Header="绛紫色">
                 <MenuItem.Icon>
                     <Border
@@ -1549,7 +1553,7 @@
             </MenuItem>
             <MenuItem
                 Command="{Binding Path=ChangeTabColorCommand}"
-                CommandParameter="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabBackground6BA02B}}"
+                CommandParameter="{x:Static reskeys:ResourceKeys.DocumentWellTabBackground6BA02B}"
                 Header="绿色">
                 <MenuItem.Icon>
                     <Border
@@ -1563,7 +1567,7 @@
             </MenuItem>
             <MenuItem
                 Command="{Binding Path=ChangeTabColorCommand}"
-                CommandParameter="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabBackgroundBC8F6F}}"
+                CommandParameter="{x:Static reskeys:ResourceKeys.DocumentWellTabBackgroundBC8F6F}"
                 Header="棕色">
                 <MenuItem.Icon>
                     <Border
@@ -1577,7 +1581,7 @@
             </MenuItem>
             <MenuItem
                 Command="{Binding Path=ChangeTabColorCommand}"
-                CommandParameter="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabBackground5BB2FA}}"
+                CommandParameter="{x:Static reskeys:ResourceKeys.DocumentWellTabBackground5BB2FA}"
                 Header="亮蓝色">
                 <MenuItem.Icon>
                     <Border
@@ -1591,7 +1595,7 @@
             </MenuItem>
             <MenuItem
                 Command="{Binding Path=ChangeTabColorCommand}"
-                CommandParameter="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabBackgroundD67540}}"
+                CommandParameter="{x:Static reskeys:ResourceKeys.DocumentWellTabBackgroundD67540}"
                 Header="南瓜色">
                 <MenuItem.Icon>
                     <Border
@@ -1605,7 +1609,7 @@
             </MenuItem>
             <MenuItem
                 Command="{Binding Path=ChangeTabColorCommand}"
-                CommandParameter="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabBackgroundBDBDBD}}"
+                CommandParameter="{x:Static reskeys:ResourceKeys.DocumentWellTabBackgroundBDBDBD}"
                 Header="灰色">
                 <MenuItem.Icon>
                     <Border
@@ -1619,7 +1623,7 @@
             </MenuItem>
             <MenuItem
                 Command="{Binding Path=ChangeTabColorCommand}"
-                CommandParameter="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabBackgroundCACD38}}"
+                CommandParameter="{x:Static reskeys:ResourceKeys.DocumentWellTabBackgroundCACD38}"
                 Header="珊瑚橘">
                 <MenuItem.Icon>
                     <Border
@@ -1633,7 +1637,7 @@
             </MenuItem>
             <MenuItem
                 Command="{Binding Path=ChangeTabColorCommand}"
-                CommandParameter="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabBackground2AA0A4}}"
+                CommandParameter="{x:Static reskeys:ResourceKeys.DocumentWellTabBackground2AA0A4}"
                 Header="青色">
                 <MenuItem.Icon>
                     <Border
@@ -1647,7 +1651,7 @@
             </MenuItem>
             <MenuItem
                 Command="{Binding Path=ChangeTabColorCommand}"
-                CommandParameter="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabBackgroundD957A7}}"
+                CommandParameter="{x:Static reskeys:ResourceKeys.DocumentWellTabBackgroundD957A7}"
                 Header="品红">
                 <MenuItem.Icon>
                     <Border
@@ -1661,7 +1665,7 @@
             </MenuItem>
             <MenuItem
                 Command="{Binding Path=ChangeTabColorCommand}"
-                CommandParameter="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabBackground6BC7A4}}"
+                CommandParameter="{x:Static reskeys:ResourceKeys.DocumentWellTabBackground6BC7A4}"
                 Header="薄荷绿">
                 <MenuItem.Icon>
                     <Border
@@ -1675,7 +1679,7 @@
             </MenuItem>
             <MenuItem
                 Command="{Binding Path=ChangeTabColorCommand}"
-                CommandParameter="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabBackground946A5B}}"
+                CommandParameter="{x:Static reskeys:ResourceKeys.DocumentWellTabBackground946A5B}"
                 Header="深棕色">
                 <MenuItem.Icon>
                     <Border
@@ -1689,7 +1693,7 @@
             </MenuItem>
             <MenuItem
                 Command="{Binding Path=ChangeTabColorCommand}"
-                CommandParameter="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabBackground6B8EC7}}"
+                CommandParameter="{x:Static reskeys:ResourceKeys.DocumentWellTabBackground6B8EC7}"
                 Header="蓝色">
                 <MenuItem.Icon>
                     <Border
@@ -1703,7 +1707,7 @@
             </MenuItem>
             <MenuItem
                 Command="{Binding Path=ChangeTabColorCommand}"
-                CommandParameter="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabBackgroundE0A2A4}}"
+                CommandParameter="{x:Static reskeys:ResourceKeys.DocumentWellTabBackgroundE0A2A4}"
                 Header="粉色">
                 <MenuItem.Icon>
                     <Border

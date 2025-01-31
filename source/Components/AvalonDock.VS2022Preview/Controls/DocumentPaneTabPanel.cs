@@ -284,7 +284,6 @@ namespace AvalonDock.Controls
 					(currentLineLength + width > finalSize.Width))
 				{
 					needsNewLine = true;
-					currentLineNumber++; 
 					currentY += currentLineMaxHeight; 
 					currentLineLength = 0; 
 					currentLineMaxHeight = 0; 					
@@ -295,7 +294,6 @@ namespace AvalonDock.Controls
 				if (currentContent is LayoutDocument && !(frontContent is LayoutDocument))
 				{
 					needsNewLine = true;
-					currentLineNumber++; 
 					currentY += currentLineMaxHeight; 
 					currentLineLength = 0; 
 					currentLineMaxHeight = 0; 
@@ -318,6 +316,7 @@ namespace AvalonDock.Controls
 					currentX = width;
 					currentLineLength = width;
 					currentLineMaxHeight = height;
+					currentLineNumber++;
 					//baseSize.Height += currentLineMaxHeight; 
 				}
 				if (currentContent is ILastRow content)

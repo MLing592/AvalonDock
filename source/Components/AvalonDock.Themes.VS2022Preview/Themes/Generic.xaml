@@ -436,7 +436,15 @@
 										</MultiDataTrigger.Conditions>
 										<Setter TargetName="PART_MaskContent" Property="StrokeThickness" Value="2" />
 									</MultiDataTrigger>
-									
+
+									<MultiDataTrigger>
+										<MultiDataTrigger.Conditions>
+											<Condition Binding="{Binding IsActive}" Value="False" />
+											<Condition Binding="{Binding IsPaneLastRow}" Value="False" />
+										</MultiDataTrigger.Conditions>
+										<Setter TargetName="PART_MaskContent" Property="StrokeThickness" Value="0" />
+									</MultiDataTrigger>
+
 									<MultiDataTrigger>
 										<MultiDataTrigger.Conditions>
 											<Condition Binding="{Binding IsActive}" Value="True" />

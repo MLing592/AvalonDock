@@ -128,6 +128,7 @@ namespace AvalonDock.Controls
 		}
 
 		/// <inheritdoc />
+		// 鼠标拖拽移动TabItem
 		protected override void OnMouseMove(MouseEventArgs e)
 		{
 			base.OnMouseMove(e);

@@ -220,7 +220,7 @@ namespace AvalonDock.Layout
 			{
 				if (value == _paneRowIndex) return;
 				_paneRowIndex = value;
-				RaisePropertyChanging(nameof(PaneRowIndex));
+				RaisePropertyChanged(nameof(PaneRowIndex));
 			}
 		}
 		#endregion
@@ -237,7 +237,7 @@ namespace AvalonDock.Layout
 			{
 				if (value == _isPaneLastRow) return;
 				_isPaneLastRow = value;
-				RaisePropertyChanging(nameof(IsPaneLastRow));
+				RaisePropertyChanged(nameof(IsPaneLastRow));
 			}
 		}
 		#endregion

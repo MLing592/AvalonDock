@@ -117,7 +117,7 @@ namespace AvalonDock.Controls
 
 		private bool CanExecuteAutoHideCommand(object parameter) => LayoutElement != null && _anchorable.CanHide;
 
-		private void ExecuteAutoHideCommand(object parameter) => _anchorable?.Root?.Manager?.ExecuteHideCommand(_anchorable);
+		private void ExecuteAutoHideCommand(object parameter) => _anchorable?.Root?.Manager?.ExecuteAutoHideCommand(_anchorable);
 
 		#endregion HideCommand
 

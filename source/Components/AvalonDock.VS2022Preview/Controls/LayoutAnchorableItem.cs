@@ -60,7 +60,7 @@ namespace AvalonDock.Controls
 
 		#region Properties
 
-		#region HideCommand 隐藏
+		#region HideCommand
 
 		/// <summary><see cref="HideCommand"/> dependency property.</summary>
 		public static readonly DependencyProperty HideCommandProperty = DependencyProperty.Register(nameof(HideCommand), typeof(ICommand), typeof(LayoutAnchorableItem),
@@ -91,14 +91,15 @@ namespace AvalonDock.Controls
 
 		#endregion HideCommand
 
-		#region HideCommand 隐藏
+		#region AutoHideCommand
 
 		/// <summary><see cref="AutoHideCommand"/> dependency property.</summary>
 		public static readonly DependencyProperty AutoHideCommandProperty = DependencyProperty.Register(nameof(AutoHideCommand), typeof(ICommand), typeof(LayoutAnchorableItem),
 				new FrameworkPropertyMetadata(null, OnAutoHideCommandChanged, CoerceAutoHideCommandValue));
 
-		/// <summary>Gets/sets the the command to execute when an anchorable is hidden.</summary>
-		[Bindable(true), Description("Gets/sets the the command to execute when an anchorable is hidden."), Category("Other")]
+		/// <summary>Gets/sets the command to execute when user click the auto hide button.</summary>
+		/// <remarks>By default this command toggles auto hide state for an anchorable.</remarks>
+		[Bindable(true), Description("Gets/sets the command to execute when user click the auto hide button."), Category("Other")]
 		public ICommand AutoHideCommand
 		{
 			get => (ICommand)GetValue(AutoHideCommandProperty);
@@ -108,19 +109,24 @@ namespace AvalonDock.Controls
 		/// <summary>Handles changes to the <see cref="AutoHideCommand"/> property.</summary>
 		private static void OnAutoHideCommandChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((LayoutAnchorableItem)d).OnAutoHideCommandChanged(e);
 
-		/// <summary>Provides derived classes an opportunity to handle changes to the <see cref="HideCommand"/> property.</summary>
+		/// <summary>Provides derived classes an opportunity to handle changes to the <see cref="AutoHideCommand"/> property.</summary>
 		protected virtual void OnAutoHideCommandChanged(DependencyPropertyChangedEventArgs e)
 		{
 		}
 
-		/// <summary>Coerces the <see cref="HideCommand"/> value.</summary>
+		/// <summary>Coerces the <see cref="AutoHideCommand"/> value.</summary>
 		private static object CoerceAutoHideCommandValue(DependencyObject d, object value) => value;
 
-		private bool CanExecuteAutoHideCommand(object parameter) => LayoutElement != null && _anchorable.CanHide;
+		private bool CanExecuteAutoHideCommand(object parameter)
+		{
+			if (LayoutElement == null) return false;
+			if (LayoutElement.FindParent<LayoutAnchorableFloatingWindow>() != null) return false;//is floating
+			return _anchorable.CanAutoHide;
+		}
 
 		private void ExecuteAutoHideCommand(object parameter) => _anchorable?.Root?.Manager?.ExecuteAutoHideCommand(_anchorable);
 
-		#endregion HideCommand
+		#endregion AutoHideCommand
 
 		#region ChangeTabColorCommand 改变选项卡颜色
 

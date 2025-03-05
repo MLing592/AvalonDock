@@ -13,11 +13,10 @@
 
 ![Net4](https://badgen.net/badge/Framework/.Net&nbsp;4.8/blue) ![NetCore3](https://badgen.net/badge/NetCore/NetCore&nbsp;3.0/yellow) ![Net4](https://badgen.net/badge/NetCore/.NET&nbsp;5.0/orange)
 
-### Contributors
-<div>
-<img src="../Picture/Contributors/me.jpg" width="64" height="64">
-<img src="../Picture/Contributors/646905217.jpg" width="64" height="64">
-</div>
+## Contributors
+
+<a href="https://github.com/MLing592" target="_blank"><img style="border-radius:50%!important" width="64px" alt="MLing592" src="https://avatars.githubusercontent.com/u/58897757?s=400&u=dd6972ee4c45255d927489f3d8249bc4b6469e41&v=4"></a>
+<a href="https://github.com/wittybaji" target="_blank"><img style="border-radius:50%!important" width="64px" alt="wittybaji" src="https://avatars.githubusercontent.com/u/25461145?v=4"></a>
 
 # Feature: Compared to the original version, it adds the VS2022Preview theme.
 

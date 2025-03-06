@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFrameworks>netcoreapp3.0;net5.0-windows;net40</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.0;net5.0-windows;net6.0-windows;net40</TargetFrameworks>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 

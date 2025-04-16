@@ -380,7 +380,7 @@
                                         Background="{TemplateBinding Background}"
                                         BorderBrush="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabUnselectedBackground}}"
                                         BorderThickness="1,1,1,1"
-                                        CornerRadius="1,1,0,0" >
+                                        CornerRadius="2,2,0,0" >
 									
 									<Grid Margin="0,0,0,0" SnapsToDevicePixels="true">
                                     <!--  Document标签页内容  -->
@@ -435,6 +435,7 @@
 											<Condition Binding="{Binding IsPaneLastRow}" Value="True" />
 										</MultiDataTrigger.Conditions>
 										<Setter TargetName="PART_MaskContent" Property="StrokeThickness" Value="2" />
+										<Setter TargetName="Bd" Property="CornerRadius" Value="2,2,0,0" />
 									</MultiDataTrigger>
 
 									<MultiDataTrigger>
@@ -443,6 +444,7 @@
 											<Condition Binding="{Binding IsPaneLastRow}" Value="False" />
 										</MultiDataTrigger.Conditions>
 										<Setter TargetName="PART_MaskContent" Property="StrokeThickness" Value="0" />
+										<Setter TargetName="Bd" Property="CornerRadius" Value="2,2,2,2" />
 									</MultiDataTrigger>
 
 									<MultiDataTrigger>
@@ -451,6 +453,7 @@
 											<Condition Binding="{Binding IsPaneLastRow}" Value="False" />
 										</MultiDataTrigger.Conditions>
 										<Setter TargetName="PART_MaskContent" Property="StrokeThickness" Value="0" />
+										<Setter TargetName="Bd" Property="CornerRadius" Value="2,2,2,2" />
 									</MultiDataTrigger>
 
 									<!--  Document Well : Tab / Selected, inactive 选中但未激活，白  -->
@@ -692,7 +695,7 @@
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{StaticResource BottomCornerRadius}">
+                        CornerRadius="0">
                         <Grid Margin="2,2,3,3">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
@@ -2262,7 +2265,7 @@
                         Background="{TemplateBinding Background}"
                         BorderBrush="{DynamicResource {x:Static reskeys:ResourceKeys.PanelBorderBrush}}"
                         BorderThickness="1,0,1,1"
-                        CornerRadius="{StaticResource TopCornerRadius}">
+                        CornerRadius="0">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />

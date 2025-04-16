@@ -11,7 +11,7 @@
 | [![NuGet](https://img.shields.io/nuget/dt/ML592.AvalonDock.Themes.VS2022.svg)](https://www.nuget.org/packages/ML592.AvalonDock.Themes.VS2022)          | [ML592.AvalonDock.Themes.VS2022](https://www.nuget.org/packages/ML592.AvalonDock.Themes.VS2022)
 | [![NuGet](https://img.shields.io/nuget/dt/ML592.AvalonDock.Themes.VS2022Preview.svg)](https://www.nuget.org/packages/ML592.AvalonDock.Themes.VS2022Preview)          | [ML592.AvalonDock.Themes.VS2022Preview](https://www.nuget.org/packages/ML592.AvalonDock.Themes.VS2022Preview)
 
-![Net4](https://badgen.net/badge/Framework/.Net&nbsp;4.8/blue) ![NetCore3](https://badgen.net/badge/NetCore/NetCore&nbsp;3.0/yellow) ![Net4](https://badgen.net/badge/NetCore/.NET&nbsp;5.0/orange)
+![Net4](https://badgen.net/badge/Framework/.Net&nbsp;4.0/blue) ![NetCore3](https://badgen.net/badge/NetCore/NetCore&nbsp;3.0/yellow) ![Net5.0](https://badgen.net/badge/NetCore/.NET&nbsp;5.0/orange) ![Net6.0](https://badgen.net/badge/NetCore/.NET&nbsp;6.0/orange)
 
 ## Contributors
 
@@ -19,10 +19,11 @@
 <a href="https://github.com/wittybaji" target="_blank"><img style="border-radius:50%!important" width="64px" alt="wittybaji" src="https://avatars.githubusercontent.com/u/25461145?v=4"></a>
 
 # 功能：相较于原版增加了VS2022Preview主题
-1. 文档标签支持了固定
-2. 文档标签自适应流式换行，
-3. 文档标签设置选项卡颜色,优化了衔接UI，
-4. 文档标签支持一键关闭左侧标签，一键关闭左侧标签除固定项外，一键关闭右侧标签，一键关闭右侧标签除固定项外，除此之外全部关闭，关闭所有...
+1. 文档标签支持固定，固定项与非固定项分行放置
+2. 文档标签支持多行显示，自适应流式换行
+3. 文档标签支持设置选项卡颜色,优化了衔接UI
+4. 文档内容支持框选色跟随选项卡颜色
+5. 文档标签支持一键关闭左侧标签，一键关闭左侧标签除固定项外，一键关闭右侧标签，一键关闭右侧标签除固定项外，除此之外全部关闭，关闭所有...
 
 ### VS2022PreviewTest
 

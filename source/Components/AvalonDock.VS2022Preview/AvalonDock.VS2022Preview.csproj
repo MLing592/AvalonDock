@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
     <RootNamespace>AvalonDock</RootNamespace>
 	  <TargetFrameworks>netcoreapp3.0;net5.0-windows;net6.0-windows;net40</TargetFrameworks>
@@ -7,10 +7,10 @@
 	  <SignAssembly>true</SignAssembly>
 	  <AssemblyOriginatorKeyFile>sn.snk</AssemblyOriginatorKeyFile>
 	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	  <Version>4.72.2</Version>
-	  <AssemblyVersion>4.72.2</AssemblyVersion>
-	  <FileVersion>4.72.2</FileVersion>
-	  <PackageVersion>4.72.2</PackageVersion>
+	  <Version>1.0.0.Preview1.0</Version>
+	  <AssemblyVersion>1.0.0</AssemblyVersion>
+	  <FileVersion>1.0.0</FileVersion>
+	  <PackageVersion>1.0.0</PackageVersion>
 	  <Company>Open Source</Company>
 	  <Product>ML592.AvalonDock.VS2022Preview</Product>
 	  <Copyright>2017-2023</Copyright>

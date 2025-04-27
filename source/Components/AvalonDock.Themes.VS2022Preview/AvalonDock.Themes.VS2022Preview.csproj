@@ -2,15 +2,15 @@
 
   <PropertyGroup>
 	  <RootNamespace>AvalonDock.Themes</RootNamespace>
-	  <TargetFrameworks>netcoreapp3.0;net5.0-windows;net6.0-windows;net40</TargetFrameworks>
+	  <TargetFrameworks>netcoreapp3.0;net5.0-windows;net6.0-windows;net462;net40</TargetFrameworks>
 	  <LangVersion>preview</LangVersion>
 	  <UseWPF>true</UseWPF>
 	  <SignAssembly>True</SignAssembly>
 	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	  <Version>4.72.2</Version>
-	  <AssemblyVersion>4.72.2</AssemblyVersion>
-	  <FileVersion>4.72.2</FileVersion>
-	  <PackageVersion>4.72.2</PackageVersion>
+	  <Version>1.0.0.Preview1.0</Version>
+	  <AssemblyVersion>1.0.0</AssemblyVersion>
+	  <FileVersion>1.0.0</FileVersion>
+	  <PackageVersion>1.0.0</PackageVersion>
 	  <Company>Open Source</Company>
 	  <Product>ML592.AvalonDock.Themes.VS2022Preview</Product>
 	  <Copyright>2017-2023</Copyright>

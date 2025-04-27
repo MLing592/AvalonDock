@@ -829,7 +829,7 @@ namespace AvalonDock.Controls
 			var parentDocumentPane = layoutElement.Parent as LayoutDocumentPane;
 			var indexOfParentPane = parentDocumentGroup.IndexOfChild(parentDocumentPane);
 			var nextDocumentPane = parentDocumentGroup.Children[indexOfParentPane + 1] as LayoutDocumentPane;
-			nextDocumentPane.InsertChildAt(0, layoutElement);
+			nextDocumentPane.InsertChildAt(-1, layoutElement);
 			layoutElement.IsActive = true;
 			layoutElement.Root.CollectGarbage();
 		}
@@ -876,7 +876,7 @@ namespace AvalonDock.Controls
 			var parentDocumentPane = layoutElement.Parent as LayoutDocumentPane;
 			var indexOfParentPane = parentDocumentGroup.IndexOfChild(parentDocumentPane);
 			var nextDocumentPane = parentDocumentGroup.Children[indexOfParentPane - 1] as LayoutDocumentPane;
-			nextDocumentPane.InsertChildAt(0, layoutElement);
+			nextDocumentPane.InsertChildAt(-1, layoutElement);
 			layoutElement.IsActive = true;
 			layoutElement.Root.CollectGarbage();
 		}

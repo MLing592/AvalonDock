@@ -236,8 +236,8 @@
     <!--  作为DocuentTabItem的父控件  -->
     <!--  DocumentPaneControlStyle  -->
     <Style x:Key="AvalonDockThemeVS2022PreviewDocumentPaneControlStyle" TargetType="{x:Type avalonDockControls:LayoutDocumentPaneControl}">
-        <Setter Property="BorderBrush" Value="{x:Null}" />
-        <Setter Property="Background" Value="{DynamicResource {x:Static reskeys:ResourceKeys.TabBackground}}" />
+		<Setter Property="BorderBrush" Value="{x:Null}" />
+		<Setter Property="Background" Value="{DynamicResource {x:Static reskeys:ResourceKeys.TabBackground}}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type avalonDockControls:LayoutDocumentPaneControl}">
@@ -247,20 +247,20 @@
                             KeyboardNavigation.TabNavigation="Local"
                             SnapsToDevicePixels="true">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="*" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="*" />
                             </Grid.RowDefinitions>
                             <!--  Following border is required to catch mouse events  -->
 							<Border Grid.RowSpan="2" Background="Transparent" />
 							<!--  文档内容下圆角  -->
                             <Border
                                 x:Name="ContentPanel"
-                                Grid.Row="1"                               
+                                Grid.Row="1" 
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 Background="{TemplateBinding Background}"
                                 BorderBrush="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabSelectedActiveBackground}}"
-                                BorderThickness="1"
+                                BorderThickness="1,0,1,1"
                                 CornerRadius="{StaticResource BottomCornerRadius}"
                                 KeyboardNavigation.DirectionalNavigation="Contained"
                                 KeyboardNavigation.TabIndex="1"
@@ -271,6 +271,8 @@
                                     ContentSource="SelectedContent"
                                     SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                             </Border>
+							<!--  Mask  -->
+							<Rectangle x:Name="PART_Mask" Grid.Row="0" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Height="1" Fill="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabSelectedActiveBackground}}"/>
 							<Grid
                                 Grid.Row="0"
                                 Margin="0,0"                                
@@ -300,7 +302,7 @@
                                     Grid.Column="1"
                                     Width="14"
                                     Height="14"
-                                    Margin="0,0,-1,5"
+                                    Margin="0,0,0,4"
                                     VerticalAlignment="Bottom"
                                     Focusable="False"
                                     Style="{StaticResource AvalonDockThemeVS2022PreviewToolButtonStyle}">
@@ -373,16 +375,17 @@
                         <Setter.Value>
 							<ControlTemplate TargetType="{x:Type TabItem}">
 								<!--#region 背景-->
-								<Border
+								<avalonDockControls:TopCurvedBorder
                                         x:Name="Bd"
                                         Grid.Column="1"
 										Grid.ColumnSpan="2"
+										ClipToBounds="False"
+										SnapsToDevicePixels="True"
                                         Background="{TemplateBinding Background}"
                                         BorderBrush="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabUnselectedBackground}}"
-                                        BorderThickness="1,1,1,1"
-                                        CornerRadius="2,2,0,0" >
-									
-									<Grid Margin="0,0,0,0" SnapsToDevicePixels="true">
+                                        BorderThickness="1"
+                                        CornerRadius="3" >
+									<Grid Margin="4,0">
                                     <!--  Document标签页内容  -->
 									<Grid.ColumnDefinitions>
 										<ColumnDefinition Width="auto" />
@@ -395,14 +398,10 @@
                                         Width="3"
                                         Margin="4"
                                         Background="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabUnselectedRectangleBackground}}"
-                                        CornerRadius="1,1,1,1"
+                                        CornerRadius="1"
                                         Visibility="Visible" />
                                     <!--#endregion-->
 
-										<Rectangle Grid.ColumnSpan="2" x:Name="PART_MaskContent" Stroke="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabSelectedBackground}}" 
-								   StrokeThickness="1" Width="Auto" VerticalAlignment="Bottom" Margin="0,0,0,-2"/>
-									
-									<!--#endregion-->
                                     <ContentPresenter
                                         x:Name="Content"
                                         Grid.Column="1"
@@ -411,8 +410,8 @@
                                         ContentSource="Header"
                                         RecognizesAccessKey="True"
                                         SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                                </Grid>
-								</Border>
+								  </Grid>
+								</avalonDockControls:TopCurvedBorder>
 								<ControlTemplate.Triggers>
                                     <Trigger Property="Selector.IsSelected" Value="true">
                                         <Setter Property="Panel.ZIndex" Value="1" />
@@ -428,34 +427,7 @@
 										<!--#endregion-->
 									</DataTrigger>
 
-									<!--  激活时更改遮罩  -->
-									<MultiDataTrigger>
-										<MultiDataTrigger.Conditions>
-											<Condition Binding="{Binding IsActive}" Value="True" />
-											<Condition Binding="{Binding IsPaneLastRow}" Value="True" />
-										</MultiDataTrigger.Conditions>
-										<Setter TargetName="PART_MaskContent" Property="StrokeThickness" Value="2" />
-										<Setter TargetName="Bd" Property="CornerRadius" Value="2,2,0,0" />
-									</MultiDataTrigger>
-
-									<MultiDataTrigger>
-										<MultiDataTrigger.Conditions>
-											<Condition Binding="{Binding IsActive}" Value="False" />
-											<Condition Binding="{Binding IsPaneLastRow}" Value="False" />
-										</MultiDataTrigger.Conditions>
-										<Setter TargetName="PART_MaskContent" Property="StrokeThickness" Value="0" />
-										<Setter TargetName="Bd" Property="CornerRadius" Value="2,2,2,2" />
-									</MultiDataTrigger>
-
-									<MultiDataTrigger>
-										<MultiDataTrigger.Conditions>
-											<Condition Binding="{Binding IsActive}" Value="True" />
-											<Condition Binding="{Binding IsPaneLastRow}" Value="False" />
-										</MultiDataTrigger.Conditions>
-										<Setter TargetName="PART_MaskContent" Property="StrokeThickness" Value="0" />
-										<Setter TargetName="Bd" Property="CornerRadius" Value="2,2,2,2" />
-									</MultiDataTrigger>
-
+									
 									<!--  Document Well : Tab / Selected, inactive 选中但未激活，白  -->
                                     <MultiDataTrigger>
                                         <MultiDataTrigger.Conditions>
@@ -463,8 +435,10 @@
                                             <Condition Binding="{Binding IsSelected}" Value="True" />
                                         </MultiDataTrigger.Conditions>
                                         <Setter Property="Foreground" Value="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabSelectedInactiveText}}" />
-										<Setter TargetName="Bd" Property="Margin" Value="0,0,0,0" />
-										<Setter TargetName="PART_MaskContent" Property="StrokeThickness" Value="0" />
+
+										<!--<Setter TargetName="Bd" Property="BorderThickness" Value="1" />-->
+										<Setter TargetName="Bd" Property="CornerRadius" Value="4" />
+										<Setter TargetName="Bd" Property="BorderBrush" Value="Transparent" />
 									</MultiDataTrigger>
 
                                     <!--  Document Well : Tab / Unselected 未选中，透明  -->
@@ -473,25 +447,86 @@
                                             <Condition Binding="{Binding IsActive}" Value="False" />
                                             <Condition Binding="{Binding IsSelected}" Value="False" />
                                         </MultiDataTrigger.Conditions>
-                                        <Setter TargetName="Bd" Property="BorderBrush" Value="Transparent" />
-										<Setter TargetName="PART_MaskContent" Property="StrokeThickness" Value="0" />
+										<Setter TargetName="Bd" Property="BorderBrush" Value="Transparent" />
+										<Setter TargetName="Bd" Property="BorderThickness" Value="1" />
+										<Setter TargetName="Bd" Property="CornerRadius" Value="1" />
 										<Setter Property="FontWeight" Value="Normal" />
                                         <!--#endregion-->
                                     </MultiDataTrigger>
 
                                     <!--  Document Well : Tab / Unselected, hovered 未选中时鼠标移到此处，Dark下灰，白  -->
-                                    <MultiTrigger>
-                                        <MultiTrigger.Conditions>
-                                            <Condition Property="IsMouseOver" Value="true" />
-                                            <Condition Property="Selector.IsSelected" Value="false" />
-                                        </MultiTrigger.Conditions>
-                                        <!--  Dark下不需要，Light下需要改变背景色突出文字颜色,设置选项卡颜色Dark下不用修改  -->
-                                        <Setter TargetName="Bd" Property="Background" Value="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabUnselectedHoveredBackgroundColor}}" />
-                                        <Setter TargetName="Bd" Property="Margin" Value="1" />
-                                        <Setter Property="Foreground" Value="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabUnselectedHoveredText}}" />
-                                        <Setter Property="Panel.ZIndex" Value="0" />
-                                    </MultiTrigger>
-                                    <!--  灰  -->
+									<MultiTrigger>
+										<MultiTrigger.Conditions>
+											<Condition Property="IsMouseOver" Value="true" />
+											<Condition Property="Selector.IsSelected" Value="false" />
+										</MultiTrigger.Conditions>
+										<!--  Dark下不需要，Light下需要改变背景色突出文字颜色,设置选项卡颜色Dark下不用修改  -->
+										<Setter TargetName="Bd" Property="Background" Value="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabUnselectedHoveredBackgroundColor}}" />
+										<Setter TargetName="Bd" Property="Margin" Value="1" />
+										<Setter Property="Foreground" Value="{DynamicResource {x:Static reskeys:ResourceKeys.DocumentWellTabUnselectedHoveredText}}" />
+										<Setter Property="Panel.ZIndex" Value="0" />
+									</MultiTrigger>
+
+									<!--  激活时更改遮罩  -->
+									<MultiDataTrigger>
+										<MultiDataTrigger.Conditions>
+											<Condition Binding="{Binding IsActive}" Value="True" />
+											<Condition Binding="{Binding IsPaneLastRow}" Value="True" />
+										</MultiDataTrigger.Conditions>
+										<Setter TargetName="Bd" Property="IsBaseBorder" Value="False" />
+										<Setter TargetName="Bd" Property="BorderThickness" Value="1" />
+										<Setter TargetName="Bd" Property="Margin" Value="0,0,0,0" />
+									</MultiDataTrigger>
+
+									<MultiDataTrigger>
+										<MultiDataTrigger.Conditions>
+											<Condition Binding="{Binding IsActive}" Value="True" />
+											<Condition Binding="{Binding IsPaneLastRow}" Value="False" />
+										</MultiDataTrigger.Conditions>
+										<Setter TargetName="Bd" Property="IsBaseBorder" Value="True" />
+										<Setter TargetName="Bd" Property="BorderThickness" Value="1" />
+										<Setter TargetName="Bd" Property="Margin" Value="0,0,0,0" />
+									</MultiDataTrigger>
+
+									<MultiDataTrigger>
+										<MultiDataTrigger.Conditions>
+											<Condition Binding="{Binding IsActive}" Value="False" />
+											<Condition Binding="{Binding IsPaneLastRow}" Value="False" />
+										</MultiDataTrigger.Conditions>
+										<Setter TargetName="Bd" Property="IsBaseBorder" Value="True" />
+										<Setter TargetName="Bd" Property="BorderThickness" Value="1" />
+										<Setter TargetName="Bd" Property="Margin" Value="0,0,0,0" />
+									</MultiDataTrigger>
+
+									<MultiDataTrigger>
+										<MultiDataTrigger.Conditions>
+											<Condition Binding="{Binding IsActive}" Value="False" />
+											<Condition Binding="{Binding IsPaneLastRow}" Value="True" />
+										</MultiDataTrigger.Conditions>
+										<Setter TargetName="Bd" Property="IsBaseBorder" Value="True" />
+										<Setter TargetName="Bd" Property="BorderThickness" Value="1" />
+										<Setter TargetName="Bd" Property="CornerRadius" Value="0" />
+										<Setter TargetName="Bd" Property="Margin" Value="0,0,0,1" />
+									</MultiDataTrigger>
+
+									<!--  Change Row First  -->
+									<MultiDataTrigger>
+										<MultiDataTrigger.Conditions>
+											<Condition Binding="{Binding IsActive}" Value="True" />
+											<Condition Binding="{Binding IsRowFirst}" Value="True" />
+										</MultiDataTrigger.Conditions>
+										<Setter TargetName="Bd" Property="IsLeftFirst" Value="True" />
+									</MultiDataTrigger>
+
+									<MultiDataTrigger>
+										<MultiDataTrigger.Conditions>
+											<Condition Binding="{Binding IsActive}" Value="True" />
+											<Condition Binding="{Binding IsRowFirst}" Value="False" />
+										</MultiDataTrigger.Conditions>
+										<Setter TargetName="Bd" Property="IsLeftFirst" Value="False" />
+									</MultiDataTrigger>
+
+									<!--  灰  -->
                                     <Trigger Property="IsEnabled" Value="false">
                                         <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
                                     </Trigger>

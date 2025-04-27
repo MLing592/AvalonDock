@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 
 namespace AvalonDock.Interface
 {
-	public interface ILastRow
+	internal interface ILastRow
 	{
 		/// <summary>
 		/// Element in panel's row index
@@ -16,6 +16,11 @@ namespace AvalonDock.Interface
 		/// Element is in panel's last row
 		/// </summary>
 		public bool IsPaneLastRow { get; set; }
+
+		/// <summary>
+		/// Element is in panel's last row fist
+		/// </summary>
+		public bool IsRowFirst { get; set; }
 
 	}
 }

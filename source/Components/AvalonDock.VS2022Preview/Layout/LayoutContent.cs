@@ -26,7 +26,7 @@ namespace AvalonDock.Layout
 	/// </summary>
 	[ContentProperty(nameof(Content))]
 	[Serializable]
-	public abstract class LayoutContent : LayoutElement, IXmlSerializable, ILayoutElementForFloatingWindow, IComparable<LayoutContent>, ILayoutPreviousContainer,ILastRow
+	public abstract class LayoutContent : LayoutElement, IXmlSerializable, ILayoutElementForFloatingWindow, IComparable<LayoutContent>, ILayoutPreviousContainer, ILastRow
 	{
 		#region Constructors
 
@@ -238,6 +238,23 @@ namespace AvalonDock.Layout
 				if (value == _isPaneLastRow) return;
 				_isPaneLastRow = value;
 				RaisePropertyChanged(nameof(IsPaneLastRow));
+			}
+		}
+		#endregion
+
+		#region IsRowFirst
+		[field: NonSerialized]
+		private bool _isRowFirst = false;
+
+		[XmlIgnore]
+		public bool IsRowFirst
+		{
+			get => _isRowFirst;
+			set
+			{
+				if (value == _isRowFirst) return;
+				_isRowFirst = value;
+				RaisePropertyChanged(nameof(IsRowFirst));
 			}
 		}
 		#endregion

@@ -98,7 +98,11 @@ namespace AvalonDock.Layout
 		public void InsertChildAt(int index, ILayoutElement element)
 		{
 			if (element is T t)
-				_children.Insert(index, t);
+			{
+				if (index > -1) _children.Insert(index, t);
+				else _children.Add(t);
+			}
+
 		}
 
 		/// <inheritdoc cref="ILayoutContainer" />

@@ -261,7 +261,7 @@ namespace AvalonDock.Controls
 			double currentY = 0; 
 			double currentLineLength = 0; 
 			double currentLineMaxHeight = 0; 
-			int currentLineNumber = 0; 
+			int currentLineNumber = 0;
 			foreach (UIElement child in InternalChildren)
 			{
 				// if this element isn"t visible,skip
@@ -322,6 +322,7 @@ namespace AvalonDock.Controls
 				if (currentContent is ILastRow content)
 				{
 					content.PaneRowIndex = currentLineNumber;
+					content.IsRowFirst = currentContent.Equals(frontContent) ? true : needsNewLine;
 				}
 			}
 			foreach (UIElement child in InternalChildren)
@@ -329,8 +330,12 @@ namespace AvalonDock.Controls
 				var currentContent = child as TabItem;
 				if (currentContent?.Content is ILastRow row)
 				{
-					if (row.PaneRowIndex == currentLineNumber) row.IsPaneLastRow = true;
-					else row.IsPaneLastRow = false;
+					row.IsPaneLastRow = row.PaneRowIndex == currentLineNumber;
+					if (currentContent?.Content is LayoutContent ct && ct.IsActive)
+					{
+						var bd = child.FindVisualChildren<TopCurvedBorder>().FirstOrDefault();
+						if (bd!= null) bd.IsBaseBorder = !row.IsPaneLastRow;
+					}
 				}
 			}
 			#endregion

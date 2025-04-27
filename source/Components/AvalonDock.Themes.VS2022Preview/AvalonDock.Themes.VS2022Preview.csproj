@@ -1,8 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
 	  <RootNamespace>AvalonDock.Themes</RootNamespace>
-	  <TargetFrameworks>netcoreapp3.0;net5.0-windows;net6.0-windows;net462;net40</TargetFrameworks>
+	  <TargetFrameworks>netcoreapp3.0;net5.0-windows;net6.0-windows;net40</TargetFrameworks>
 	  <LangVersion>preview</LangVersion>
 	  <UseWPF>true</UseWPF>
 	  <SignAssembly>True</SignAssembly>

@@ -2593,6 +2593,7 @@ namespace AvalonDock
 		private void InternalSetActiveContent(object contentObject)
 		{
 			// BugFix for first issue in #59
+			// 寻找内容一致首项，但若有多项时可能需要注意
 			var list = Layout.Descendents().OfType<LayoutContent>().ToList();
 			var layoutContent = list.FirstOrDefault(lc => lc == contentObject || lc.Content == contentObject);
 			_insideInternalSetActiveContent = true;

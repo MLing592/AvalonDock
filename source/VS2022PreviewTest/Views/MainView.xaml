@@ -328,42 +328,33 @@
             <LayoutRoot>
                 <LayoutPanel Orientation="Horizontal">
                     <LayoutPanel Orientation="Vertical">
-                        <LayoutDocumentPane>
-                            <LayoutDocument
-                                Title="doc1.css"
-                                Content="123"
-                                ContentId="doc1" />
-                            <LayoutDocument
-                                Title="doc2.css"
-                                Content="123"
-                                ContentId="doc2" />
-                            <LayoutDocument Title="doc3.css" ContentId="doc3" />
-                            <LayoutDocument Title="doc4.css" ContentId="doc4" />
-                            <LayoutDocument Title="doc5.css" ContentId="doc5" />
-                            <LayoutDocument Title="doc6.css" ContentId="doc6" />
-                            <LayoutDocument Title="doc7.css" ContentId="doc7" />
-                            <LayoutDocument Title="doc8.css" ContentId="doc8" />
-                            <LayoutDocument Title="doc9.css" ContentId="doc9" />
-                            <LayoutDocument Title="doc10.css" ContentId="doc10" />
-                            <LayoutDocument Title="doc11.css" ContentId="doc11" />
-                            <LayoutDocument Title="doc12.css" ContentId="doc12" />
-                            <LayoutDocument Title="doc13.css" ContentId="doc13" />
-                            <LayoutDocument Title="doc14.css" ContentId="doc14" />
-                            <LayoutDocument Title="doc15.css" ContentId="doc15" />
-                            <LayoutDocument Title="doc16.css" ContentId="doc16" />
-                            <LayoutDocument Title="doc17.css" ContentId="doc17" />
-                            <LayoutDocument Title="doc18.css" ContentId="doc18" />
-                            <LayoutDocument Title="doc19.css" ContentId="doc19" />
-                            <LayoutDocument Title="doc20.css" ContentId="doc20" />
-                            <LayoutDocument Title="doc21.css" ContentId="doc21" />
-                            <LayoutDocument Title="doc22.css" ContentId="doc22" />
-							<LayoutDocument Title="doc23.css" ContentId="doc23" />
-							<LayoutDocument Title="doc24.css" ContentId="doc24" />
-							<LayoutDocument
-                                Title="doc25.css"
-                                Content="doc25"
-                                ContentId="doc25" />
-                        </LayoutDocumentPane>
+						<LayoutDocumentPane>
+							<LayoutDocument Title="doc1" Content="doc1" ContentId="doc1" />
+							<LayoutDocument Title="doc2" Content="doc2" ContentId="doc2" />
+							<LayoutDocument Title="doc3" Content="doc3" ContentId="doc3" />
+							<LayoutDocument Title="doc4" Content="doc4" ContentId="doc4" />
+							<LayoutDocument Title="doc5" Content="doc5" ContentId="doc5" />
+							<LayoutDocument Title="doc6" Content="doc6" ContentId="doc6" />
+							<LayoutDocument Title="doc7" Content="doc7" ContentId="doc7" />
+							<LayoutDocument Title="doc8" Content="doc8" ContentId="doc8" />
+							<LayoutDocument Title="doc9" Content="doc9" ContentId="doc9" />
+							<LayoutDocument Title="doc10" Content="doc10" ContentId="doc10" />
+							<LayoutDocument Title="doc11" Content="doc11" ContentId="doc11" />
+							<LayoutDocument Title="doc12" Content="doc12" ContentId="doc12" />
+							<LayoutDocument Title="doc13" Content="doc13" ContentId="doc13" />
+							<LayoutDocument Title="doc14" Content="doc14" ContentId="doc14" />
+							<LayoutDocument Title="doc15" Content="doc15" ContentId="doc15" />
+							<LayoutDocument Title="doc16" Content="doc16" ContentId="doc16" />
+							<LayoutDocument Title="doc17" Content="doc17" ContentId="doc17" />
+							<LayoutDocument Title="doc18" Content="doc18" ContentId="doc18" />
+							<LayoutDocument Title="doc19" Content="doc19" ContentId="doc19" />
+							<LayoutDocument Title="doc20" Content="doc20" ContentId="doc20" />
+							<LayoutDocument Title="doc21" Content="doc21" ContentId="doc21" />
+							<LayoutDocument Title="doc22" Content="doc22" ContentId="doc22" />
+							<LayoutDocument Title="doc23" Content="doc23" ContentId="doc23" />
+							<LayoutDocument Title="doc24" Content="doc24" ContentId="doc24" />
+							<LayoutDocument Title="doc25" Content="doc25" ContentId="doc25" />
+						</LayoutDocumentPane>
 
                         <LayoutAnchorablePaneGroup DockHeight="128" Orientation="Horizontal">
                             <LayoutAnchorablePane Name="ErrorsPane" />

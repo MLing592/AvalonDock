@@ -153,6 +153,7 @@ namespace AvalonDock.Controls
 		{
 			//寻找documentPane
 			var pane = (this.Children.OfType<TabItem>().FirstOrDefault()?.Content as LayoutDocument)?.FindParent<LayoutDocumentPane>();
+			if (pane is null) return;
 			//LayoutDocumen is arranged in reverse order by fixed elements and moved to the front to return to positive order.
 			//LayoutDocumen被固定的元素逆序排列且移到最前返回正序排列
 			var LayoutDocumentElements = pane.Children.OfType<LayoutDocument>()

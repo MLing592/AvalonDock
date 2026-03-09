@@ -350,6 +350,7 @@
                             <!--<Setter TargetName="BD" Property="BorderBrush" Value="Transparent" />-->
                             <Setter TargetName="ContentPanel" Property="Visibility" Value="Collapsed" />
                             <Setter TargetName="MenuDropDownButton" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="PART_Mask" Property="Visibility" Value="Collapsed" />
                         </DataTrigger>
 
                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Model.ShowHeader}" Value="False">

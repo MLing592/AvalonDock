@@ -153,7 +153,8 @@ namespace AvalonDock.Controls
 		private void DocumentPaneTabPanel_Loaded(object sender, RoutedEventArgs e)
 		{
 			//寻找documentPane
-			var pane = (this.Children.OfType<TabItem>().FirstOrDefault()?.Content as LayoutDocument)?.FindParent<LayoutDocumentPane>();
+			var pane = (this.Children.OfType<TabItem>().FirstOrDefault()?.Content as LayoutContent)?.FindParent<LayoutDocumentPane>();
+			if (pane == null) return;
 			//LayoutDocumen is arranged in reverse order by fixed elements and moved to the front to return to positive order.
 			//LayoutDocumen被固定的元素逆序排列且移到最前返回正序排列
 			var LayoutDocumentElements = pane.Children.OfType<LayoutDocument>()
@@ -210,10 +211,15 @@ namespace AvalonDock.Controls
 				}
 
 				// not LayoutDocument,new line
-				// 非文档另立一行
-				if (currentContent is LayoutDocument && !(frontContent is LayoutDocument))
+
+				// 文档与非文档的分界处换行
+
+				if ((currentContent is LayoutDocument) != (frontContent is LayoutDocument))
+
 				{
+
 					needsNewLine = true;
+
 				}
 
 				// element cumulative width exceeeds constraint.Width
@@ -278,25 +284,20 @@ namespace AvalonDock.Controls
 				var frontContent = (Children[ine] as TabItem)?.Content;
 
 				//Boundary between fixed and non-fixed documents,new line
+
 				//固定与非固定文档的分界处换行
-				if ((currentContent is LayoutDocument current && frontContent is LayoutDocument front) &&
-					(current?.IsFixed == false && front?.IsFixed == true) ||
-					(currentLineLength + width > finalSize.Width))
+
+				if (((currentContent is LayoutDocument current && frontContent is LayoutDocument front) && 
+					(current?.IsFixed == false && front?.IsFixed == true)) ||
+					(currentLineLength + width > finalSize.Width) ||
+					((currentContent is LayoutDocument) != (frontContent is LayoutDocument)))
+
 				{
 					needsNewLine = true;
 					currentY += currentLineMaxHeight; 
 					currentLineLength = 0; 
 					currentLineMaxHeight = 0; 					
-				}
 
-				// not LayoutDocument,new line
-				// 非文档另立一行
-				if (currentContent is LayoutDocument && !(frontContent is LayoutDocument))
-				{
-					needsNewLine = true;
-					currentY += currentLineMaxHeight; 
-					currentLineLength = 0; 
-					currentLineMaxHeight = 0; 
 				}
 
 				// "If no line-break is needed, then it will be appended at the end of the current line."

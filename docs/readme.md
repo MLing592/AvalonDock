@@ -1,5 +1,11 @@
-<a>English</a> -/
-<a href="./readme-zh_CN.md">简体中文</a> -
+| **Version / 版本** | **🌐 English** | **🇨🇳 简体中文** |
+| :--- | :---: | :---: |
+| **VS2022 Preview** | 🚀 **English** | [简体中文](readme-zh_CN.md) |
+| **VS2022** | [English](readme_VS2022.md) | [简体中文](readme-zh_CN_VS2022.md) |
+
+---
+
+
 | Downloads                                                                                                                                               | NuGet Packages
 | :------------------------------------------------------------------------------------------------------------------------------------------------------ | :--------------------------------------------------------------------------------
 | [![NuGet](https://img.shields.io/nuget/dt/Dirkster.AvalonDock.svg)](http://nuget.org/packages/Dirkster.AvalonDock)                                      | [Dirkster.AvalonDock](http://nuget.org/packages/Dirkster.AvalonDock)
@@ -34,15 +40,15 @@
    </tr>
    <tr>
       <td>Dark</td>
-      <td><img src="../Picture/VS2022Preview_Dark_default.png" width="400"></td>
+      <td><img src="../Picture/VS2022Preview/VS2022Preview_Dark_default.png" width="400"></td>
    </tr>
    <tr>
       <td>Light</td>
-      <td><img src="../Picture/VS2022Preview_Light_default.png" width="400"></td>
+      <td><img src="../Picture/VS2022Preview/VS2022Preview_Light_default.png" width="400"></td>
    </tr>
    <tr>
       <td>Blue</td>
-      <td><img src="../Picture/VS2022Preview_Blue_default.png" width="400"></td>
+      <td><img src="../Picture/VS2022Preview/VS2022Preview_Blue_default.png" width="400"></td>
    </tr>
 </table>
 
